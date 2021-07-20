@@ -9,7 +9,7 @@ namespace EnglishAimlessly2.ViewModel.Commands
 {
     public class LoginCommand : ICommand
     {
-        UserCredentialVM userVM;
+        readonly UserCredentialVM userVM;
 
         public LoginCommand(UserCredentialVM vm)
         {

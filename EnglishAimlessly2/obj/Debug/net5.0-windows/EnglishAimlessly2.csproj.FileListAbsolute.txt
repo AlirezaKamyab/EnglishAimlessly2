@@ -39,3 +39,46 @@ C:\Users\Alireza\source\repos\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5
 C:\Users\Alireza\source\repos\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.pdb
 C:\Users\Alireza\source\repos\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.genruntimeconfig.cache
 C:\Users\Alireza\source\repos\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\EnglishAimlessly2.exe
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\EnglishAimlessly2.deps.json
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\EnglishAimlessly2.runtimeconfig.json
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\EnglishAimlessly2.runtimeconfig.dev.json
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\EnglishAimlessly2.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\ref\EnglishAimlessly2.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\EnglishAimlessly2.pdb
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\SQLite-net.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\SQLitePCLRaw.batteries_v2.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\SQLitePCLRaw.nativelibrary.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\SQLitePCLRaw.core.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\SQLitePCLRaw.provider.dynamic_cdecl.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\alpine-x64\native\libe_sqlite3.so
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\linux-arm\native\libe_sqlite3.so
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\linux-arm64\native\libe_sqlite3.so
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\linux-armel\native\libe_sqlite3.so
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\linux-musl-x64\native\libe_sqlite3.so
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\linux-x64\native\libe_sqlite3.so
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\linux-x86\native\libe_sqlite3.so
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\osx-x64\native\libe_sqlite3.dylib
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\win-arm\native\e_sqlite3.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\win-x64\native\e_sqlite3.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\win-x86\native\e_sqlite3.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\demo.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\LoginView.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\App.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2_MarkupCompile.cache
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2_MarkupCompile.lref
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\App.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\demo.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\LoginView.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.g.resources
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.GeneratedMSBuildEditorConfig.editorconfig
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.AssemblyInfoInputs.cache
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.AssemblyInfo.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.csproj.CoreCompileInputs.cache
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.csproj.CopyComplete
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ref\EnglishAimlessly2.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.pdb
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.genruntimeconfig.cache

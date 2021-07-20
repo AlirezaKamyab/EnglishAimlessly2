@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "95Sg64HA9keJeZXICCORqcjwr3uIwa42DhLXuzJtt8diTl0iGCQT+8uPK8nAu9bShXy9gs2eTddkRPQ1glFDxg==",
+  "dgSpecHash": "U/Igpg3V8S9S2zXDM6pzLT7XPnfk4OrEjMwP2LjVXs0Egb6MTWrBBttqT542VJ9Y5nDcx71Ph3GIuMxJT3HfjQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alireza\\source\\repos\\EnglishAimlessly2\\EnglishAimlessly2\\EnglishAimlessly2.csproj",
+  "projectFilePath": "G:\\Programming Projects\\EnglishAimlessly2\\EnglishAimlessly2\\EnglishAimlessly2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Alireza\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",

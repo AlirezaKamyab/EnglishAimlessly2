@@ -23,7 +23,7 @@ namespace EnglishAimlessly2.ViewModel
         private DateTime _birthDay = DateTime.Now;
         private string _hint;
 
-        private UserTableHelper _userTableHelper;
+        private readonly UserTableHelper _userTableHelper;
 
         public string Name
         {
@@ -34,7 +34,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _name = value;
-                onPropertyChanged("Name");
+                OnPropertyChanged(nameof(Name));
             }
         }
 
@@ -47,7 +47,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _lastname = value;
-                onPropertyChanged("Lastname");
+                OnPropertyChanged(nameof(Lastname));
             }
         }
 
@@ -60,7 +60,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _email = value;
-                onPropertyChanged("Email");
+                OnPropertyChanged(nameof(Email));
             }
         }
 
@@ -74,7 +74,7 @@ namespace EnglishAimlessly2.ViewModel
             {
                 _username = value;
                 ValidateAccount(true);
-                onPropertyChanged("Username");
+                OnPropertyChanged(nameof(Username));
             }
         }
 
@@ -88,7 +88,7 @@ namespace EnglishAimlessly2.ViewModel
             {
                 _password = value;
                 ValidateAccount(true);
-                onPropertyChanged("Password");
+                OnPropertyChanged(nameof(Password));
             }
         }
 
@@ -101,7 +101,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _birthDay = value;
-                onPropertyChanged("Birthday");
+                OnPropertyChanged(nameof(Birthday));
             }
         }
 
@@ -114,7 +114,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _hint = value;
-                onPropertyChanged("Hint");
+                OnPropertyChanged(nameof(Hint));
             }
         }
 
@@ -132,14 +132,14 @@ namespace EnglishAimlessly2.ViewModel
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private void onPropertyChanged(string propertyName)
+        private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public int CreateAccount()
         {
-            UserModel userModel = new UserModel(Name, Lastname, Email, Birthday, Username, Password);
+            UserModel userModel = new(Name, Lastname, Email, Birthday, Username, Password);
             userModel.CreatedAccountDate = DateTime.Now;
 
             if (_userTableHelper.SearchByUsername(Username).Id != -1) return 1;
