@@ -2,7 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:EnglishAimlessly2"
-             StartupUri="View/RegisterView.xaml">
+             StartupUri="View/LoginView.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="ResourceDictionary/TextboxDictionary.xaml"/>
                 <ResourceDictionary Source="ResourceDictionary/TextblockDictionary.xaml"/>
                 <ResourceDictionary Source="ResourceDictionary/DatePickerDictionary.xaml"/>
+                <ResourceDictionary Source="ResourceDictionary/CheckboxDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

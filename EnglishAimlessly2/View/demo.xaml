@@ -5,66 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EnglishAimlessly2.View"
         xmlns:vm="clr-namespace:EnglishAimlessly2.ViewModel"
+        xmlns:models="clr-namespace:EnglishAimlessly2.Model"
         mc:Ignorable="d"
         Title="demo" Height="450" Width="800">
+
     <Window.Resources>
-        <vm:UserCredentialVM x:Key="UserVM"/>
+        <models:UserModel x:Key="loggedUser"/>
     </Window.Resources>
-    <DockPanel DataContext="{StaticResource UserVM}">
-        <StackPanel DockPanel.Dock="Bottom">
-            <StatusBar>
-                <StatusBarItem Background="#eee">
-                    <TextBlock FontSize="12"
-                               Foreground="Red"
-                               FontWeight="Bold"
-                               Text="{Binding Hint, Mode=TwoWay}"/>
-                </StatusBarItem>
-            </StatusBar>
-        </StackPanel>
-
-        <Border CornerRadius="10"
-                Background="#eee"
-                DockPanel.Dock="Left"
-                Width="300"
-                Margin="10"
-                HorizontalAlignment="Center">
-            <StackPanel>
-                <TextBlock Margin="10 2" FontSize="14" Text="Name"/>
-                <TextBox Margin="10 2" Background="#aaFFFFFF" FontSize="14"
-                         Text="{Binding Name, Mode=TwoWay}"/>
-
-                <TextBlock Margin="10 2" FontSize="14" Text="Lastname"/>
-                <TextBox Margin="10 2" Background="#aaFFFFFF" FontSize="14"
-                         Text="{Binding Lastname}"/>
-
-                <TextBlock Margin="10 2" FontSize="14" Text="Email"/>
-                <TextBox Margin="10 2" Background="#aaFFFFFF" FontSize="14"
-                         Text="{Binding Email, Mode=TwoWay}"/>
-
-                <TextBlock Margin="10 2" FontSize="14" Text="Username"/>
-                <TextBox Margin="10 2" Background="#aaFFFFFF" FontSize="14"
-                         Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                <TextBlock Margin="10 2" FontSize="14" Text="Password"/>
-                <PasswordBox Margin="10 2" Background="#aaFFFFFF" FontSize="14"
-                             PasswordChanged="passwordBox_PasswordChanged"/>
-                <TextBlock Visibility="Collapsed" Text="{Binding Password, Mode=TwoWay}"
-                           x:Name="passwordBox"/>
-
-                <DatePicker Margin="10 2"
-                            SelectedDate="{Binding Birthday, Mode=TwoWay}"/>
-                <Button Content="CREATE ACCOUNT"
-                        HorizontalAlignment="Center"
-                        Padding="10"
-                        Margin="0 3"
-                        Command="{Binding CreateAccountCmd}"/>
-
-                <Button Content="Login"
-                        HorizontalAlignment="Center"
-                        Padding="10"
-                        Margin="0 3"
-                        Command="{Binding LoginCmd}"/>
-            </StackPanel>
-        </Border>
-    </DockPanel>
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="361,103,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="366,159,0,0" VerticalAlignment="Top"/>
+    </Grid>
 </Window>

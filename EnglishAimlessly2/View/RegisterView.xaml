@@ -10,7 +10,8 @@
         WindowStartupLocation="CenterOwner">
 
     <Window.Resources>
-        <vm:UserCredentialVM x:Key="uvm"/>
+        <vm:UserCredentialVM x:Key="uvm"
+                             Registered="UserCredentialVM_Registered"/>
     </Window.Resources>
     
     <Grid Background="#c33124" DataContext="{StaticResource uvm}">
@@ -22,7 +23,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="25*"/>
+            <RowDefinition Height="15*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -32,73 +33,96 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="10*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <StackPanel VerticalAlignment="Center"
-                            HorizontalAlignment="Center">
-
+                <Grid>
                     <TextBlock Text="Register" FontSize="25"
-                           FontWeight="Bold"/>
-                </StackPanel>
+                               FontWeight="Bold"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                </Grid>
 
                 <StackPanel Grid.Row="1"
-                            Margin="30 10">
-                    <TextBlock Text="Username" FontSize="14"/>
+                            Margin="25 10">
+                    <TextBlock Text="Username" FontSize="12"/>
 
-                    <TextBox Margin="0 5" FontSize="14"
+                    <TextBox Margin="0 5" FontSize="12"
                              Style="{StaticResource NewTextBox}"
                              Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <TextBlock Text="Password" FontSize="14"/>
+                    <TextBlock Text="Password" FontSize="12"/>
 
                     <PasswordBox Style="{StaticResource NewPasswordBox}"
-                                 Margin="0 5" FontSize="14"
+                                 Margin="0 5" FontSize="12"
                                  PasswordChanged="PasswordBox_PasswordChanged"/>
                     
-                    <TextBox x:Name="txtPass" Margin="0 5" FontSize="16" Visibility="Collapsed"
+                    <TextBox x:Name="txtPass" Margin="0 5" FontSize="12" Visibility="Collapsed"
                              Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <TextBlock Text="Name" FontSize="14"/>
+                    <Grid Margin="0 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Vertical" Margin="2 0">
+                            <TextBlock Text="Name" FontSize="12"/>
 
-                    <TextBox Margin="0 5" FontSize="14"
+                            <TextBox Margin="0 5" FontSize="12"
                              Style="{StaticResource NewTextBox}"
                              Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
 
-                    <TextBlock Text="Lastname" FontSize="14"/>
+                        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="2 0">
+                            <TextBlock Text="Lastname" FontSize="12"/>
 
-                    <TextBox Margin="0 5" FontSize="14"
+                            <TextBox Margin="0 5" FontSize="12"
                              Style="{StaticResource NewTextBox}"
                              Text="{Binding Lastname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <TextBlock Text="Email" FontSize="14"/>
+                        </StackPanel>
 
-                    <TextBox Margin="0 5" FontSize="14"
+                    </Grid>
+
+                    <TextBlock Text="Email" FontSize="12"/>
+
+                    <TextBox Margin="0 5" FontSize="12"
                              Style="{StaticResource NewTextBox}"
                              Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <TextBlock Text="Birthday" FontSize="14"/>
+                    <TextBlock Text="Birthday" FontSize="12"/>
                     <DatePicker Margin="0 5" SelectedDate="{Binding Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                 Style="{StaticResource NewDatePicker}"
                                 Padding="3"/>
 
-                    <CheckBox Content="I accept the policies and terms"/>
+                    <CheckBox Content="I accept the policies and terms"
+                              Style="{StaticResource NewCheckBox}"
+                              x:Name="permissionCheck"/>
 
                     <Button Style="{StaticResource CurveButton}" Content="Register"
                             Margin="0 10"
-                            Command="{Binding LoginCmd}"/>
+                            CommandParameter="{Binding ElementName=permissionCheck, Path=IsChecked}"
+                            Command="{Binding CreateAccountCmd}"/>
 
-                    <TextBlock Text="{Binding Hint}" TextAlignment="Center" Foreground="#FFDC8E00"/>
+                    <TextBlock Text="{Binding Hint, Mode=TwoWay}" TextAlignment="Center" Foreground="#FFDC8E00"/>
+
+                    <Button Style="{StaticResource ClickableText}"
+                            x:Name="btnBackToLogin"
+                            Content="Back to login"
+                            HorizontalAlignment="Center"
+                            Margin="20"
+                            Foreground="Blue"
+                            Click="btnBackToLogin_Click"/>
                 </StackPanel>
 
-                <StackPanel Grid.Row="2" VerticalAlignment="Center">
+                <Grid Grid.Row="2">
                     <TextBlock Margin="10" HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
                                Foreground="#555"
-                               FontStyle="Italic"
                                FontWeight="Bold"
                                Text="Made by Alireza Kamyab / Preview Version"/>
-                </StackPanel>
+                </Grid>
             </Grid>
         </Border>
     </Grid>

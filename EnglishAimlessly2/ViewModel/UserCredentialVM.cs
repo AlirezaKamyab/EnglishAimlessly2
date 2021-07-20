@@ -145,6 +145,7 @@ namespace EnglishAimlessly2.ViewModel
             if (_userTableHelper.SearchByUsername(Username).Id != -1) return 1;
             if (Username.Length < 3 || Password.Length < 8) return 2;
             _userTableHelper.Insert(userModel);
+            Registered?.Invoke(this, userModel);
             return 0;
         }
 
@@ -154,6 +155,7 @@ namespace EnglishAimlessly2.ViewModel
             if (foundUsername.Id == -1) return 1;
             if (_userTableHelper.isValidCredential(foundUsername.Username, Password) == false) return 2;
             //Login to account
+            Loggedin?.Invoke(this, foundUsername);
             return 0;
         }
 
@@ -172,5 +174,10 @@ namespace EnglishAimlessly2.ViewModel
             if (updateHint) Hint = "";
             return true;
         }
+
+        public delegate void LoginHandler(object sender, UserModel user);
+        public delegate void RegisterHandler(object sender, UserModel user);
+        public event LoginHandler Loggedin;
+        public event RegisterHandler Registered;
     }
 }

@@ -24,7 +24,8 @@ namespace EnglishAimlessly2.ViewModel.Commands
 
         public bool CanExecute(object parameter)
         {
-            return UserVM.ValidateAccount();
+            bool permission = (bool)parameter;
+            return UserVM.ValidateAccount() && permission;
         }
 
         public void Execute(object parameter)
@@ -33,6 +34,7 @@ namespace EnglishAimlessly2.ViewModel.Commands
             int result = UserVM.CreateAccount();
             if (result >= messages.Length) return;
             UserVM.Hint = messages[result];
+            UserVM.LoginAccount();
         }
     }
 }

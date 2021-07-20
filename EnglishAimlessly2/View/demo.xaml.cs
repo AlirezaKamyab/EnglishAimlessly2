@@ -23,10 +23,5 @@ namespace EnglishAimlessly2.View
         {
             InitializeComponent();
         }
-
-        private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            passwordBox.Text = (sender as PasswordBox).Password;
-        }
     }
 }

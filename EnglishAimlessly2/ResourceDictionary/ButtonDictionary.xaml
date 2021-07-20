@@ -18,6 +18,10 @@
                             <Setter Property="Background" TargetName="border" Value="#5e6668"/>
                             <Setter Property="TextElement.Foreground" TargetName="content" Value="#fff"/>
                         </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" TargetName="border" Value="#eee"/>
+                            <Setter Property="TextElement.Foreground" TargetName="content" Value="#aaa"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -39,9 +43,11 @@
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="TextElement.Foreground" TargetName="content" Value="Purple"/>
                         </Trigger>
-
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="TextElement.Foreground" TargetName="content" Value="Red"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="TextElement.Foreground" TargetName="content" Value="#bbb"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

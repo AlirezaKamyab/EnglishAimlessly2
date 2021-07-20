@@ -9,7 +9,8 @@
         Title="Login Page" Height="600" Width="900"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
-        <vm:UserCredentialVM x:Key="uvm"/>
+        <vm:UserCredentialVM x:Key="uvm"
+                             Loggedin="UserCredentialVM_Loggedin"/>
     </Window.Resources>
     
     <Grid Background="#c33124" DataContext="{StaticResource uvm}">
@@ -31,7 +32,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="5*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
@@ -87,9 +88,11 @@
                     </StackPanel>
 
                     <Button Style="{StaticResource ClickableText}" Margin="0 20" Foreground="Blue"
-                               Content="CREATE ACCOUNT?"
-                               HorizontalAlignment="Center"
-                               FontWeight="Bold"/>
+                            x:Name="btnCreateAccountPage"
+                            Content="CREATE ACCOUNT?"
+                            HorizontalAlignment="Center"
+                            FontWeight="Bold"
+                            Click="btnCreateAccountPage_Click"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" VerticalAlignment="Center">

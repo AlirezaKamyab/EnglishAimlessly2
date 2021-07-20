@@ -28,5 +28,19 @@ namespace EnglishAimlessly2.View
         {
             txtPass.Text = (sender as PasswordBox).Password;
         }
+
+        private void btnCreateAccountPage_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterView registerView = new (this);
+            registerView.Show();
+            Hide();
+        }
+
+        private void UserCredentialVM_Loggedin(object sender, Model.UserModel user)
+        {
+            Hide();
+            demo demo = new demo(); // this should be removed
+            demo.Show();
+        }
     }
 }
