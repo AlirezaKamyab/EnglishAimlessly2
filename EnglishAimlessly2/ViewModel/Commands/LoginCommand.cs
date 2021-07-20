@@ -25,10 +25,7 @@ namespace EnglishAimlessly2.ViewModel.Commands
 
         public void Execute(object parameter)
         {
-            string[] messages = { "", "Username does not exist, try creating an account!", "Password is incorrect!"};
-            int result = userVM.LoginAccount();
-            if (result >= messages.Length) return;
-            userVM.Hint = messages[result];
+            userVM.LoginAccount();
         }
     }
 }

@@ -137,26 +137,36 @@ namespace EnglishAimlessly2.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public int CreateAccount()
+        public void CreateAccount()
         {
             UserModel userModel = new(Name, Lastname, Email, Birthday, Username, Password);
             userModel.CreatedAccountDate = DateTime.Now;
 
-            if (_userTableHelper.SearchByUsername(Username).Id != -1) return 1;
-            if (Username.Length < 3 || Password.Length < 8) return 2;
+            if (_userTableHelper.SearchByUsername(Username).Id != -1)
+            {
+                Hint = "Username is already taken!";
+                return;
+            }
+
             _userTableHelper.Insert(userModel);
             Registered?.Invoke(this, userModel);
-            return 0;
         }
 
-        public int LoginAccount()
+        public void LoginAccount()
         {
             UserModel foundUsername = _userTableHelper.SearchByUsername(Username);
-            if (foundUsername.Id == -1) return 1;
-            if (_userTableHelper.isValidCredential(foundUsername.Username, Password) == false) return 2;
+            if (foundUsername.Id == -1)
+            {
+                Hint = "Username does not exist";
+                return; 
+            }
+            if (_userTableHelper.isValidCredential(foundUsername.Username, Password) == false)
+            {
+                Hint = "Password is incorrect";
+                return;
+            }
             //Login to account
             Loggedin?.Invoke(this, foundUsername);
-            return 0;
         }
 
         public bool ValidateAccount(bool updateHint = false)

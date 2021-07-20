@@ -12,7 +12,7 @@
         <vm:UserCredentialVM x:Key="uvm"
                              Loggedin="UserCredentialVM_Loggedin"/>
     </Window.Resources>
-    
+
     <Grid Background="#c33124" DataContext="{StaticResource uvm}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
@@ -38,7 +38,7 @@
 
                 <StackPanel VerticalAlignment="Center"
                             HorizontalAlignment="Center">
-                    
+
                     <TextBlock Text="Login" FontSize="25"
                            FontWeight="Bold"/>
                 </StackPanel>
@@ -46,7 +46,7 @@
                 <StackPanel Grid.Row="1"
                             Margin="30 10">
                     <TextBlock Text="Username" FontSize="14"/>
-                    
+
                     <TextBox Margin="0 5" FontSize="14"
                              Style="{StaticResource NewTextBox}"
                              Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -60,9 +60,16 @@
                     <TextBox x:Name="txtPass" Margin="0 5" FontSize="14" Visibility="Collapsed"
                              Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <Button Style="{StaticResource ClickableText}" Content="Forgot Password?"
-                            Foreground="Black"/>
-                    
+                    <Grid Margin="5 0">
+                        <CheckBox Margin="0 5"
+                                  Style="{StaticResource NewCheckBox}"
+                                  Content="Stay logged in"
+                                  HorizontalAlignment="left"/>
+                        <Button Style="{StaticResource ClickableText}" Content="Forgot Password?"
+                                Foreground="Black"
+                                HorizontalAlignment="Right"/>
+                    </Grid>
+
                     <Button Style="{StaticResource CurveButton}" Content="Login"
                             Margin="0 5"
                             Command="{Binding LoginCmd}"/>

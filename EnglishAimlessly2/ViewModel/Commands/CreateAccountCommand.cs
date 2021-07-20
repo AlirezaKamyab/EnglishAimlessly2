@@ -30,10 +30,7 @@ namespace EnglishAimlessly2.ViewModel.Commands
 
         public void Execute(object parameter)
         {
-            string[] messages = { "", "Username already exists!" };
-            int result = UserVM.CreateAccount();
-            if (result >= messages.Length) return;
-            UserVM.Hint = messages[result];
+           UserVM.CreateAccount();
         }
     }
 }
