@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "EnglishAimlessly2/1.0.0": {
+      "EnglishAimlessly2/2.0.0": {
         "dependencies": {
           "sqlite-net-pcl": "1.7.335"
         },
@@ -132,7 +132,7 @@
     }
   },
   "libraries": {
-    "EnglishAimlessly2/1.0.0": {
+    "EnglishAimlessly2/2.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

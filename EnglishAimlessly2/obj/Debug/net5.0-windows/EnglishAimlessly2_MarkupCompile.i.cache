@@ -1,5 +1,5 @@
 ﻿EnglishAimlessly2
-1.0.0.0
+2.0.0.0
 
 winexe
 C#
@@ -16,5 +16,5 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\App.xaml
 198-1158626082
 ResourceDictionary\ButtonDictionary.xaml;ResourceDictionary\CheckboxDictionary.xaml;ResourceDictionary\DatePickerDictionary.xaml;ResourceDictionary\TextblockDictionary.xaml;ResourceDictionary\TextboxDictionary.xaml;View\demo.xaml;View\LoginView.xaml;View\RegisterView.xaml;
 
-True
+False
 
