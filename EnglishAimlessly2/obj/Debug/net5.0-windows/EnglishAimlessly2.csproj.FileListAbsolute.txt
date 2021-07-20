@@ -63,8 +63,12 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-win
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\win-x86\native\e_sqlite3.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\ButtonDictionary.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\TextblockDictionary.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\TextboxDictionary.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\demo.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\LoginView.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\RegisterView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\App.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2_MarkupCompile.cache
@@ -72,6 +76,7 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-win
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\App.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\demo.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\LoginView.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\RegisterView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.g.resources
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.GeneratedMSBuildEditorConfig.editorconfig
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.AssemblyInfoInputs.cache

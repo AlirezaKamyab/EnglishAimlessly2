@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\App.xaml
-21131946895
+81079442060
 
-141910982870
+15-836133829
 198-1158626082
-View\demo.xaml;View\LoginView.xaml;
+ResourceDictionary\ButtonDictionary.xaml;ResourceDictionary\CheckboxDictionary.xaml;ResourceDictionary\DatePickerDictionary.xaml;ResourceDictionary\TextblockDictionary.xaml;ResourceDictionary\TextboxDictionary.xaml;View\demo.xaml;View\LoginView.xaml;View\RegisterView.xaml;
 
-False
+True
 

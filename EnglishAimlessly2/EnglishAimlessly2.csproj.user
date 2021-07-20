@@ -13,12 +13,33 @@
     <Compile Update="View\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\RegisterView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ResourceDictionary\ButtonDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\CheckboxDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\DatePickerDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\TextblockDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\TextboxDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\demo.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\RegisterView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
