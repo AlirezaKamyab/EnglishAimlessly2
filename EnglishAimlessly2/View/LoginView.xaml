@@ -45,19 +45,19 @@
 
                 <StackPanel Grid.Row="1"
                             Margin="30 10">
-                    <TextBlock Text="Username" FontSize="16"/>
+                    <TextBlock Text="Username" FontSize="14"/>
                     
-                    <TextBox Margin="0 5" FontSize="16"
+                    <TextBox Margin="0 5" FontSize="14"
                              Style="{StaticResource NewTextBox}"
                              Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <TextBlock Text="Password" FontSize="16"
+                    <TextBlock Text="Password" FontSize="14"
                                Margin="0 5"/>
 
                     <PasswordBox Style="{StaticResource NewPasswordBox}"
-                                 Margin="0 5" FontSize="16"
+                                 Margin="0 5" FontSize="14"
                                  PasswordChanged="PasswordBox_PasswordChanged"/>
-                    <TextBox x:Name="txtPass" Margin="0 5" FontSize="16" Visibility="Collapsed"
+                    <TextBox x:Name="txtPass" Margin="0 5" FontSize="14" Visibility="Collapsed"
                              Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <Button Style="{StaticResource ClickableText}" Content="Forgot Password?"

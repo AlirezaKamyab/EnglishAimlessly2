@@ -34,7 +34,6 @@ namespace EnglishAimlessly2.ViewModel.Commands
             int result = UserVM.CreateAccount();
             if (result >= messages.Length) return;
             UserVM.Hint = messages[result];
-            UserVM.LoginAccount();
         }
     }
 }
