@@ -105,7 +105,6 @@
                 <StackPanel Grid.Row="2" VerticalAlignment="Center">
                     <TextBlock Margin="10" HorizontalAlignment="Center"
                                Foreground="#555"
-                               FontStyle="Italic"
                                FontWeight="Bold"
                                Text="Made by Alireza Kamyab / Preview Version"/>
                 </StackPanel>
