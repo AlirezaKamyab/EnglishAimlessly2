@@ -131,6 +131,11 @@ namespace EnglishAimlessly2.ViewModel
             }
         }
 
+        public void Reload()
+        {
+            _userTableHelper.Reload();
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyName)
         {

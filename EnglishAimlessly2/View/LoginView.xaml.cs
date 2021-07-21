@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EnglishAimlessly2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace EnglishAimlessly2.View
     /// </summary>
     public partial class LoginView : Window
     {
+        UserCredentialVM uvm;
         public LoginView()
         {
             InitializeComponent();
+            uvm = Resources["uvm"] as UserCredentialVM;
         }
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
@@ -32,8 +35,9 @@ namespace EnglishAimlessly2.View
         private void btnCreateAccountPage_Click(object sender, RoutedEventArgs e)
         {
             RegisterView registerView = new (this);
-            registerView.Show();
             Hide();
+            registerView.ShowDialog();
+            uvm.Reload();
         }
 
         private void UserCredentialVM_Loggedin(object sender, Model.UserModel user)
