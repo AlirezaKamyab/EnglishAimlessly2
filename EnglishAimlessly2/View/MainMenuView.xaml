@@ -56,7 +56,7 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
 
                 <StackPanel Margin="10">
@@ -67,12 +67,27 @@
                                Foreground="#222"/>
                     
                     <TextBlock Margin="5 10 0 3"
-                               Text="Search by name"
+                               Text="Input to add or search"
                                Foreground="#222"/>
-                    <TextBox Style="{StaticResource NewTextBox}"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Style="{StaticResource NewTextBox}"
+                                 Width="225"/>
+                    
+                        <Button Style="{StaticResource CurveButton}"
+                                Background="Green"
+                                Content="ADD"
+                                Width="50"
+                                Height="30"
+                                Foreground="White"
+                                HorizontalAlignment="Right"
+                                Padding="10 0"
+                                Margin="5 0"
+                                BorderBrush="Transparent"/>
+                    </StackPanel>
                 </StackPanel>
 
-                <Grid Margin="10" DockPanel.Dock="Top" Grid.Row="1">
+                <Grid Margin="5" DockPanel.Dock="Top" Grid.Row="1">
                     <ListView BorderThickness="0"
                               Background="Transparent">
                         <ListView.ItemTemplate>
