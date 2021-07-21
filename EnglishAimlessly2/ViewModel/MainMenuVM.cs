@@ -68,6 +68,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _loggedUser = value;
+                if(DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) == false && _groupHelper != null) ReloadGroups();
                 OnPropertyChanged(nameof(LoggedUser));
             }
         }
@@ -127,11 +128,11 @@ namespace EnglishAimlessly2.ViewModel
             NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
         }
 
-        void ReloadGroups()
+        private void ReloadGroups()
         {
             _groupHelper.Reload();
             Groups.Clear();
-            foreach (GroupModel item in _groupHelper.GetData())
+            foreach (GroupModel item in _groupHelper.SearchByUserId(LoggedUser.Id))
             {
                 Groups.Add(item);
             }
