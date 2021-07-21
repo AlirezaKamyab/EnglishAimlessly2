@@ -1,4 +1,5 @@
 ﻿using EnglishAimlessly2.Model;
+using EnglishAimlessly2.ViewModel.Commands;
 using EnglishAimlessly2.ViewModel.Helper;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,21 @@ namespace EnglishAimlessly2.ViewModel
         private UserModel _loggedUser;
         private GroupTableHelper _groupHelper;
         private GroupModel _selectedGroup;
+        private string _groupName;
+
+        public string GroupName
+        {
+            get
+            {
+                return _groupName;
+            }
+            set
+            {
+                _groupName = value;
+                OnPropertyChanged(nameof(GroupName));
+            }
+        }
+
         public UserModel LoggedUser
         {
             get
@@ -42,18 +58,45 @@ namespace EnglishAimlessly2.ViewModel
         }
 
         public ObservableCollection<GroupModel> Groups { get; set; }
+        public CreateGroupCommand CreateGroupCmd { get; set; }
 
         public MainMenuVM()
         {
             LoggedUser = new UserModel();
+            CreateGroupCmd = new CreateGroupCommand(this);
+            Groups = new ObservableCollection<GroupModel>();
             if (DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) == false)
             {
                 _groupHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
-                Groups = new ObservableCollection<GroupModel>(_groupHelper.SearchByUserId(LoggedUser.Id));
+                ReloadGroups();
             }
-            else
+        }
+
+        public void AddGroup()
+        {
+            List<GroupModel> searched = _groupHelper.SearchByName(GroupName);
+            foreach (GroupModel item in searched)
             {
-                Groups = new ObservableCollection<GroupModel>();
+                if (item.Id == LoggedUser.Id) return;
+            }
+            GroupModel newGroup = new GroupModel();
+            newGroup.Name = GroupName;
+            newGroup.UserId = LoggedUser.Id;
+            newGroup.CreationDate = DateTime.Now;
+            newGroup.UpdatedDate = DateTime.Now;
+            newGroup.Description = "Description Here"; // This should be updated later
+            _groupHelper.Insert(newGroup);
+            ReloadGroups();
+            GroupName = "";
+        }
+
+        void ReloadGroups()
+        {
+            _groupHelper.Reload();
+            Groups.Clear();
+            foreach (GroupModel item in _groupHelper.GetData())
+            {
+                Groups.Add(item);
             }
         }
 

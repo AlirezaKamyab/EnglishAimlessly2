@@ -23,5 +23,8 @@ namespace EnglishAimlessly2.Model
         public DateTime CreationDate { get; set; }
         [Column("UpdatedDate")]
         public DateTime UpdatedDate { get; set; }
+
+        [SQLite.Ignore]
+        public int Progress { get; set; } = 0;
     }
 }

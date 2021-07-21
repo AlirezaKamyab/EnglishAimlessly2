@@ -9,16 +9,23 @@ namespace EnglishAimlessly2.ViewModel.Commands
 {
     public class CreateGroupCommand : ICommand
     {
+        public MainMenuVM MainMenuViewModel { get; set; }
+
+        public CreateGroupCommand(MainMenuVM mmvm)
+        {
+            MainMenuViewModel = mmvm;
+        }
+
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            MainMenuViewModel.AddGroup();
         }
     }
 }

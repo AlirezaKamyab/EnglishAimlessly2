@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:EnglishAimlessly2.ViewModel"
+        xmlns:uc="clr-namespace:EnglishAimlessly2.UserControls"
         xmlns:local="clr-namespace:EnglishAimlessly2.View"
         mc:Ignorable="d"
         Title="MainMenuView" Height="600" Width="900"
@@ -16,17 +17,20 @@
         <vm:MainMenuVM x:Key="mmvm"/>
     </Window.Resources>
 
-    <DockPanel>
+    <DockPanel DataContext="{StaticResource mmvm}">
         <Border DockPanel.Dock="Top" CornerRadius="0 0 20 20"
                 Height="35"
                 Margin="0 0 0 5"
                 Padding="5" Background="#4c394f">
             <DockPanel Margin="10 0">
                 <TextBlock DockPanel.Dock="left"
-                           Text="Alireza Kamyab Loggedin 1/1/2021"
                            VerticalAlignment="Center"
                            FontSize="15"
-                           Foreground="White"/>
+                           Foreground="White">
+                    <Run Text="{Binding LoggedUser.Name}"/>
+                    <Run Text="{Binding LoggedUser.Lastname}"/>
+                    <Run Text="{Binding LoggedUser.Username, StringFormat=({0})}"/>
+                </TextBlock>
                 <Button Style="{StaticResource CurveButton}"
                         Background="red"
                         Content="Close"
@@ -49,14 +53,15 @@
             </DockPanel>
         </Border>
 
-        <Border DockPanel.Dock="Left" Width="300" Background="#eee"
-                BorderThickness="0"
+        <Border DockPanel.Dock="Left" Width="300" Background="#efeffe"
+                BorderThickness="1"
+                BorderBrush="#888"
                 CornerRadius="0 20 20 0"
                 Margin="0 5 0 5">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="3.5*"/>
                 </Grid.RowDefinitions>
 
                 <StackPanel Margin="10">
@@ -71,8 +76,10 @@
                                Foreground="#222"/>
 
                     <StackPanel Orientation="Horizontal">
-                        <TextBox Style="{StaticResource NewTextBox}"
-                                 Width="225"/>
+                        <TextBox x:Name="txtGroupName" Style="{StaticResource NewTextBox}"
+                                 Width="225"
+                                 Text="{Binding GroupName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 TextChanged="txtGroupName_TextChanged"/>
                     
                         <Button Style="{StaticResource CurveButton}"
                                 Background="Green"
@@ -83,16 +90,27 @@
                                 HorizontalAlignment="Right"
                                 Padding="10 0"
                                 Margin="5 0"
-                                BorderBrush="Transparent"/>
+                                BorderBrush="Transparent"
+                                Command="{Binding CreateGroupCmd}"/>
                     </StackPanel>
                 </StackPanel>
 
                 <Grid Margin="5" DockPanel.Dock="Top" Grid.Row="1">
-                    <ListView BorderThickness="0"
-                              Background="Transparent">
+                    <ListView x:Name="lstView" BorderThickness="0"
+                              Background="Transparent"
+                              ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                              ItemsSource="{Binding Groups}"
+                              SelectedValue="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="Margin" Value="0 0 0 5"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        
                         <ListView.ItemTemplate>
                             <DataTemplate>
-
+                                <uc:GroupItemControl Group="{Binding}"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

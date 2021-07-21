@@ -39,5 +39,10 @@ namespace EnglishAimlessly2.View
         {
             Application.Current.Shutdown();
         }
+
+        private void txtGroupName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lstView.ItemsSource = mmvm.Groups.ToList().Where(x => x.Name.ToLower().Contains(txtGroupName.Text.ToLower()));
+        }
     }
 }
