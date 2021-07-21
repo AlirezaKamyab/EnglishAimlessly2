@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EnglishAimlessly2.Model;
+using EnglishAimlessly2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,20 @@ namespace EnglishAimlessly2.View
     /// </summary>
     public partial class demo : Window
     {
-        public demo()
+        UserModel loggedUser;
+        public demo(UserModel user)
         {
             InitializeComponent();
+            loggedUser = user;
+
+            MainMenuVM mmvm = Resources["mmvm"] as MainMenuVM;
+            mmvm.LoggedUser = loggedUser;
+            Closing += Demo_Closing;
+        }
+
+        private void Demo_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

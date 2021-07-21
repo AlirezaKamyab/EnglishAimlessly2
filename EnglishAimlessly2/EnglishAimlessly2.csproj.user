@@ -33,6 +33,9 @@
     <Page Update="ResourceDictionary\TextboxDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ResourceDictionary\VariablesDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\demo.xaml">
       <SubType>Designer</SubType>
     </Page>

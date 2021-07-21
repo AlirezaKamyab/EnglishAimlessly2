@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
 
 namespace EnglishAimlessly2.Model
 {
@@ -10,11 +11,17 @@ namespace EnglishAimlessly2.Model
     {
         public GroupModel() { }
 
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+        [Column("UserId"), NotNull]
         public int UserId { get; set; }
+        [Column("Name"), MaxLength(128)]
         public string Name { get; set; }
+        [Column("Description")]
         public string Description { get; set; }
-        public DateTime AddedDate { get; set; }
+        [Column("CreationDate")]
+        public DateTime CreationDate { get; set; }
+        [Column("UpdatedDate")]
         public DateTime UpdatedDate { get; set; }
     }
 }

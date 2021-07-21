@@ -11,6 +11,8 @@
                 <ResourceDictionary Source="ResourceDictionary/TextblockDictionary.xaml"/>
                 <ResourceDictionary Source="ResourceDictionary/DatePickerDictionary.xaml"/>
                 <ResourceDictionary Source="ResourceDictionary/CheckboxDictionary.xaml"/>
+
+                <ResourceDictionary Source="ResourceDictionary/VariablesDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

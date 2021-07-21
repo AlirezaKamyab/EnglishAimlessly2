@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EnglishAimlessly2.View"
         xmlns:vm="clr-namespace:EnglishAimlessly2.ViewModel"
-        xmlns:models="clr-namespace:EnglishAimlessly2.Model"
         mc:Ignorable="d"
         Title="demo" Height="450" Width="800">
 
     <Window.Resources>
-        <models:UserModel x:Key="loggedUser"/>
+        <vm:MainMenuVM x:Key="mmvm"/>
     </Window.Resources>
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="361,103,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="366,159,0,0" VerticalAlignment="Top"/>
-    </Grid>
+    
+    <StackPanel Margin="10">
+        <TextBlock Text="{Binding Source={StaticResource mmvm}, Path=LoggedUser.Name}"/>
+        <TextBlock Text="{Binding Source={StaticResource mmvm}, Path=LoggedUser.Lastname}"/>
+    </StackPanel>
 </Window>

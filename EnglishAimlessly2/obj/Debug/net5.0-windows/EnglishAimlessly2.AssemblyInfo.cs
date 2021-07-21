@@ -13,7 +13,7 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Alireza Kamyab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyCopyrightAttribute("All of the rights are preserved by Alireza Kamyab; Copyright 2021")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Alireza Kamyab; Copyright 2021")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("2.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("EnglishAimlessly")]
