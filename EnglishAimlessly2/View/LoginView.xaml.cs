@@ -39,7 +39,7 @@ namespace EnglishAimlessly2.View
         private void UserCredentialVM_Loggedin(object sender, Model.UserModel user)
         {
             Hide();
-            MainMenuView mmv = new(user);
+            MainMenuView mmv = new(user, this);
             mmv.Show();
         }
     }

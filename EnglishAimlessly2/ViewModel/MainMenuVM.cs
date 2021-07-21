@@ -15,8 +15,36 @@ namespace EnglishAimlessly2.ViewModel
     {
         private UserModel _loggedUser;
         private GroupTableHelper _groupHelper;
+        private WordTableHelper _wordHelper;
         private GroupModel _selectedGroup;
         private string _groupName;
+        private string _itemCount;
+        private string _newWords;
+
+        public string NewWords
+        {
+            get
+            {
+                return _newWords;
+            }
+            set
+            {
+                _newWords = value;
+                OnPropertyChanged(nameof(NewWords));
+            }
+        }
+        public string ItemCount
+        {
+            get
+            {
+                return _itemCount;
+            }
+            set
+            {
+                _itemCount = value;
+                OnPropertyChanged(nameof(ItemCount));
+            }
+        }
 
         public string GroupName
         {
@@ -53,6 +81,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _selectedGroup = value;
+                UpdateInformationForGroup();
                 OnPropertyChanged(nameof(SelectedGroup));
             }
         }
@@ -68,6 +97,7 @@ namespace EnglishAimlessly2.ViewModel
             if (DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) == false)
             {
                 _groupHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
+                _wordHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
                 ReloadGroups();
             }
         }
@@ -88,6 +118,13 @@ namespace EnglishAimlessly2.ViewModel
             _groupHelper.Insert(newGroup);
             ReloadGroups();
             GroupName = "";
+        }
+
+        void UpdateInformationForGroup()
+        {
+            _wordHelper.Reload();
+            ItemCount = _wordHelper.SearchByGroupId(SelectedGroup.Id).Count.ToString();
+            NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
         }
 
         void ReloadGroups()
