@@ -3,10 +3,141 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:EnglishAimlessly2.ViewModel"
+        xmlns:uc="clr-namespace:EnglishAimlessly2.UserControls"
         xmlns:local="clr-namespace:EnglishAimlessly2.View"
         mc:Ignorable="d"
-        Title="ManageView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="ManageView" Height="600" Width="900">
+    <DockPanel>
+        <Border DockPanel.Dock="Top" CornerRadius="0 0 20 20"
+                Height="35"
+                Margin="0 0 0 5"
+                Padding="5" Background="#4c394f">
+            <DockPanel Margin="10 0">
+                <!--<TextBlock DockPanel.Dock="left"
+                           VerticalAlignment="Center"
+                           FontSize="15"
+                           Foreground="White">
+                    <Run Text="{Binding LoggedUser.Name}"/>
+                    <Run Text="{Binding LoggedUser.Lastname}"/>
+                    <Run Text="{Binding LoggedUser.Username, StringFormat=({0})}"/>
+                </TextBlock>-->
+
+                <Button Style="{StaticResource CurveButton}"
+                        x:Name="btnAdd"
+                        Background="DodgerBlue"
+                        Content="Add"
+                        Width="75"
+                        Foreground="White"
+                        Padding="10 0"
+                        HorizontalAlignment="Left"
+                        DockPanel.Dock="Left"
+                        Margin="0 0 0 0"
+                        BorderBrush="Transparent"/>
+
+                <Button Style="{StaticResource CurveButton}"
+                        x:Name="btnAddTogether"
+                        Background="DodgerBlue"
+                        Content="Add All"
+                        Width="75"
+                        Foreground="White"
+                        Padding="10 0"
+                        HorizontalAlignment="Left"
+                        DockPanel.Dock="Left"
+                        Margin="5 0 0 0"
+                        BorderBrush="Transparent"/>
+
+                <Button Style="{StaticResource CurveButton}"
+                        x:Name="btnClose"
+                        Background="red"
+                        Content="Close"
+                        Width="65"
+                        Foreground="White"
+                        Padding="10 0"
+                        HorizontalAlignment="Right"
+                        DockPanel.Dock="Right"
+                        Margin="5 0 0 0"
+                        BorderBrush="Transparent"/>
+            </DockPanel>
+        </Border>
+
+        <Border DockPanel.Dock="Left" Width="300" Background="#fff"
+                BorderThickness="0 2 2 2"
+                BorderBrush="#888"
+                CornerRadius="0 20 20 0"
+                Margin="0 5 0 5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3.5*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Margin="10">
+                    <TextBlock Text="Words"
+                               FontSize="25"
+                               TextAlignment="Center"
+                               FontWeight="Bold"
+                               Foreground="#222"/>
+
+                    <TextBlock Margin="5 10 0 3"
+                               Text="Input word to search"
+                               Foreground="#222"/>
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBox x:Name="txtGroupName" Style="{StaticResource NewTextBox}"
+                                 Text="{Binding GroupName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Grid Margin="5" DockPanel.Dock="Top" Grid.Row="1">
+                    <ListView x:Name="lstView" BorderThickness="0"
+                              Background="Transparent"
+                              ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="Margin" Value="0 0 0 5"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <Border x:Name="borderDetails" DockPanel.Dock="Left" Margin="10 5"
+                BorderThickness="2" BorderBrush="#888"
+                CornerRadius="20 1 20 1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+
+                <Border BorderThickness="1" BorderBrush="#aaa" Margin="10"
+                        CornerRadius="20 1 20 1" Grid.Row="0">
+                    <StackPanel Orientation="Vertical"
+                                Margin="10">
+                        <TextBlock Text="Group Name" FontSize="16" TextAlignment="Center"/>
+                        <TextBlock Text="description" Margin="0 5 0 0" TextWrapping="Wrap" Height="65"/>
+                    </StackPanel>
+                </Border>
+
+                <Border BorderThickness="1" BorderBrush="#aaa" Margin="10"
+                        CornerRadius="20 1 20 1" Grid.Row="1">
+                    <StackPanel Orientation="Vertical"
+                                Margin="10">
+                        <TextBlock Text="Word Name (Type)" FontSize="16" TextAlignment="Center" Margin="0 5 0 0"/>
+                        <TextBlock Text="Equivalent" Margin="0 5 0 0"/>
+                        <TextBlock Text="Description" Margin="0 5 0 0" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+    </DockPanel>
 </Window>
