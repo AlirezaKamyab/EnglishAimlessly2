@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EnglishAimlessly2.Model;
+using EnglishAimlessly2.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +26,13 @@ namespace EnglishAimlessly2.ViewModel.Commands
 
         public void Execute(object parameter)
         {
-            managerViewModel.RemoveWord();
+            managerViewModel.SelectedWordForFunctioning = managerViewModel.SelectedWord;
+            if (managerViewModel.SelectedWordForFunctioning == null) return;
+            DialogResultModel drm = new DialogResultModel();
+            ConfirmationView confirmation = new ConfirmationView("Remove confirmation", string.Format("Are you sure to remove {0} from database?", managerViewModel.SelectedWordForFunctioning.Name), drm);
+            confirmation.ShowDialog();
+
+            if(drm.DialogResult == Result.Yes) managerViewModel.RemoveWord();
         }
     }
 }

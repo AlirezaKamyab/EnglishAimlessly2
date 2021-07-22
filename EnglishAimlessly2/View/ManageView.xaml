@@ -197,7 +197,8 @@
                                     Margin="5 0"
                                     Padding="10"
                                     Width="100"
-                                    BorderThickness="2"/>
+                                    BorderThickness="2"
+                                    Command="{Binding RemoveWordCmd}"/>
 
                         </StackPanel>
 

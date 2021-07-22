@@ -38,6 +38,13 @@ namespace EnglishAimlessly2.View
             borderDetails.Visibility = Visibility.Hidden;
 
             ManagerViewModel.SelectionWordChanged += ManagerViewModel_SelectionWordChanged;
+            ManagerViewModel.Removed += ManagerViewModel_Removed;
+        }
+
+        private void ManagerViewModel_Removed(object sender, WordModel removedWord)
+        {
+            ManagerViewModel.Reload();
+            ManagerViewModel.SelectedWord = null;
         }
 
         private void ManagerViewModel_SelectionWordChanged(object sender)

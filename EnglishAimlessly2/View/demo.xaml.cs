@@ -21,20 +21,20 @@ namespace EnglishAimlessly2.View
     /// </summary>
     public partial class demo : Window
     {
-        UserModel loggedUser;
-        public demo(UserModel user)
+        public demo()
         {
             InitializeComponent();
-            loggedUser = user;
-
-            MainMenuVM mmvm = Resources["mmvm"] as MainMenuVM;
-            mmvm.LoggedUser = loggedUser;
-            Closing += Demo_Closing;
+            Loaded += Demo_Loaded;
         }
 
-        private void Demo_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Demo_Loaded(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            DialogResultModel dialog = new DialogResultModel();
+            ConfirmationView confirmation = new ConfirmationView("asdf", "dsfjh", dialog);
+            confirmation.ShowDialog();
+
+            if (dialog.DialogResult == Result.Yes) { txt.Text = "Yes"; }
+            else txt.Text = "No";
         }
     }
 }

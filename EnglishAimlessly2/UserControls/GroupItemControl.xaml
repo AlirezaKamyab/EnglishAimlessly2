@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:EnglishAimlessly2.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="500">
-    <Border BorderThickness="1" BorderBrush="#000" CornerRadius="25">
+    <Border BorderThickness="1" BorderBrush="#000" CornerRadius="10">
         <DockPanel>
             <StackPanel DockPanel.Dock="Top" VerticalAlignment="Center"
                         Margin="10">

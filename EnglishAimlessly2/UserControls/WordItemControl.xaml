@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:EnglishAimlessly2.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="500">
-    <Border BorderBrush="#333"
-            BorderThickness="2">
+    <Border BorderBrush="#555"
+            BorderThickness="1"
+            CornerRadius="10">
         <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Center">
             <TextBlock x:Name="txtWord" FontSize="16"
                        Text="Word Name (Type)"/>

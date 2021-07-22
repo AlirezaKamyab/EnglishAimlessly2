@@ -8,12 +8,7 @@
         mc:Ignorable="d"
         Title="demo" Height="450" Width="800">
 
-    <Window.Resources>
-        <vm:MainMenuVM x:Key="mmvm"/>
-    </Window.Resources>
-    
     <StackPanel Margin="10">
-        <TextBlock Text="{Binding Source={StaticResource mmvm}, Path=LoggedUser.Name}"/>
-        <TextBlock Text="{Binding Source={StaticResource mmvm}, Path=LoggedUser.Lastname}"/>
+        <TextBlock x:Name="txt" FontSize="25" TextAlignment="Center"/>
     </StackPanel>
 </Window>

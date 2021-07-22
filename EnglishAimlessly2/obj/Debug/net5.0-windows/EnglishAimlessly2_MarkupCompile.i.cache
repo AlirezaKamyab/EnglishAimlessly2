@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\App.xaml
-15-1658825518
+16-1690232677
 
-29-1071057874
+311399136023
 198-1158626082
-ResourceDictionary\ButtonDictionary.xaml;ResourceDictionary\CheckboxDictionary.xaml;ResourceDictionary\DatePickerDictionary.xaml;ResourceDictionary\TextblockDictionary.xaml;ResourceDictionary\TextboxDictionary.xaml;ResourceDictionary\VariablesDictionary.xaml;UserControls\GroupItemControl.xaml;UserControls\WordItemControl.xaml;View\AddWordView.xaml;View\demo.xaml;View\EditWordView.xaml;View\LoginView.xaml;View\MainMenuView.xaml;View\ManageView.xaml;View\RegisterView.xaml;
+ResourceDictionary\ButtonDictionary.xaml;ResourceDictionary\CheckboxDictionary.xaml;ResourceDictionary\DatePickerDictionary.xaml;ResourceDictionary\TextblockDictionary.xaml;ResourceDictionary\TextboxDictionary.xaml;ResourceDictionary\VariablesDictionary.xaml;UserControls\GroupItemControl.xaml;UserControls\WordItemControl.xaml;View\AddWordView.xaml;View\ConfirmationView.xaml;View\demo.xaml;View\EditWordView.xaml;View\LoginView.xaml;View\MainMenuView.xaml;View\ManageView.xaml;View\RegisterView.xaml;
 
 True
 
