@@ -34,17 +34,18 @@ namespace EnglishAimlessly2.View
 
         private void btnCreateAccountPage_Click(object sender, RoutedEventArgs e)
         {
-            RegisterView registerView = new (this);
+            RegisterView registerView = new RegisterView();
             Hide();
             registerView.ShowDialog();
             uvm.Reload();
+            ShowDialog();
         }
 
         private void UserCredentialVM_Loggedin(object sender, Model.UserModel user)
         {
             Hide();
             MainMenuView mmv = new(user, this);
-            mmv.Show();
+            mmv.ShowDialog();
         }
     }
 }

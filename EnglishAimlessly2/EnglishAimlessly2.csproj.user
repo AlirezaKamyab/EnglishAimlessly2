@@ -13,7 +13,13 @@
     <Compile Update="UserControls\WordItemControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\AddWordView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\demo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EditWordView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\LoginView.xaml.cs">
@@ -54,7 +60,13 @@
     <Page Update="UserControls\WordItemControl.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\AddWordView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\demo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EditWordView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginView.xaml">

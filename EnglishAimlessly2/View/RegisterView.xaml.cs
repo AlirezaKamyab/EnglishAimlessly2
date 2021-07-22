@@ -20,19 +20,10 @@ namespace EnglishAimlessly2.View
     /// </summary>
     public partial class RegisterView : Window
     {
-        private LoginView LoginPage { get; set; }
-        public RegisterView(LoginView loginView)
+        public RegisterView()
         {
             InitializeComponent();
             Owner = Application.Current.MainWindow;
-            LoginPage = loginView;
-
-            Closing += RegisterView_Closing;
-        }
-
-        private void RegisterView_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            LoginPage.Show();
         }
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
@@ -42,13 +33,11 @@ namespace EnglishAimlessly2.View
 
         private void btnBackToLogin_Click(object sender, RoutedEventArgs e)
         {
-            LoginPage.Show();
             Close();
         }
 
         private void UserCredentialVM_Registered(object sender, Model.UserModel user)
         {
-            LoginPage.Show();
             Close();
         }
     }

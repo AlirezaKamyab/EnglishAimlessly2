@@ -23,23 +23,23 @@ namespace EnglishAimlessly2.View
     {
         bool baseWindow = true;
         UserModel loggedUser;
-        LoginView loginView;
         MainMenuVM mmvm;
+        LoginView loginView;
         public MainMenuView(UserModel user, LoginView login)
         {
             InitializeComponent();
             loggedUser = user;
-            loginView = login;
             mmvm = Resources["mmvm"] as MainMenuVM;
             mmvm.LoggedUser = loggedUser;
+            loginView = login;
 
             Owner = Application.Current.MainWindow;
             borderMain.Visibility = Visibility.Hidden;
 
-            Closed += MainMenuView_Closed;
+            Closing += MainMenuView_Closing;
         }
 
-        private void MainMenuView_Closed(object sender, EventArgs e)
+        private void MainMenuView_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (baseWindow) Application.Current.Shutdown();
         }
@@ -64,8 +64,8 @@ namespace EnglishAimlessly2.View
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             baseWindow = false;
-            Close();
             loginView.Show();
+            Close();
         }
 
         private void btnManager_Click(object sender, RoutedEventArgs e)
@@ -73,9 +73,10 @@ namespace EnglishAimlessly2.View
             if(mmvm.SelectedGroup != null)
             {
                 Hide();
-                ManageView manageView = new ManageView(loggedUser, mmvm.SelectedGroup, this);
+                ManageView manageView = new ManageView(loggedUser, mmvm.SelectedGroup);
                 manageView.ShowDialog();
                 mmvm.ForceUpdateInformationForGroup();
+                ShowDialog();
             }
         }
     }

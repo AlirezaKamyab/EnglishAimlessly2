@@ -38,7 +38,7 @@ namespace EnglishAimlessly2.UserControls
             if(wic != null)
             {
                 WordModel newWord = e.NewValue as WordModel;
-                wic.txtWord.Text = string.Format("{0} ({1}}", newWord.Name, newWord.WordType);
+                wic.txtWord.Text = string.Format("{0} ({1})", newWord.Name, newWord.WordType);
                 wic.txtDesc.Text = newWord.Description;
             }
         }

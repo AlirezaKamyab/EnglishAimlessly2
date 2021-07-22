@@ -40,7 +40,8 @@
                         HorizontalAlignment="Left"
                         DockPanel.Dock="Left"
                         Margin="0 0 0 0"
-                        BorderBrush="Transparent"/>
+                        BorderBrush="Transparent"
+                        Click="btnAdd_Click"/>
 
                 <Button Style="{StaticResource CurveButton}"
                         x:Name="btnAddTogether"
@@ -103,7 +104,7 @@
                               Background="Transparent"
                               ScrollViewer.VerticalScrollBarVisibility="Hidden"
                               ItemsSource="{Binding WordList}"
-                              SelectionChanged="lstView_SelectionChanged">
+                              SelectedValue="{Binding SelectedWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -152,31 +153,33 @@
                     <StackPanel Orientation="Vertical"
                                 Margin="10">
                         <TextBlock FontSize="16" TextAlignment="Center" Margin="0 5 0 0">
-                            <Run Text="{Binding SelectedWord.Name}"/>
-                            <Run Text="{Binding SelectedWord.WordType, StringFormat=({0})}"/>
+                            <Run Text="{Binding SelectedWord.Name, Mode=TwoWay}"/>
+                            <Run Text="{Binding SelectedWord.WordType, Mode=TwoWay, StringFormat=({0})}"/>
                         </TextBlock>
-                        <TextBlock Text="{Binding SelectedWord.Equivalent, StringFormat=Equivalent: {0}}" Margin="0 5 0 0" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding SelectedWord.Description, StringFormat=Description: {0}}" Margin="0 10 0 0" TextWrapping="Wrap"
+                        <TextBlock Text="{Binding SelectedWord.Equivalent, Mode=TwoWay, StringFormat=Equivalent: {0}}" Margin="0 5 0 0" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding SelectedWord.Description, Mode=TwoWay, StringFormat=Description: {0}}" Margin="0 10 0 0" TextWrapping="Wrap"
                                    Height="100"/>
 
                         <DockPanel Margin="0 10 0 0">
                             <TextBlock Text="Last Update: Unknown"
                                        DockPanel.Dock="Left"/>
 
-                            <TextBlock Text="{Binding SelectedWord.PracticeCount, StringFormat=Practiced {0} time(s)}"
+                            <TextBlock Text="{Binding SelectedWord.PracticeCount, Mode=TwoWay, StringFormat=Practiced {0} time(s)}"
                                        DockPanel.Dock="Right"
                                        HorizontalAlignment="Right"/>
                         </DockPanel>
 
                         <StackPanel Margin="0 30" HorizontalAlignment="Center" Orientation="Horizontal">
                             <Button Style="{StaticResource CurveButton}"
+                                    x:Name="btnEdit"
                                     Content="Edit"
                                     Background="White"
                                     Foreground="Black"
                                     Margin="5 0"
                                     Padding="10"
                                     Width="100"
-                                    BorderThickness="2"/>
+                                    BorderThickness="2"
+                                    Click="btnEdit_Click"/>
 
                             <Button Style="{StaticResource CurveButton}"
                                     Content="Reset"

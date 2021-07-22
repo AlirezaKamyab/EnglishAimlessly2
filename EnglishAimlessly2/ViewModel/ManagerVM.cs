@@ -45,7 +45,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _selectedGroup = value;
-                if (!DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) && SelectedGroup != null && WordList != null) Reload();
+                if (!DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) && SelectedGroup != null && WordList != null && SelectedWord != null) Reload();
                 OnPropertyChanged(nameof(SelectedGroup));
             }
         }
@@ -59,6 +59,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _selectedWord = value;
+                SelectionWordChanged?.Invoke(this);
                 OnPropertyChanged(nameof(SelectedWord));
             }
         }
@@ -128,7 +129,8 @@ namespace EnglishAimlessly2.ViewModel
             }
         }
 
-        private GroupTableHelper _groupHelper;
+        public WordModel SelectedWordForFunctioning { get; set; }
+
         private WordTableHelper _wordHelper;
         public ObservableCollection<WordModel> WordList { get; set; }
         public AddWordCommand AddWordCmd { get; set; }
@@ -136,15 +138,15 @@ namespace EnglishAimlessly2.ViewModel
         public RemoveWordCommand RemoveWordCmd { get; set; }
         public ManagerVM()
         {
-            if (!DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
-            {
-                _groupHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
-                _wordHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
-            }
             WordList = new ObservableCollection<WordModel>();
             LoggedUser = new UserModel();
             SelectedGroup = new GroupModel();
             SelectedWord = new WordModel();
+
+            if (!DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
+            {
+                _wordHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
+            }
 
             // Commands
             AddWordCmd = new(this);
@@ -176,40 +178,46 @@ namespace EnglishAimlessly2.ViewModel
             word.UserId = LoggedUser.Id;
             word.GroupId = SelectedGroup.Id;
             _wordHelper.Insert(word);
+
+            Added?.Invoke(this, word);
         }
 
         public void EditWord()
         {
             WordModel word = new WordModel();
-            word.Id = SelectedWord.Id;
+            word.Id = SelectedWordForFunctioning.Id;
             word.Name = WordName;
             word.WordType = WordType;
             word.Equivalent = Equivalent;
             word.Description = Description;
-            word.CreationDate = SelectedWord.CreationDate;
-            word.DueDate = SelectedWord.DueDate;
-            word.UpdatedDate = DateTime.Now;
-            word.PracticeCount = SelectedWord.PracticeCount;
-            word.UserId = SelectedWord.UserId;
-            word.GroupId = SelectedWord.GroupId;
+            word.CreationDate = SelectedWordForFunctioning.CreationDate;
+            word.DueDate = SelectedWordForFunctioning.DueDate;
+            word.UpdatedDate = SelectedWordForFunctioning.UpdatedDate;
+            word.PracticeCount = SelectedWordForFunctioning.PracticeCount;
+            word.UserId = SelectedWordForFunctioning.UserId;
+            word.GroupId = SelectedWordForFunctioning.GroupId;
             _wordHelper.Update(word);
+
+            Edited?.Invoke(this, word);
         }
 
         public void RemoveWord()
         {
             WordModel word = new WordModel();
-            word.Id = SelectedWord.Id;
-            word.Name = SelectedWord.Name;
-            word.WordType = SelectedWord.WordType;
-            word.Equivalent = SelectedWord.Equivalent;
-            word.Description = SelectedWord.Description;
-            word.CreationDate = SelectedWord.CreationDate;
-            word.DueDate = SelectedWord.DueDate;
-            word.UpdatedDate = SelectedWord.UpdatedDate;
-            word.PracticeCount = SelectedWord.PracticeCount;
-            word.UserId = SelectedWord.UserId;
-            word.GroupId = SelectedWord.GroupId;
+            word.Id = SelectedWordForFunctioning.Id;
+            word.Name = SelectedWordForFunctioning.Name;
+            word.WordType = SelectedWordForFunctioning.WordType;
+            word.Equivalent = SelectedWordForFunctioning.Equivalent;
+            word.Description = SelectedWordForFunctioning.Description;
+            word.CreationDate = SelectedWordForFunctioning.CreationDate;
+            word.DueDate = SelectedWordForFunctioning.DueDate;
+            word.UpdatedDate = SelectedWordForFunctioning.UpdatedDate;
+            word.PracticeCount = SelectedWordForFunctioning.PracticeCount;
+            word.UserId = SelectedWordForFunctioning.UserId;
+            word.GroupId = SelectedWordForFunctioning.GroupId;
             _wordHelper.Remove(word);
+
+            Removed?.Invoke(this, word);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -217,5 +225,17 @@ namespace EnglishAimlessly2.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public delegate void AddHandler(object sender, WordModel addedWord);
+        public delegate void EditHandler(object sender, WordModel newWord);
+        public delegate void RemoveHandler(object sender, WordModel removedWord);
+        public delegate void UpdateControlHandler(object sender);
+        //public delegate void ResetHandler(object sender, WordModel resetWord);
+
+        public event AddHandler Added;
+        public event EditHandler Edited;
+        public event RemoveHandler Removed;
+        public event UpdateControlHandler SelectionWordChanged;
+        //public event ResetHandler Reset;
     }
 }

@@ -21,16 +21,14 @@ namespace EnglishAimlessly2.View
     /// </summary>
     public partial class ManageView : Window
     {
-        MainMenuView MainMenu { get; set; }
         UserModel LoggedUser { get; set; }
         GroupModel SelectedGroup { get; set; }
         ManagerVM ManagerViewModel { get; set; }
 
-        public ManageView(UserModel loggedUser, GroupModel selectedGroup, MainMenuView mmv)
+        public ManageView(UserModel loggedUser, GroupModel selectedGroup)
         {
             InitializeComponent();
             Owner = Application.Current.MainWindow;
-            MainMenu = mmv;
             LoggedUser = loggedUser;
             SelectedGroup = selectedGroup;
             ManagerViewModel = Resources["mvm"] as ManagerVM;
@@ -39,12 +37,17 @@ namespace EnglishAimlessly2.View
 
             borderDetails.Visibility = Visibility.Hidden;
 
-            Closing += ManageView_Closing;
+            ManagerViewModel.SelectionWordChanged += ManagerViewModel_SelectionWordChanged;
         }
 
-        private void ManageView_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void ManagerViewModel_SelectionWordChanged(object sender)
         {
-            MainMenu.Show();
+            if (ManagerViewModel.SelectedWord == null || ManagerViewModel.SelectedWord.Id <= 0)
+            {
+                borderDetails.Visibility = Visibility.Hidden;
+                return;
+            }
+            borderDetails.Visibility = Visibility.Visible;
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -54,17 +57,30 @@ namespace EnglishAimlessly2.View
 
         private void txtWordName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lstView.ItemsSource = ManagerViewModel.WordList.ToList().Where(x => x.Name.ToLower().Contains(txtWordName.Name));
+            lstView.ItemsSource = ManagerViewModel.WordList.ToList().Where(x => x.Name.ToLower().Contains(txtWordName.Text.ToLower()));
         }
 
-        private void lstView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if(lstView.SelectedValue == null)
+            if(ManagerViewModel.SelectedWord != null)
             {
-                borderDetails.Visibility = Visibility.Hidden;
-                return;
+                Hide();
+                AddWordView awv = new AddWordView(ManagerViewModel);
+                awv.ShowDialog();
+                ShowDialog();
             }
-            borderDetails.Visibility = Visibility.Visible;
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            if (ManagerViewModel.SelectedWord != null)
+            {
+                Hide();
+                ManagerViewModel.SelectedWordForFunctioning = ManagerViewModel.SelectedWord;
+                EditWordView ewv = new EditWordView(ManagerViewModel);
+                ewv.ShowDialog();
+                ShowDialog();
+            }
         }
     }
 }
