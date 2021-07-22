@@ -7,8 +7,15 @@
         xmlns:uc="clr-namespace:EnglishAimlessly2.UserControls"
         xmlns:local="clr-namespace:EnglishAimlessly2.View"
         mc:Ignorable="d"
-        Title="ManageView" Height="600" Width="900">
-    <DockPanel>
+        Title="Manage Page" Height="600" Width="900"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None">
+
+    <Window.Resources>
+        <vm:ManagerVM x:Key="mvm"/>
+    </Window.Resources>
+    
+    <DockPanel DataContext="{StaticResource mvm}">
         <Border DockPanel.Dock="Top" CornerRadius="0 0 20 20"
                 Height="35"
                 Margin="0 0 0 5"
@@ -57,7 +64,8 @@
                         HorizontalAlignment="Right"
                         DockPanel.Dock="Right"
                         Margin="5 0 0 0"
-                        BorderBrush="Transparent"/>
+                        BorderBrush="Transparent"
+                        Click="btnClose_Click"/>
             </DockPanel>
         </Border>
 
@@ -84,15 +92,18 @@
                                Foreground="#222"/>
 
                     <StackPanel Orientation="Vertical">
-                        <TextBox x:Name="txtGroupName" Style="{StaticResource NewTextBox}"
-                                 Text="{Binding GroupName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBox x:Name="txtWordName" Style="{StaticResource NewTextBox}"
+                                 Text="{Binding SearchWordName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                 TextChanged="txtWordName_TextChanged"/>
                     </StackPanel>
                 </StackPanel>
 
                 <Grid Margin="5" DockPanel.Dock="Top" Grid.Row="1">
                     <ListView x:Name="lstView" BorderThickness="0"
                               Background="Transparent"
-                              ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                              ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                              ItemsSource="{Binding WordList}"
+                              SelectionChanged="lstView_SelectionChanged">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -102,7 +113,7 @@
 
                         <ListView.ItemTemplate>
                             <DataTemplate>
-
+                                <uc:WordItemControl Word="{Binding}" />
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -110,7 +121,7 @@
             </Grid>
         </Border>
 
-        <Border x:Name="borderDetails" DockPanel.Dock="Left" Margin="10 5"
+        <Border x:Name="borderMain" DockPanel.Dock="Left" Margin="10 5"
                 BorderThickness="2" BorderBrush="#888"
                 CornerRadius="20 1 20 1">
             <Grid>
@@ -123,18 +134,70 @@
                         CornerRadius="20 1 20 1" Grid.Row="0">
                     <StackPanel Orientation="Vertical"
                                 Margin="10">
-                        <TextBlock Text="Group Name" FontSize="16" TextAlignment="Center"/>
-                        <TextBlock Text="description" Margin="0 5 0 0" TextWrapping="Wrap" Height="65"/>
+                        <TextBlock Text="{Binding SelectedGroup.Name}" FontSize="16" TextAlignment="Center"/>
+                        <TextBlock Text="{Binding SelectedGroup.Description, Mode=TwoWay, StringFormat=Description: {0}}" 
+                                   Margin="0 5 0 0" TextWrapping="Wrap"/>
+                        <Button Style="{StaticResource CurveButton}"
+                                Margin="0 10 0 0"
+                                Content="Edit"
+                                Background="White"
+                                HorizontalAlignment="Center"
+                                Padding="15 3"
+                                BorderThickness="2"/>
                     </StackPanel>
                 </Border>
 
-                <Border BorderThickness="1" BorderBrush="#aaa" Margin="10"
+                <Border x:Name="borderDetails" BorderThickness="1" BorderBrush="#aaa" Margin="10"
                         CornerRadius="20 1 20 1" Grid.Row="1">
                     <StackPanel Orientation="Vertical"
                                 Margin="10">
-                        <TextBlock Text="Word Name (Type)" FontSize="16" TextAlignment="Center" Margin="0 5 0 0"/>
-                        <TextBlock Text="Equivalent" Margin="0 5 0 0"/>
-                        <TextBlock Text="Description" Margin="0 5 0 0" TextWrapping="Wrap"/>
+                        <TextBlock FontSize="16" TextAlignment="Center" Margin="0 5 0 0">
+                            <Run Text="{Binding SelectedWord.Name}"/>
+                            <Run Text="{Binding SelectedWord.WordType, StringFormat=({0})}"/>
+                        </TextBlock>
+                        <TextBlock Text="{Binding SelectedWord.Equivalent, StringFormat=Equivalent: {0}}" Margin="0 5 0 0" FontWeight="Bold"/>
+                        <TextBlock Text="{Binding SelectedWord.Description, StringFormat=Description: {0}}" Margin="0 10 0 0" TextWrapping="Wrap"
+                                   Height="100"/>
+
+                        <DockPanel Margin="0 10 0 0">
+                            <TextBlock Text="Last Update: Unknown"
+                                       DockPanel.Dock="Left"/>
+
+                            <TextBlock Text="{Binding SelectedWord.PracticeCount, StringFormat=Practiced {0} time(s)}"
+                                       DockPanel.Dock="Right"
+                                       HorizontalAlignment="Right"/>
+                        </DockPanel>
+
+                        <StackPanel Margin="0 30" HorizontalAlignment="Center" Orientation="Horizontal">
+                            <Button Style="{StaticResource CurveButton}"
+                                    Content="Edit"
+                                    Background="White"
+                                    Foreground="Black"
+                                    Margin="5 0"
+                                    Padding="10"
+                                    Width="100"
+                                    BorderThickness="2"/>
+
+                            <Button Style="{StaticResource CurveButton}"
+                                    Content="Reset"
+                                    Margin="5 0"
+                                    Background="White"
+                                    Foreground="Black"
+                                    Padding="10"
+                                    Width="100"
+                                    BorderThickness="2"/>
+
+                            <Button Style="{StaticResource CurveButton}"
+                                    Content="Remove"
+                                    Background="White"
+                                    Foreground="Black"
+                                    Margin="5 0"
+                                    Padding="10"
+                                    Width="100"
+                                    BorderThickness="2"/>
+
+                        </StackPanel>
+
                     </StackPanel>
                 </Border>
             </Grid>

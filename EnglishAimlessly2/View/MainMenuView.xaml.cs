@@ -67,5 +67,16 @@ namespace EnglishAimlessly2.View
             Close();
             loginView.Show();
         }
+
+        private void btnManager_Click(object sender, RoutedEventArgs e)
+        {
+            if(mmvm.SelectedGroup != null)
+            {
+                Hide();
+                ManageView manageView = new ManageView(loggedUser, mmvm.SelectedGroup, this);
+                manageView.ShowDialog();
+                mmvm.ForceUpdateInformationForGroup();
+            }
+        }
     }
 }

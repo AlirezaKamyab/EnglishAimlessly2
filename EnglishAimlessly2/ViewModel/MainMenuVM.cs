@@ -128,6 +128,12 @@ namespace EnglishAimlessly2.ViewModel
             NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
         }
 
+        public void ForceUpdateInformationForGroup()
+        {
+            _wordHelper.Reload();
+            SelectedGroup = _groupHelper.SearchById(SelectedGroup.Id);
+        }
+
         private void ReloadGroups()
         {
             _groupHelper.Reload();

@@ -57,8 +57,8 @@
             </DockPanel>
         </Border>
 
-        <Border DockPanel.Dock="Left" Width="300" Background="#efeffe"
-                BorderThickness="1"
+        <Border DockPanel.Dock="Left" Width="300" Background="White"
+                BorderThickness="0 2 2 2"
                 BorderBrush="#888"
                 CornerRadius="0 20 20 0"
                 Margin="0 5 0 5">
@@ -81,7 +81,8 @@
 
                     <StackPanel Orientation="Horizontal">
                         <TextBox x:Name="txtGroupName" Style="{StaticResource NewTextBox}"
-                                 Width="225"
+                                 Width="220"
+                                 Margin="2"
                                  Text="{Binding GroupName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                  TextChanged="txtGroupName_TextChanged"/>
                     
@@ -124,8 +125,8 @@
         </Border>
 
         <Border x:Name="borderMain" DockPanel.Dock="Left" Margin="5"
-                BorderThickness="1"
-                BorderBrush="#555"
+                BorderThickness="2"
+                BorderBrush="#888"
                 CornerRadius="25 1 25 1">
             <Grid Margin="10">
                 <Grid.RowDefinitions>
@@ -194,13 +195,15 @@
                             Background="#fcb500"/>
 
                     <Button Style="{StaticResource CurveButton}"
+                            x:Name="btnManager"
                             Margin="0 5"
                             Content="Manage Words"
                             FontSize="12"
                             HorizontalAlignment="Center"
                             Width="300"
                             Padding="7"
-                            Background="#fcb500"/>
+                            Background="#fcb500"
+                            Click="btnManager_Click"/>
 
                     <Button Style="{StaticResource CurveButton}"
                             Margin="0 5"
