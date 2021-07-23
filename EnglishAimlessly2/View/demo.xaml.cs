@@ -1,5 +1,6 @@
 ﻿using EnglishAimlessly2.Model;
 using EnglishAimlessly2.ViewModel;
+using EnglishAimlessly2.ViewModel.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,17 +25,15 @@ namespace EnglishAimlessly2.View
         public demo()
         {
             InitializeComponent();
-            Loaded += Demo_Loaded;
-        }
 
-        private void Demo_Loaded(object sender, RoutedEventArgs e)
-        {
-            DialogResultModel dialog = new DialogResultModel();
-            ConfirmationView confirmation = new ConfirmationView("asdf", "dsfjh", dialog);
-            confirmation.ShowDialog();
-
-            if (dialog.DialogResult == Result.Yes) { txt.Text = "Yes"; }
-            else txt.Text = "No";
+            DateTime today = DateTime.Now;
+            DateTime dteTime = DateTime.Now;
+            dteTime = dteTime.AddHours(1);
+            dteTime = dteTime.AddMinutes(23);
+            dteTime = dteTime.AddSeconds(12);
+            dteTime = dteTime.AddDays(2);
+            TimeModel time = DateTimeHelper.GetTimeModel(today, dteTime);
+            txt.Text = string.Format("Seconds: {0}\n" + "Minutes: {1}\n" + "Hours: {2}\n" + "Days: {3}\n" + "Date Today: {4}\n" + "Date Target: {5}",time.Seconds.ToString(), time.Minutes.ToString(), time.Hours.ToString(), time.Days.ToString(), DateTime.Now.ToLongDateString(), dteTime.ToLongDateString());
         }
     }
 }

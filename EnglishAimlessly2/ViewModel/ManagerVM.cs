@@ -61,6 +61,7 @@ namespace EnglishAimlessly2.ViewModel
                 _selectedWord = value;
                 SelectionWordChanged?.Invoke(this);
                 OnPropertyChanged(nameof(SelectedWord));
+                OnPropertyChanged(nameof(LastPracticed));
             }
         }
 
@@ -74,6 +75,14 @@ namespace EnglishAimlessly2.ViewModel
             {
                 _searchWordName = value;
                 OnPropertyChanged(nameof(SearchWordName));
+            }
+        }
+
+        public string LastPracticed
+        {
+            get
+            {
+                return ((int) DateTimeHelper.LastPracticeSpan(SelectedWord).Days).ToString();
             }
         }
 
