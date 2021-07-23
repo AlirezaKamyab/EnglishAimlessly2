@@ -11,10 +11,10 @@
             <StackPanel DockPanel.Dock="Top" VerticalAlignment="Center"
                         Margin="10">
                 <TextBlock Text="Group Name"
-                           FontSize="16"
-                           x:Name="txtName"/>
+                           FontSize="14"
+                           x:Name="txtName" TextWrapping="WrapWithOverflow"/>
                 <TextBlock Text="Description Here"
-                           FontSize="12"
+                           FontSize="10"
                            TextWrapping="WrapWithOverflow"
                            Margin="0 10 0 0"
                            x:Name="txtDesc"/>

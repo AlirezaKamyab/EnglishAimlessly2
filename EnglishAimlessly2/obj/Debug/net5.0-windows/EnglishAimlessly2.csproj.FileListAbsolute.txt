@@ -105,3 +105,5 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-win
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\EditWordView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\ConfirmationView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\ConfirmationView.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\GroupSettingsView.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\GroupSettingsView.baml

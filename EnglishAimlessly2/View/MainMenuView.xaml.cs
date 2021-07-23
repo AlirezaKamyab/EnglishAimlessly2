@@ -79,5 +79,17 @@ namespace EnglishAimlessly2.View
                 ShowDialog();
             }
         }
+
+        private void btnGroupSettings_Click(object sender, RoutedEventArgs e)
+        {
+            if(mmvm.SelectedGroup != null)
+            {
+                Hide();
+                GroupSettingsView view = new GroupSettingsView(mmvm.SelectedGroup);
+                view.ShowDialog();
+                mmvm.ForceUpdateInformationForGroup();
+                ShowDialog();
+            }
+        }
     }
 }

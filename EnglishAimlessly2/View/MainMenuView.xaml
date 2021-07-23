@@ -206,13 +206,15 @@
                             Click="btnManager_Click"/>
 
                     <Button Style="{StaticResource CurveButton}"
+                            x:Name="btnGroupSettings"
                             Margin="0 5"
                             Content="Settings"
                             FontSize="12"
                             HorizontalAlignment="Center"
                             Width="300"
                             Padding="7"
-                            Background="#fcb500"/>
+                            Background="#fcb500"
+                            Click="btnGroupSettings_Click"/>
 
                     <Button Style="{StaticResource CurveButton}"
                             Margin="0 5"

@@ -130,8 +130,9 @@ namespace EnglishAimlessly2.ViewModel
 
         public void ForceUpdateInformationForGroup()
         {
-            _wordHelper.Reload();
+            _groupHelper.Reload();
             SelectedGroup = _groupHelper.SearchById(SelectedGroup.Id);
+            ReloadGroups();
         }
 
         private void ReloadGroups()

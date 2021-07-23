@@ -131,7 +131,8 @@ namespace EnglishAimlessly2.ViewModel
 
         public WordModel SelectedWordForFunctioning { get; set; }
 
-        private WordTableHelper _wordHelper;
+        public WordTableHelper WordDatabaseHelper { get; set; }
+        public GroupTableHelper GroupDatabaseHelper { get; set; }
         public ObservableCollection<WordModel> WordList { get; set; }
         public AddWordCommand AddWordCmd { get; set; }
         public EditWordCommand EditWordCmd { get; set; }
@@ -146,7 +147,8 @@ namespace EnglishAimlessly2.ViewModel
 
             if (!DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
             {
-                _wordHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
+                WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
+                GroupDatabaseHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
             }
 
             // Commands
@@ -158,9 +160,9 @@ namespace EnglishAimlessly2.ViewModel
 
         public void Reload()
         {
-            _wordHelper.Reload();
+            WordDatabaseHelper.Reload();
             WordList.Clear();
-            foreach(WordModel item in _wordHelper.SearchByGroupId(SelectedGroup.Id))
+            foreach(WordModel item in WordDatabaseHelper.SearchByGroupId(SelectedGroup.Id))
             {
                 WordList.Add(item);
             }
@@ -179,7 +181,7 @@ namespace EnglishAimlessly2.ViewModel
             word.PracticeCount = 0;
             word.UserId = LoggedUser.Id;
             word.GroupId = SelectedGroup.Id;
-            _wordHelper.Insert(word);
+            WordDatabaseHelper.Insert(word);
 
             Added?.Invoke(this, word);
         }
@@ -198,7 +200,7 @@ namespace EnglishAimlessly2.ViewModel
             word.PracticeCount = SelectedWordForFunctioning.PracticeCount;
             word.UserId = SelectedWordForFunctioning.UserId;
             word.GroupId = SelectedWordForFunctioning.GroupId;
-            _wordHelper.Update(word);
+            WordDatabaseHelper.Update(word);
 
             Edited?.Invoke(this, word);
         }
@@ -217,7 +219,7 @@ namespace EnglishAimlessly2.ViewModel
             word.PracticeCount = SelectedWordForFunctioning.PracticeCount;
             word.UserId = SelectedWordForFunctioning.UserId;
             word.GroupId = SelectedWordForFunctioning.GroupId;
-            _wordHelper.Remove(word);
+            WordDatabaseHelper.Remove(word);
 
             Removed?.Invoke(this, word);
         }
@@ -236,9 +238,20 @@ namespace EnglishAimlessly2.ViewModel
             word.PracticeCount = 0;
             word.UserId = SelectedWordForFunctioning.UserId;
             word.GroupId = SelectedWordForFunctioning.GroupId;
-            _wordHelper.Update(word);
+            WordDatabaseHelper.Update(word);
 
             Edited?.Invoke(this, word);
+        }
+
+        /// <summary>
+        /// If ever groups information has changed this keeps the view up to date
+        /// </summary>
+        public void UpdateGroupInformation()
+        {
+            if (SelectedGroup == null) return;
+
+            GroupTableHelper helper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
+            SelectedGroup = helper.SearchById(SelectedGroup.Id);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

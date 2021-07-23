@@ -145,12 +145,14 @@
                         <TextBlock Text="{Binding SelectedGroup.Description, Mode=TwoWay, StringFormat=Description: {0}}" 
                                    Margin="0 5 0 0" TextWrapping="Wrap"/>
                         <Button Style="{StaticResource CurveButton}"
+                                x:Name="btnGroupSettings"
                                 Margin="0 10 0 0"
                                 Content="Edit"
                                 Background="White"
                                 HorizontalAlignment="Center"
                                 Padding="15 3"
-                                BorderThickness="2"/>
+                                BorderThickness="2"
+                                Click="btnGroupSettings_Click"/>
                     </StackPanel>
                 </Border>
 

@@ -28,10 +28,11 @@ namespace EnglishAimlessly2.View
         public ManageView(UserModel loggedUser, GroupModel selectedGroup)
         {
             InitializeComponent();
+            
             Owner = Application.Current.MainWindow;
             LoggedUser = loggedUser;
-            SelectedGroup = selectedGroup;
             ManagerViewModel = Resources["mvm"] as ManagerVM;
+            SelectedGroup = ManagerViewModel.GroupDatabaseHelper.SearchById(selectedGroup.Id);
             ManagerViewModel.SelectedGroup = SelectedGroup;
             ManagerViewModel.LoggedUser = LoggedUser;
 
@@ -93,6 +94,18 @@ namespace EnglishAimlessly2.View
                 ManagerViewModel.SelectedWordForFunctioning = ManagerViewModel.SelectedWord;
                 EditWordView ewv = new EditWordView(ManagerViewModel);
                 ewv.ShowDialog();
+                ShowDialog();
+            }
+        }
+
+        private void btnGroupSettings_Click(object sender, RoutedEventArgs e)
+        {
+            if(SelectedGroup != null)
+            {
+                Hide();
+                GroupSettingsView view = new GroupSettingsView(SelectedGroup);
+                view.ShowDialog();
+                ManagerViewModel.UpdateGroupInformation();
                 ShowDialog();
             }
         }

@@ -25,6 +25,9 @@
     <Compile Update="View\EditWordView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\GroupSettingsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -73,6 +76,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\EditWordView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\GroupSettingsView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\LoginView.xaml">

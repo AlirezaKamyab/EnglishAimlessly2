@@ -1,0 +1,61 @@
+﻿<Window x:Class="EnglishAimlessly2.View.GroupSettingsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:EnglishAimlessly2.ViewModel"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EnglishAimlessly2.View"
+        mc:Ignorable="d"
+        Title="GroupSettingsView" Height="450" Width="800"
+        WindowStartupLocation="CenterOwner">
+
+    <Window.Resources>
+        <vm:GroupSettingsVM x:Key="gsvm"/>
+    </Window.Resources>
+    
+    <Grid Background="#c33124" DataContext="{StaticResource gsvm}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="#666" BorderThickness="1" CornerRadius="10"
+                Background="White">
+            <Grid Margin="10">
+                <StackPanel>
+                    <TextBlock Text="Group Settings"
+                               TextAlignment="Center"
+                               FontSize="20"
+                               Padding="5"
+                               Margin="5"/>
+
+                    <TextBlock Margin="5 0" Text="Group Name"/>
+                    <TextBox Style="{StaticResource NewTextBox}"
+                             Margin="5"
+                             Text="{Binding GroupName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Margin="5 0" Text="Description"/>
+                    <TextBox Style="{StaticResource NewTextBox}"
+                             Margin="5"
+                             Height="50"
+                             Text="{Binding Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <Button Style="{StaticResource CurveButton}"
+                            x:Name="btnUpdate"
+                            Margin="0 10"
+                            HorizontalAlignment="Center"
+                            Content="Update"
+                            Padding="10 5"
+                            Command="{Binding UpdateGroupCmd}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
