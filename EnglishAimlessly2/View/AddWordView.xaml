@@ -62,6 +62,8 @@
                     <TextBox Style="{StaticResource NewTextBox}"
                              Margin="5"
                              Height="100"
+                             TextWrapping="Wrap"
+                             MaxLines="10"
                              Text="{Binding Description, Mode=TwoWay}"/>
 
                     <Button Style="{StaticResource CurveButton}"

@@ -166,6 +166,8 @@ namespace EnglishAimlessly2.ViewModel
             {
                 WordList.Add(item);
             }
+
+            SearchWordName = ""; // to reset what was searching in the textbox for searching
         }
 
         public void AddWord()

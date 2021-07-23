@@ -234,7 +234,8 @@
                             Width="300"
                             Padding="7"
                             Background="red"
-                            Foreground="White"/>
+                            Foreground="White"
+                            Command="{Binding RemoveGroupCmd}"/>
                 </StackPanel>
 
                 <Grid Grid.Row="2">

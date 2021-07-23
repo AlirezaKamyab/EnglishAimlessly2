@@ -89,11 +89,13 @@ namespace EnglishAimlessly2.ViewModel
 
         public ObservableCollection<GroupModel> Groups { get; set; }
         public CreateGroupCommand CreateGroupCmd { get; set; }
+        public RemoveGroupCommand RemoveGroupCmd { get; set; }
 
         public MainMenuVM()
         {
             LoggedUser = new UserModel();
             CreateGroupCmd = new CreateGroupCommand(this);
+            RemoveGroupCmd = new RemoveGroupCommand(this);
             Groups = new ObservableCollection<GroupModel>();
             if (DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) == false)
             {
@@ -121,9 +123,20 @@ namespace EnglishAimlessly2.ViewModel
             GroupName = "";
         }
 
+        public void RemoveGroup()
+        {
+            if (SelectedGroup == null) return;
+            _groupHelper.Remove(SelectedGroup);
+
+            ReloadGroups();
+        }
+
         void UpdateInformationForGroup()
         {
-            _wordHelper.Reload();
+            if (SelectedGroup == null) return;
+
+            _groupHelper.Reload();
+            _selectedGroup = _groupHelper.SearchById(SelectedGroup.Id);
             ItemCount = _wordHelper.SearchByGroupId(SelectedGroup.Id).Count.ToString();
             NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
         }
