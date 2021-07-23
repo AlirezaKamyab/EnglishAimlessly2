@@ -5,15 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EnglishAimlessly2.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="500">
+             d:DesignHeight="100" d:DesignWidth="500">
     <Border BorderBrush="#555"
             BorderThickness="1"
             CornerRadius="10">
         <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Center">
-            <TextBlock x:Name="txtWord" FontSize="16"
+            <TextBlock x:Name="txtWord" FontSize="14"
                        Text="Word Name (Type)"/>
 
-            <TextBlock x:Name="txtDesc" FontSize="12"
+            <TextBlock x:Name="txtDesc" FontSize="10"
                        Text="Description"
                        Margin="0 10 0 0"
                        TextWrapping="WrapWithOverflow"/>

@@ -136,6 +136,7 @@ namespace EnglishAimlessly2.ViewModel
         public AddWordCommand AddWordCmd { get; set; }
         public EditWordCommand EditWordCmd { get; set; }
         public RemoveWordCommand RemoveWordCmd { get; set; }
+        public ResetWordCommand ResetWordCmd { get; set; }
         public ManagerVM()
         {
             WordList = new ObservableCollection<WordModel>();
@@ -152,6 +153,7 @@ namespace EnglishAimlessly2.ViewModel
             AddWordCmd = new(this);
             EditWordCmd = new(this);
             RemoveWordCmd = new(this);
+            ResetWordCmd = new(this);
         }
 
         public void Reload()
@@ -220,6 +222,25 @@ namespace EnglishAimlessly2.ViewModel
             Removed?.Invoke(this, word);
         }
 
+        public void ResetWord()
+        {
+            WordModel word = new WordModel();
+            word.Id = SelectedWordForFunctioning.Id;
+            word.Name = SelectedWordForFunctioning.Name;
+            word.WordType = SelectedWordForFunctioning.WordType;
+            word.Equivalent = SelectedWordForFunctioning.Equivalent;
+            word.Description = SelectedWordForFunctioning.Description;
+            word.CreationDate = DateTime.Now;
+            word.DueDate = DateTime.Now;
+            word.UpdatedDate = DateTime.Now;
+            word.PracticeCount = 0;
+            word.UserId = SelectedWordForFunctioning.UserId;
+            word.GroupId = SelectedWordForFunctioning.GroupId;
+            _wordHelper.Update(word);
+
+            Edited?.Invoke(this, word);
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string propertyName)
         {
@@ -230,12 +251,10 @@ namespace EnglishAimlessly2.ViewModel
         public delegate void EditHandler(object sender, WordModel newWord);
         public delegate void RemoveHandler(object sender, WordModel removedWord);
         public delegate void UpdateControlHandler(object sender);
-        //public delegate void ResetHandler(object sender, WordModel resetWord);
 
         public event AddHandler Added;
         public event EditHandler Edited;
         public event RemoveHandler Removed;
         public event UpdateControlHandler SelectionWordChanged;
-        //public event ResetHandler Reset;
     }
 }

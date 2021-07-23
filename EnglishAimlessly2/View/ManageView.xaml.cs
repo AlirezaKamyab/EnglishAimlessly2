@@ -39,6 +39,13 @@ namespace EnglishAimlessly2.View
 
             ManagerViewModel.SelectionWordChanged += ManagerViewModel_SelectionWordChanged;
             ManagerViewModel.Removed += ManagerViewModel_Removed;
+            ManagerViewModel.Edited += ManagerViewModel_Edited;
+        }
+
+        private void ManagerViewModel_Edited(object sender, WordModel newWord)
+        {
+            ManagerViewModel.Reload();
+            ManagerViewModel.SelectedWord = newWord;
         }
 
         private void ManagerViewModel_Removed(object sender, WordModel removedWord)

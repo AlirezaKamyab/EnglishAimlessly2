@@ -70,7 +70,7 @@
             </DockPanel>
         </Border>
 
-        <Border DockPanel.Dock="Left" Width="300" Background="#fff"
+        <Border DockPanel.Dock="Left" Width="350" Background="#fff"
                 BorderThickness="0 2 2 2"
                 BorderBrush="#888"
                 CornerRadius="0 20 20 0"
@@ -109,12 +109,18 @@
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                                 <Setter Property="Margin" Value="0 0 0 5"/>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Black"/>
+                                    </Trigger>
+                                </Style.Triggers>
                             </Style>
                         </ListView.ItemContainerStyle>
 
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <uc:WordItemControl Word="{Binding}" />
+                                <uc:WordItemControl Word="{Binding}"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -188,7 +194,8 @@
                                     Foreground="Black"
                                     Padding="10"
                                     Width="100"
-                                    BorderThickness="2"/>
+                                    BorderThickness="2"
+                                    Command="{Binding ResetWordCmd}"/>
 
                             <Button Style="{StaticResource CurveButton}"
                                     Content="Remove"

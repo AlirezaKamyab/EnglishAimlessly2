@@ -29,7 +29,7 @@ namespace EnglishAimlessly2.ViewModel.Commands
             managerViewModel.SelectedWordForFunctioning = managerViewModel.SelectedWord;
             if (managerViewModel.SelectedWordForFunctioning == null) return;
             DialogResultModel drm = new DialogResultModel();
-            ConfirmationView confirmation = new ConfirmationView("Remove confirmation", string.Format("Are you sure to remove {0} from database?", managerViewModel.SelectedWordForFunctioning.Name), drm);
+            ConfirmationView confirmation = new ConfirmationView("Remove confirmation", string.Format("Are you sure to remove the word \"{0}\" from database?", managerViewModel.SelectedWordForFunctioning.Name), drm);
             confirmation.ShowDialog();
 
             if(drm.DialogResult == Result.Yes) managerViewModel.RemoveWord();
