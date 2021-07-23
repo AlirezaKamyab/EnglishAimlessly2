@@ -120,7 +120,7 @@
 
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <uc:WordItemControl Word="{Binding}"/>
+                                <uc:WordItemControl Word="{Binding}" Width="320" Height="75"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -129,21 +129,27 @@
         </Border>
 
         <Border x:Name="borderMain" DockPanel.Dock="Left" Margin="10 5"
-                BorderThickness="2" BorderBrush="#888"
+                BorderThickness="2" BorderBrush="#eee"
                 CornerRadius="20 1 20 1">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="5*"/>
                 </Grid.RowDefinitions>
 
-                <Border BorderThickness="1" BorderBrush="#aaa" Margin="10"
+                <Border BorderThickness="1" BorderBrush="#888" Margin="10"
                         CornerRadius="20 1 20 1" Grid.Row="0">
                     <StackPanel Orientation="Vertical"
                                 Margin="10">
                         <TextBlock Text="{Binding SelectedGroup.Name}" FontSize="16" TextAlignment="Center"/>
-                        <TextBlock Text="{Binding SelectedGroup.Description, Mode=TwoWay, StringFormat=Description: {0}}" 
-                                   Margin="0 5 0 0" TextWrapping="Wrap"/>
+
+                        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden" Height="50">
+                            <TextBlock Margin="0 5 0 0" TextWrapping="Wrap">
+                                <Run Foreground="#888" Text="Description:"/>
+                                <Run Text="{Binding SelectedGroup.Description, Mode=TwoWay}"/>
+                            </TextBlock>
+                        </ScrollViewer>
+                        
                         <Button Style="{StaticResource CurveButton}"
                                 x:Name="btnGroupSettings"
                                 Margin="0 10 0 0"
@@ -156,25 +162,43 @@
                     </StackPanel>
                 </Border>
 
-                <Border x:Name="borderDetails" BorderThickness="1" BorderBrush="#aaa" Margin="10"
+                <Border x:Name="borderDetails" BorderThickness="1" BorderBrush="#fff" Margin="10"
                         CornerRadius="20 1 20 1" Grid.Row="1">
                     <StackPanel Orientation="Vertical"
                                 Margin="10">
                         <TextBlock FontSize="16" TextAlignment="Center" Margin="0 5 0 0">
                             <Run Text="{Binding SelectedWord.Name, Mode=TwoWay}"/>
-                            <Run Text="{Binding SelectedWord.WordType, Mode=TwoWay, StringFormat=({0})}"/>
+                            <Run Foreground="Red" Text="{Binding SelectedWord.WordType, Mode=TwoWay, StringFormat=({0})}"/>
                         </TextBlock>
-                        <TextBlock Text="{Binding SelectedWord.Equivalent, Mode=TwoWay, StringFormat=Equivalent: {0}}" Margin="0 5 0 0" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding SelectedWord.Description, Mode=TwoWay, StringFormat=Description: {0}}" Margin="0 10 0 0" TextWrapping="Wrap"
-                                   Height="100"/>
+                        <TextBlock Margin="0 5 0 0" FontWeight="Bold">
+                            <Run Foreground="#555" Text="Equivalent:"/>
+                            <Run Text="{Binding SelectedWord.Equivalent, Mode=TwoWay}"/>
+                        </TextBlock>
+
+                        <Border Margin="10" BorderBrush="#888" BorderThickness="1" CornerRadius="10">
+                            <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="10"
+                                          Background="Transparent"
+                                          Height="150">
+                                <TextBlock Margin="0 0 0 0"
+                                           TextWrapping="Wrap" LineStackingStrategy="MaxHeight">
+                                    <Run Foreground="#888" Text="Description:"/>
+                                    <Run Text="{Binding SelectedWord.Description, Mode=TwoWay}"/>
+                                </TextBlock>
+                            </ScrollViewer>
+                        </Border>
 
                         <DockPanel Margin="0 10 0 0">
-                            <TextBlock Text="Last Update: Unknown"
-                                       DockPanel.Dock="Left"/>
+                            <TextBlock DockPanel.Dock="Left">
+                                <Run Foreground="#888" Text="Last Practice:"/>
+                                <Run Text="Unknown"/>
+                            </TextBlock>
 
-                            <TextBlock Text="{Binding SelectedWord.PracticeCount, Mode=TwoWay, StringFormat=Practiced {0} time(s)}"
-                                       DockPanel.Dock="Right"
-                                       HorizontalAlignment="Right"/>
+                            <TextBlock DockPanel.Dock="Right"
+                                       HorizontalAlignment="Right">
+                                <Run Foreground="#888" Text="Practiced"/>
+                                <Run Foreground="DodgerBlue" Text="{Binding SelectedWord.PracticeCount, Mode=TwoWay}"/>
+                                <Run Foreground="#888" Text="time(s)"/>
+                            </TextBlock>
                         </DockPanel>
 
                         <StackPanel Margin="0 30" HorizontalAlignment="Center" Orientation="Horizontal">

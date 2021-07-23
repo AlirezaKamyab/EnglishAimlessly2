@@ -29,7 +29,7 @@
                            Foreground="White">
                     <Run Text="{Binding LoggedUser.Name}"/>
                     <Run Text="{Binding LoggedUser.Lastname}"/>
-                    <Run Text="{Binding LoggedUser.Username, StringFormat=({0})}"/>
+                    <Run Foreground="Red" Text="{Binding LoggedUser.Username, StringFormat=({0})}"/>
                 </TextBlock>
                 <Button Style="{StaticResource CurveButton}"
                         x:Name="btnClose"
@@ -116,7 +116,7 @@
                         
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <uc:GroupItemControl Group="{Binding}"/>
+                                <uc:GroupItemControl Group="{Binding}" Width="270"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

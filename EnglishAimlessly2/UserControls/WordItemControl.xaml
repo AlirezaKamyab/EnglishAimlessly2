@@ -16,6 +16,7 @@
             <TextBlock x:Name="txtDesc" FontSize="10"
                        Text="Description"
                        Margin="0 10 0 0"
+                       Height="30"
                        TextWrapping="WrapWithOverflow"/>
         </StackPanel>
     </Border>
