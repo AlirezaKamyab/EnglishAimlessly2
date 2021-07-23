@@ -64,6 +64,8 @@
                              Height="100"
                              TextWrapping="Wrap"
                              MaxLines="10"
+                             AcceptsReturn="True"
+                             AcceptsTab="True"
                              Text="{Binding Description, Mode=TwoWay}"/>
 
                     <Button Style="{StaticResource CurveButton}"

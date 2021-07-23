@@ -64,6 +64,8 @@
                     <TextBox Style="{StaticResource NewTextBox}"
                              Margin="5"
                              Height="100"
+                             AcceptsReturn="True"
+                             AcceptsTab="True"
                              Text="{Binding Description, Mode=TwoWay}"
                              x:Name="txtDescription"/>
 
