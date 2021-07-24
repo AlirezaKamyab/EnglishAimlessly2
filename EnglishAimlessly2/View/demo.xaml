@@ -9,6 +9,7 @@
         Title="demo" Height="450" Width="800">
 
     <StackPanel Margin="10">
-        <TextBlock x:Name="txt" FontSize="25" TextAlignment="Center"/>
+        <TextBlock x:Name="txt" FontSize="12" TextAlignment="Center"/>
+        <TextBlock x:Name="txt2" FontSize="15" TextAlignment="Center"/>
     </StackPanel>
 </Window>

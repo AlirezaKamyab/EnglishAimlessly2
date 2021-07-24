@@ -82,7 +82,10 @@ namespace EnglishAimlessly2.ViewModel
         {
             get
             {
-                return ((int) DateTimeHelper.LastPracticeSpan(SelectedWord).Days).ToString();
+                int days = (int)DateTimeHelper.LastPracticeSpan(SelectedWord).Days;
+                int hours = (int)DateTimeHelper.LastPracticeSpan(SelectedWord).Hours;
+                if (days == 0) return string.Format("{0} hours ago", hours);
+                else return string.Format("{0} days ago", days);
             }
         }
 

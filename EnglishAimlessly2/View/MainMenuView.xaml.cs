@@ -91,5 +91,17 @@ namespace EnglishAimlessly2.View
                 ShowDialog();
             }
         }
+
+        private void btnPractice_Click(object sender, RoutedEventArgs e)
+        {
+            if(mmvm.SelectedGroup != null)
+            {
+                Hide();
+                PracticeView view = new PracticeView(mmvm.SelectedGroup);
+                view.ShowDialog();
+                mmvm.ForceUpdateInformationForGroup();
+                ShowDialog();
+            }
+        }
     }
 }

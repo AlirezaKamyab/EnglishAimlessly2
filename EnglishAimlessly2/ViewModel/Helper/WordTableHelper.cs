@@ -142,5 +142,16 @@ namespace EnglishAimlessly2.ViewModel.Helper
 
             return temp;
         }
+
+        public SortedList<long, WordModel> GetSortedDueTime(GroupModel fromGroup)
+        {
+            SortedList<long, WordModel> pairs = new SortedList<long, WordModel>();
+            foreach(WordModel item in _innerList)
+            {
+                if(item.GroupId == fromGroup.Id) pairs.Add((long) DateTimeHelper.NextWordPracticeSpan(item).Miliseconds, item);
+            }
+
+            return pairs;
+        }
     }
 }

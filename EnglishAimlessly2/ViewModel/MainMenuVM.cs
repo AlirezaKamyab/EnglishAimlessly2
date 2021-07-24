@@ -81,9 +81,14 @@ namespace EnglishAimlessly2.ViewModel
             }
             set
             {
-                _selectedGroup = value;
-                UpdateInformationForGroup();
-                OnPropertyChanged(nameof(SelectedGroup));
+                GroupModel temp = value;
+                if (temp != null)
+                {
+                    _groupHelper.Reload();
+                    _selectedGroup = _groupHelper.SearchById(temp.Id);
+                    UpdateInformationForGroup();
+                    OnPropertyChanged(nameof(SelectedGroup));
+                }
             }
         }
 
@@ -133,18 +138,16 @@ namespace EnglishAimlessly2.ViewModel
 
         void UpdateInformationForGroup()
         {
-            if (SelectedGroup == null) return;
-
-            _groupHelper.Reload();
-            _selectedGroup = _groupHelper.SearchById(SelectedGroup.Id);
+            _wordHelper.Reload();
             ItemCount = _wordHelper.SearchByGroupId(SelectedGroup.Id).Count.ToString();
             NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
         }
 
         public void ForceUpdateInformationForGroup()
         {
-            _groupHelper.Reload();
-            SelectedGroup = _groupHelper.SearchById(SelectedGroup.Id);
+            _wordHelper.Reload();
+            ItemCount = _wordHelper.SearchByGroupId(SelectedGroup.Id).Count.ToString();
+            NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
             ReloadGroups();
         }
 

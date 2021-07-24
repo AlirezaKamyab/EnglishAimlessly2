@@ -191,7 +191,6 @@
                             <TextBlock DockPanel.Dock="Left">
                                 <Run Foreground="#888" Text="Last Practice"/>
                                 <Run Foreground="red" Text="{Binding LastPracticed, Mode=OneWay}"/>
-                                <Run Foreground="#888" Text="days ago"/>
                             </TextBlock>
 
                             <TextBlock DockPanel.Dock="Right"

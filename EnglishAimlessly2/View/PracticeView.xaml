@@ -1,0 +1,100 @@
+﻿<Window x:Class="EnglishAimlessly2.View.PracticeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:vm="clr-namespace:EnglishAimlessly2.ViewModel"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EnglishAimlessly2.View"
+        mc:Ignorable="d"
+        Title="Practice" Height="600" Width="900"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <vm:PracticeVM x:Key="pvm"/>
+    </Window.Resources>
+
+    <Border BorderThickness="1" BorderBrush="Black">
+        <DockPanel DataContext="{StaticResource pvm}">
+            <Border DockPanel.Dock="Top" CornerRadius="0 0 20 20"
+                    Height="35"
+                    Margin="0 0 0 5"
+                    Padding="5" Background="#4c394f">
+                <DockPanel Margin="10 0">
+                    <TextBlock DockPanel.Dock="left"
+                               VerticalAlignment="Center"
+                               FontSize="15"
+                               Foreground="White">
+                        <Run Foreground="Yellow" Text="{Binding SelectedGroup.Name}"/>
+                    </TextBlock>
+                    <Button Style="{StaticResource CurveButton}"
+                            x:Name="btnClose"
+                            Background="red"
+                            Content="Close"
+                            Width="65"
+                            Foreground="White"
+                            Padding="10 0"
+                            HorizontalAlignment="Right"
+                            DockPanel.Dock="Right"
+                            Margin="5 0 0 0"
+                            BorderBrush="Transparent"
+                            Click="btnClose_Click"/>
+                </DockPanel>
+            </Border>
+        
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="1" Grid.Column="1" BorderBrush="#888" BorderThickness="2"
+                        CornerRadius="10">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="0.75" ShadowDepth="0.75"/>
+                    </Border.Effect>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock FontSize="25"
+                                   TextAlignment="Center">
+                            <Run Text="{Binding SelectedWord.Name}"/>
+                            <Run Foreground="Red" Text="{Binding SelectedWord.WordType, StringFormat=({0})}"/>
+                        </TextBlock>
+
+                        <TextBlock FontSize="14"
+                                   TextAlignment="Center">
+                            <Run Text="{Binding SelectedWord.Equivalent}"/>
+                        </TextBlock>
+
+                        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                      Height="100" Margin="10" Width="300">
+                            <TextBlock FontSize="11">
+                                <Run Foreground="#888" Text="Description:"/>
+                                <Run Text="{Binding SelectedWord.Description}"/>
+                            </TextBlock>
+                        </ScrollViewer>
+                    </StackPanel>
+                </Border>
+
+                <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button Style="{StaticResource CurveButton}"
+                            HorizontalAlignment="Right"
+                            Content="Next"
+                            Padding="10"
+                            FontSize="11"
+                            Background="White"
+                            Foreground="Black"
+                            BorderThickness="2"
+                            Command="{Binding NextWordPracticeCmd}"/>
+                </StackPanel>
+            </Grid>
+        </DockPanel>
+    </Border>
+</Window>

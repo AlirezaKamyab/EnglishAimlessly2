@@ -177,13 +177,15 @@
                                TextAlignment="Center"/>
 
                     <Button Style="{StaticResource CurveButton}"
+                            x:Name="btnPractice"
                             Margin="0 20 0 5"
                             Content="Practice"
                             FontSize="12"
                             HorizontalAlignment="Center"
                             Width="300"
                             Padding="7"
-                            Background="#fcb500"/>
+                            Background="#fcb500"
+                            Click="btnPractice_Click"/>
 
                     <Button Style="{StaticResource CurveButton}"
                             Margin="0 5"
