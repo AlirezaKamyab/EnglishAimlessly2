@@ -77,13 +77,10 @@ namespace EnglishAimlessly2.View
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if(ManagerViewModel.SelectedWord != null)
-            {
-                Hide();
-                AddWordView awv = new AddWordView(ManagerViewModel);
-                awv.ShowDialog();
-                ShowDialog();
-            }
+            Hide();
+            AddWordView awv = new AddWordView(ManagerViewModel);
+            awv.ShowDialog();
+            ShowDialog();
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)

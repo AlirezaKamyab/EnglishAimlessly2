@@ -8,14 +8,83 @@
         mc:Ignorable="d"
         Title="Practice" Height="600" Width="900"
         WindowStartupLocation="CenterOwner"
-        WindowStyle="None"
-        ResizeMode="NoResize">
+        WindowStyle="None">
 
     <Window.Resources>
         <vm:PracticeVM x:Key="pvm"/>
+        <Storyboard x:Key="ShowDetails">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="btnShow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="btnShow" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.4000000" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="txtEquivalent" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.4000000" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="scrollDescription" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.4000000" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="txtEquivalent" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="scrollDescription" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="scrollDescription" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="20"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="txtEquivalent" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="20"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="txtWord" Storyboard.TargetProperty="(TextBlock.FontSize)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="25"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="20"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="NextWord">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="pnlCard" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="pnlCard" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="20"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="HideDetails">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="txtWord" Storyboard.TargetProperty="(TextBlock.FontSize)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="20"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.0170000" Value="25"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="txtEquivalent" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.0170000" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="scrollDescription" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.0170000" Value="{x:Static Visibility.Collapsed}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="btnShow" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.0170000" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="btnShow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.0170000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
 
-    <Border BorderThickness="1" BorderBrush="Black">
+    <Border BorderThickness="1" BorderBrush="Black" Background="White">
         <DockPanel DataContext="{StaticResource pvm}">
             <Border DockPanel.Dock="Top" CornerRadius="0 0 20 20"
                     Height="35"
@@ -42,7 +111,7 @@
                             Click="btnClose_Click"/>
                 </DockPanel>
             </Border>
-        
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -56,43 +125,131 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Border Grid.Row="1" Grid.Column="1" BorderBrush="#888" BorderThickness="2"
-                        CornerRadius="10">
-                    <Border.Effect>
-                        <DropShadowEffect BlurRadius="0.75" ShadowDepth="0.75"/>
-                    </Border.Effect>
-                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <TextBlock FontSize="25"
+                <StackPanel Grid.Column="1" Visibility="Collapsed">
+                    <TextBlock Text="{Binding SelectedWord.UpdatedDate}"/>
+                    <TextBlock Text="{Binding SelectedWord.DueDate}"/>
+                </StackPanel>
+
+                <Border x:Name="pnlCard" Grid.Row="1" Grid.Column="1" BorderBrush="#888" BorderThickness="2"
+                        CornerRadius="10" Background="White" RenderTransformOrigin="0.5,0.5">
+                    <Border.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Border.RenderTransform>
+                    <StackPanel x:Name="stackPanel" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <StackPanel.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </StackPanel.RenderTransform>
+                        <TextBlock x:Name="txtWord" FontSize="25"
                                    TextAlignment="Center">
                             <Run Text="{Binding SelectedWord.Name}"/>
                             <Run Foreground="Red" Text="{Binding SelectedWord.WordType, StringFormat=({0})}"/>
                         </TextBlock>
 
                         <TextBlock FontSize="14"
-                                   TextAlignment="Center">
+                                   x:Name="txtEquivalent"
+                                   TextAlignment="Center"
+                                   Margin="0 5 0 0"
+                                   Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
                             <Run Text="{Binding SelectedWord.Equivalent}"/>
                         </TextBlock>
 
-                        <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                                      Height="100" Margin="10" Width="300">
-                            <TextBlock FontSize="11">
+                        <ScrollViewer x:Name="scrollDescription" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                      Height="100" Margin="10" Width="300" RenderTransformOrigin="0.5,0.5"
+                                      Visibility="Collapsed">
+                            <ScrollViewer.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </ScrollViewer.RenderTransform>
+                            <TextBlock FontSize="11"
+                                       x:Name="txtDescription"
+                                       Visibility="Visible">
                                 <Run Foreground="#888" Text="Description:"/>
                                 <Run Text="{Binding SelectedWord.Description}"/>
                             </TextBlock>
                         </ScrollViewer>
+                        <Button Style="{StaticResource CurveButton}"
+                                x:Name="btnShow"
+                                Content="Show"
+                                HorizontalAlignment="Center"
+                                Width="100"
+                                Height="30"
+                                Margin="0 20 0 0"
+                                Background="Green"
+                                Foreground="White"
+                                Click="btnShow_Click"/>
                     </StackPanel>
                 </Border>
 
-                <StackPanel Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"
+                            Orientation="Horizontal"
+                            x:Name="pnlButtons">
+
                     <Button Style="{StaticResource CurveButton}"
+                            x:Name="btnNextHard"
                             HorizontalAlignment="Right"
-                            Content="Next"
+                            Content="Hard"
+                            Width="100"
                             Padding="10"
                             FontSize="11"
-                            Background="White"
-                            Foreground="Black"
-                            BorderThickness="2"
-                            Command="{Binding NextWordPracticeCmd}"/>
+                            Background="DarkRed"
+                            Foreground="White"
+                            BorderThickness="0"
+                            Margin="5"
+                            CommandParameter="3"
+                            Command="{Binding NextWordPracticeCmd}"
+                            Click="btnNextEasy_Click"/>
+
+                    <Button Style="{StaticResource CurveButton}"
+                            x:Name="btnNextNormal"
+                            HorizontalAlignment="Right"
+                            Content="Normal"
+                            Padding="10"
+                            Width="100"
+                            FontSize="11"
+                            Background="DarkOrange"
+                            Foreground="White"
+                            Margin="5"
+                            BorderThickness="0"
+                            CommandParameter="2"
+                            Command="{Binding NextWordPracticeCmd}"
+                            Click="btnNextEasy_Click"/>
+
+                    <Button Style="{StaticResource CurveButton}"
+                            x:Name="btnNextEasy"
+                            HorizontalAlignment="Right"
+                            Content="Easy"
+                            Padding="10"
+                            Width="100"
+                            FontSize="11"
+                            Background="Blue"
+                            Foreground="White"
+                            Margin="5"
+                            BorderThickness="0"
+                            CommandParameter="1"
+                            Command="{Binding NextWordPracticeCmd}"
+                            Click="btnNextEasy_Click"/>
                 </StackPanel>
             </Grid>
         </DockPanel>

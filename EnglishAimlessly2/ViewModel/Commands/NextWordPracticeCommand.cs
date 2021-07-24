@@ -15,16 +15,27 @@ namespace EnglishAimlessly2.ViewModel.Commands
             pvm = viewModel;
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            String p = parameter as String;
+            if (p == "1") return true;
+            else if (p == "2") return true;
+            else if (p == "3") return true;
+            else return false;
         }
 
         public void Execute(object parameter)
         {
-            pvm.NextWord();
+            String p = parameter as String;
+            if (p == "1") pvm.NextWordEasy();
+            else if (p == "2") pvm.NextWordNormal();
+            else if (p == "3") pvm.NextWordHard();
         }
     }
 }

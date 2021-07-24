@@ -27,6 +27,7 @@ namespace EnglishAimlessly2.ViewModel
             {
                 _selectedGroup = value;
                 if(SelectedGroup != null) Reload();
+                OnPropertyChanged(nameof(SelectedGroup));
             }
         }
         public WordModel SelectedWord
@@ -60,12 +61,14 @@ namespace EnglishAimlessly2.ViewModel
         }
 
         public WordTableHelper WordDatabaseHelper { get; set; }
+        //public GroupTableHelper GroupDatabaseHelper { get; set; }
         public NextWordPracticeCommand NextWordPracticeCmd { get; set; }
         public PracticeVM()
         {
             if(!DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
             {
                 WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
+                //GroupDatabaseHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
             }
 
             // Commands
@@ -76,6 +79,7 @@ namespace EnglishAimlessly2.ViewModel
         {
             WordDatabaseHelper.Reload();
             _words = WordDatabaseHelper.GetSortedDueTime(SelectedGroup);
+
             if (_words.Values.Count != 0)
             {
                 SelectedIndex = 0;
@@ -83,12 +87,59 @@ namespace EnglishAimlessly2.ViewModel
             }
         }
 
-        public void NextWord()
+        public void NextWordEasy()
         {
-            // beta code and should be changed later and be optimized
+            double p = SelectedWord.PracticeCount; // Practice count for the function addHours
+            double addHours = (0.75 * p * p * p) + (1 * p * p) + (8 * (p + 1));
+
             WordModel updateWord = SelectedWord;
             updateWord.UpdatedDate = DateTime.Now;
             updateWord.PracticeCount++;
+
+            DateTime dueDate = DateTime.Now;
+            dueDate = dueDate.AddHours(addHours);
+            updateWord.DueDate = dueDate;
+
+            WordDatabaseHelper.Update(updateWord);
+
+            SelectedIndex++;
+
+            GoneNext?.Invoke(this, SelectedWord);
+        }
+
+        public void NextWordNormal()
+        {
+            double p = SelectedWord.PracticeCount; // Practice count for the function addHours
+            double addHours = (2 * p * p) + (5 * (p + 1));
+
+            WordModel updateWord = SelectedWord;
+            updateWord.UpdatedDate = DateTime.Now;
+            updateWord.PracticeCount++;
+
+            DateTime dueDate = DateTime.Now;
+            dueDate = dueDate.AddHours(addHours);
+            updateWord.DueDate = dueDate;
+
+            WordDatabaseHelper.Update(updateWord);
+
+            SelectedIndex++;
+
+            GoneNext?.Invoke(this, SelectedWord);
+        }
+
+        public void NextWordHard()
+        {
+            int p = SelectedWord.PracticeCount; // Practice count for the function addHours
+            double addHours = (1 * p * p) + (5 * (p + 1));
+
+            WordModel updateWord = SelectedWord;
+            updateWord.UpdatedDate = DateTime.Now;
+            updateWord.PracticeCount++;
+
+            DateTime dueDate = DateTime.Now;
+            dueDate = dueDate.AddHours(addHours);
+            updateWord.DueDate = dueDate;
+
             WordDatabaseHelper.Update(updateWord);
 
             SelectedIndex++;

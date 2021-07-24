@@ -13,11 +13,10 @@
 
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="#c1c8c7"/>
+                            <Setter Property="Opacity" TargetName="border" Value="0.7"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="border" Value="#5e6668"/>
-                            <Setter Property="TextElement.Foreground" TargetName="content" Value="#fff"/>
+                            <Setter Property="Opacity" TargetName="border" Value="0.5"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Background" TargetName="border" Value="#eee"/>

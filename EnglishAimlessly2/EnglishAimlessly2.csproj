@@ -6,7 +6,7 @@
     <UseWPF>true</UseWPF>
     <Authors>Alireza Kamyab</Authors>
     <Product>EnglishAimlessly</Product>
-    <Version>2.0.0</Version>
+    <Version>0.1.0</Version>
     <Copyright>Alireza Kamyab; Copyright 2021</Copyright>
   </PropertyGroup>
 
