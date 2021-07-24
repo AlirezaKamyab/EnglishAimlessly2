@@ -30,7 +30,22 @@ namespace EnglishAimlessly2.View
 
             PracticeVM pvm = FindResource("pvm") as PracticeVM;
             PracticeViewModel = pvm;
-            pvm.SelectedGroup = selectedGroup;
+            PracticeViewModel.SelectedGroup = selectedGroup;
+
+            if (PracticeViewModel.SelectedIndex >= PracticeViewModel.WordCount) NotFoundValues();
+            PracticeViewModel.Completed += PracticeViewModel_Completed;
+        }
+
+        private void PracticeViewModel_Completed(object sender)
+        {
+            NotFoundValues();
+        }
+
+        void NotFoundValues()
+        {
+            pnlError.Visibility = Visibility.Visible;
+            stackPanel.Visibility = Visibility.Collapsed;
+            pnlButtons.Visibility = Visibility.Collapsed;
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)

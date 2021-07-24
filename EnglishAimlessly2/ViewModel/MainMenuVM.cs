@@ -20,6 +20,7 @@ namespace EnglishAimlessly2.ViewModel
         private string _groupName;
         private string _itemCount;
         private string _newWords;
+        private int _practiceAvailableCount;
 
         public string NewWords
         {
@@ -46,6 +47,18 @@ namespace EnglishAimlessly2.ViewModel
             }
         }
 
+        public int PracticeAvailableCount 
+        { 
+            get
+            {
+                return _practiceAvailableCount;
+            }
+            set
+            {
+                _practiceAvailableCount = value;
+                OnPropertyChanged(nameof(PracticeAvailableCount));
+            }
+        }
         public string GroupName
         {
             get
@@ -141,6 +154,7 @@ namespace EnglishAimlessly2.ViewModel
             _wordHelper.Reload();
             ItemCount = _wordHelper.SearchByGroupId(SelectedGroup.Id).Count.ToString();
             NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
+            PracticeAvailableCount = _wordHelper.GetSortedDueTime(SelectedGroup).Count;
         }
 
         public void ForceUpdateInformationForGroup()
@@ -148,6 +162,7 @@ namespace EnglishAimlessly2.ViewModel
             _wordHelper.Reload();
             ItemCount = _wordHelper.SearchByGroupId(SelectedGroup.Id).Count.ToString();
             NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
+            PracticeAvailableCount = _wordHelper.GetSortedDueTime(SelectedGroup).Count;
             ReloadGroups();
         }
 

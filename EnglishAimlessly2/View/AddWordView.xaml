@@ -43,20 +43,23 @@
                         <StackPanel Margin="0 0 2.5 0">
                             <TextBlock Text="Word Name"/>
                             <TextBox Style="{StaticResource NewTextBox}" Margin="0 5 0 0"
-                                     Text="{Binding WordName, Mode=TwoWay}"/>
+                                     Text="{Binding WordName, Mode=TwoWay}"
+                                     MaxLength="30"/>
                         </StackPanel>
 
                         <StackPanel Margin="2.5 0 0 0" Grid.Column="1">
                             <TextBlock Text="Word Type"/>
                             <TextBox Style="{StaticResource NewTextBox}" Margin="0 5 0 0"
-                                     Text="{Binding WordType, Mode=TwoWay}"/>
+                                     Text="{Binding WordType, Mode=TwoWay}"
+                                     MaxLength="20"/>
                         </StackPanel>
                     </Grid>
 
                     <TextBlock Margin="5 0" Text="Equivalent"/>
                     <TextBox Style="{StaticResource NewTextBox}"
                              Margin="5"
-                             Text="{Binding Equivalent, Mode=TwoWay}"/>
+                             Text="{Binding Equivalent, Mode=TwoWay}"
+                             MaxLength="60"/>
 
                     <TextBlock Margin="5 0" Text="Description"/>
                     <TextBox Style="{StaticResource NewTextBox}"

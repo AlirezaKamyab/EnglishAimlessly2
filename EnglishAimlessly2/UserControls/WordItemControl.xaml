@@ -10,8 +10,10 @@
             BorderThickness="1"
             CornerRadius="10">
         <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Center">
-            <TextBlock x:Name="txtWord" FontSize="14"
-                       Text="Word Name (Type)"/>
+            <TextBlock FontSize="14">
+                <Run x:Name="txtWord" Text="Word"/>
+                <Run x:Name="txtType" Foreground="Red" Text="(Type)"/>
+            </TextBlock>
 
             <TextBlock x:Name="txtDesc" FontSize="10"
                        Text="Description"

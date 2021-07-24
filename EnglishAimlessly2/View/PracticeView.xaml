@@ -46,8 +46,8 @@
                 <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="txtWord" Storyboard.TargetProperty="(TextBlock.FontSize)">
-                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="25"/>
-                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="20"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="20"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="18"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="NextWord">
@@ -62,8 +62,8 @@
         </Storyboard>
         <Storyboard x:Key="HideDetails">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="txtWord" Storyboard.TargetProperty="(TextBlock.FontSize)">
-                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="20"/>
-                <EasingDoubleKeyFrame KeyTime="00:00:00.0170000" Value="25"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="18"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.0170000" Value="20"/>
             </DoubleAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="txtEquivalent" Storyboard.TargetProperty="(UIElement.Visibility)">
                 <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
@@ -125,11 +125,6 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <StackPanel Grid.Column="1" Visibility="Collapsed">
-                    <TextBlock Text="{Binding SelectedWord.UpdatedDate}"/>
-                    <TextBlock Text="{Binding SelectedWord.DueDate}"/>
-                </StackPanel>
-
                 <Border x:Name="pnlCard" Grid.Row="1" Grid.Column="1" BorderBrush="#888" BorderThickness="2"
                         CornerRadius="10" Background="White" RenderTransformOrigin="0.5,0.5">
                     <Border.RenderTransform>
@@ -140,65 +135,79 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Border.RenderTransform>
-                    <StackPanel x:Name="stackPanel" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5">
-                        <StackPanel.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </StackPanel.RenderTransform>
-                        <TextBlock x:Name="txtWord" FontSize="25"
-                                   TextAlignment="Center">
-                            <Run Text="{Binding SelectedWord.Name}"/>
-                            <Run Foreground="Red" Text="{Binding SelectedWord.WordType, StringFormat=({0})}"/>
-                        </TextBlock>
 
-                        <TextBlock FontSize="14"
-                                   x:Name="txtEquivalent"
-                                   TextAlignment="Center"
-                                   Margin="0 5 0 0"
-                                   Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
-                            <TextBlock.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </TextBlock.RenderTransform>
-                            <Run Text="{Binding SelectedWord.Equivalent}"/>
-                        </TextBlock>
-
-                        <ScrollViewer x:Name="scrollDescription" ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                                      Height="100" Margin="10" Width="300" RenderTransformOrigin="0.5,0.5"
-                                      Visibility="Collapsed">
-                            <ScrollViewer.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </ScrollViewer.RenderTransform>
-                            <TextBlock FontSize="11"
-                                       x:Name="txtDescription"
-                                       Visibility="Visible">
-                                <Run Foreground="#888" Text="Description:"/>
-                                <Run Text="{Binding SelectedWord.Description}"/>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <StackPanel x:Name="pnlError" Visibility="Collapsed">
+                            <TextBlock FontSize="20" Text="No word for practice" TextAlignment="Center">
+                                <TextBlock.Foreground>
+                                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                        <GradientStop Color="#FF4F00FF"/>
+                                        <GradientStop Color="Red" Offset="1"/>
+                                        <GradientStop Color="#FF2BAD52" Offset="0.51"/>
+                                    </LinearGradientBrush>
+                                </TextBlock.Foreground>
                             </TextBlock>
-                        </ScrollViewer>
-                        <Button Style="{StaticResource CurveButton}"
-                                x:Name="btnShow"
-                                Content="Show"
-                                HorizontalAlignment="Center"
-                                Width="100"
-                                Height="30"
-                                Margin="0 20 0 0"
-                                Background="Green"
-                                Foreground="White"
-                                Click="btnShow_Click"/>
+                        </StackPanel>
+                        <StackPanel x:Name="stackPanel" RenderTransformOrigin="0.5,0.5">
+                            <StackPanel.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </StackPanel.RenderTransform>
+                            <TextBlock x:Name="txtWord" FontSize="20"
+                                       TextAlignment="Center">
+                                <Run Text="{Binding SelectedWord.Name}"/>
+                                <Run Foreground="Red" Text="{Binding SelectedWord.WordType, StringFormat=({0})}"/>
+                            </TextBlock>
+
+                            <TextBlock FontSize="14"
+                                       x:Name="txtEquivalent"
+                                       TextAlignment="Center"
+                                       Margin="0 5 0 0"
+                                       Visibility="Collapsed" RenderTransformOrigin="0.5,0.5">
+                                <TextBlock.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </TextBlock.RenderTransform>
+                                <Run Text="{Binding SelectedWord.Equivalent}"/>
+                            </TextBlock>
+
+                            <ScrollViewer x:Name="scrollDescription" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                                          Height="100" Margin="10" Width="300" RenderTransformOrigin="0.5,0.5"
+                                          Visibility="Collapsed">
+                                <ScrollViewer.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </ScrollViewer.RenderTransform>
+                                <TextBlock FontSize="11"
+                                           x:Name="txtDescription"
+                                           Visibility="Visible">
+                                    <Run Foreground="#888" Text="Description:"/>
+                                    <Run Text="{Binding SelectedWord.Description}"/>
+                                </TextBlock>
+                            </ScrollViewer>
+                            <Button Style="{StaticResource CurveButton}"
+                                    x:Name="btnShow"
+                                    Content="Show"
+                                    HorizontalAlignment="Center"
+                                    Width="100"
+                                    Height="30"
+                                    Margin="0 20 0 0"
+                                    Background="Green"
+                                    Foreground="White"
+                                    Click="btnShow_Click"/>
+                        </StackPanel>
                     </StackPanel>
                 </Border>
 
@@ -248,8 +257,8 @@
                             Margin="5"
                             BorderThickness="0"
                             CommandParameter="1"
-                            Command="{Binding NextWordPracticeCmd}"
-                            Click="btnNextEasy_Click"/>
+                            Click="btnNextEasy_Click"
+                            Command="{Binding NextWordPracticeCmd}"/>
                 </StackPanel>
             </Grid>
         </DockPanel>

@@ -56,9 +56,11 @@ namespace EnglishAimlessly2.ViewModel
                     _selectedIndex = value;
                     SelectedWord = _words.Values[SelectedIndex];
                 }
-                else Reload();
+                else Completed?.Invoke(this);
             }
         }
+
+        public int WordCount { get; set; } = 0;
 
         public WordTableHelper WordDatabaseHelper { get; set; }
         //public GroupTableHelper GroupDatabaseHelper { get; set; }
@@ -80,7 +82,9 @@ namespace EnglishAimlessly2.ViewModel
             WordDatabaseHelper.Reload();
             _words = WordDatabaseHelper.GetSortedDueTime(SelectedGroup);
 
-            if (_words.Values.Count != 0)
+            WordCount = _words.Count;
+
+            if (WordCount != 0)
             {
                 SelectedIndex = 0;
                 SelectedWord = _words.Values[SelectedIndex];
@@ -89,6 +93,8 @@ namespace EnglishAimlessly2.ViewModel
 
         public void NextWordEasy()
         {
+            if (SelectedWord == null) return;
+
             double p = SelectedWord.PracticeCount; // Practice count for the function addHours
             double addHours = (0.75 * p * p * p) + (1 * p * p) + (8 * (p + 1));
 
@@ -109,6 +115,8 @@ namespace EnglishAimlessly2.ViewModel
 
         public void NextWordNormal()
         {
+            if (SelectedWord == null) return;
+
             double p = SelectedWord.PracticeCount; // Practice count for the function addHours
             double addHours = (2 * p * p) + (5 * (p + 1));
 
@@ -129,6 +137,8 @@ namespace EnglishAimlessly2.ViewModel
 
         public void NextWordHard()
         {
+            if (SelectedWord == null) return;
+
             int p = SelectedWord.PracticeCount; // Practice count for the function addHours
             double addHours = (1 * p * p) + (5 * (p + 1));
 
@@ -154,6 +164,8 @@ namespace EnglishAimlessly2.ViewModel
         }
 
         public delegate void NextHandler(object sender, WordModel word);
+        public delegate void UpdateHandler(object sender);
         public event NextHandler GoneNext;
+        public event UpdateHandler Completed;
     }
 }

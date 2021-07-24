@@ -150,25 +150,16 @@
 
                         <TextBlock Margin="0 5"
                                    FontSize="14"
-                                   Text="Level: 0"
+                                   Text="Masterd Words: 0"
                                    DockPanel.Dock="Right"
                                    HorizontalAlignment="Right"/>
                     </DockPanel>
 
-                    <DockPanel Margin="5 0">
-                        <TextBlock Margin="0 5"
-                                   FontSize="14"
-                                   DockPanel.Dock="Left">
-                            <Run Text="New Words: "/>
-                            <Run Text="{Binding NewWords, Mode=TwoWay}"/>
-                        </TextBlock>
-
-                        <TextBlock Margin="0 5"
-                                   FontSize="14"
-                                   Text="Mastered Words: 0"
-                                   DockPanel.Dock="Right"
-                                   HorizontalAlignment="Right"/>
-                    </DockPanel>
+                    <TextBlock Margin="0 5" FontSize="18"
+                               TextAlignment="Center">
+                        <Run Text="Available for practice:"/>
+                        <Run Text="{Binding PracticeAvailableCount}" Foreground="DodgerBlue"/>
+                    </TextBlock>
                 </StackPanel>
 
                 <StackPanel Grid.Row="1" Margin="10">
@@ -179,15 +170,15 @@
                     <Button Style="{StaticResource CurveButton}"
                             x:Name="btnPractice"
                             Margin="0 20 0 5"
-                            Content="Practice"
                             FontSize="12"
                             HorizontalAlignment="Center"
                             Width="300"
+                            Content="Practice"
                             Padding="7"
                             Background="#fcb500"
                             Click="btnPractice_Click"/>
 
-                    <Button Style="{StaticResource CurveButton}"
+                        <Button Style="{StaticResource CurveButton}"
                             Margin="0 5"
                             Content="Master Challenge"
                             FontSize="12"

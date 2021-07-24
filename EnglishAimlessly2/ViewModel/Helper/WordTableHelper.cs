@@ -148,7 +148,8 @@ namespace EnglishAimlessly2.ViewModel.Helper
             SortedList<long, WordModel> pairs = new SortedList<long, WordModel>();
             foreach(WordModel item in _innerList)
             {
-                if(item.GroupId == fromGroup.Id) pairs.Add((long) DateTimeHelper.NextWordPracticeSpan(item).Miliseconds, item);
+                long time = (long)DateTimeHelper.NextWordPracticeSpan(item).Miliseconds;
+                if (item.GroupId == fromGroup.Id && time <= 0) pairs.Add((long) DateTimeHelper.NextWordPracticeSpan(item).Miliseconds, item);
             }
 
             return pairs;
