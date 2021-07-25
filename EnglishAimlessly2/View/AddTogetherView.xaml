@@ -65,8 +65,8 @@
 
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <uc:WordItemControl Word="{Binding}" Width="330"
-                                                    Height="80"/>
+                                <uc:WordPreviewItemControl Word="{Binding}" Width="330"
+                                                    />
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

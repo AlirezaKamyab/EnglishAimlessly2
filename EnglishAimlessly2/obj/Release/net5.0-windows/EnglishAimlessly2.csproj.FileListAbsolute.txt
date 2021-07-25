@@ -70,3 +70,5 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-w
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.genruntimeconfig.cache
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\AddTogetherView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\AddTogetherView.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\UserControls\WordPreviewItemControl.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\UserControls\WordPreviewItemControl.baml

@@ -26,9 +26,14 @@ namespace EnglishAimlessly2.View
         {
             InitializeComponent();
             uvm = Resources["uvm"] as UserCredentialVM;
-            checkedStayLoggedIn.IsChecked = Properties.Settings.Default.StayLoggedin;
 
             Loaded += LoginView_Loaded;
+            this.Activated += LoginView_Activated;
+        }
+
+        private void LoginView_Activated(object sender, EventArgs e)
+        {
+            checkedStayLoggedIn.IsChecked = Properties.Settings.Default.StayLoggedin;
         }
 
         private void LoginView_Loaded(object sender, RoutedEventArgs e)

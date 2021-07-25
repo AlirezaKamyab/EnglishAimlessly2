@@ -76,7 +76,13 @@ namespace EnglishAimlessly2.ViewModel
                 WordModel model = new WordModel();
                 model.Name = word[0].Trim();
                 model.Equivalent = word[1].Trim();
-                model.Description = word[2].Trim();
+
+                string[] descriptions = word[2].Trim().Split('#');
+                for(int i = 0; i < descriptions.Length; i++)
+                {
+                    model.Description += string.Format("{0}: {1}\n", i + 1, descriptions[i]);
+                }
+
                 model.PracticeCount = 0;
                 model.CreationDate = DateTime.Now;
                 model.UpdatedDate = DateTime.Now;

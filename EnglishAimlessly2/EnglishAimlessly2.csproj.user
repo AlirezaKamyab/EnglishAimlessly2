@@ -13,6 +13,9 @@
     <Compile Update="UserControls\WordItemControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\WordPreviewItemControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\AddTogetherView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -70,6 +73,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\WordItemControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\WordPreviewItemControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AddTogetherView.xaml">
