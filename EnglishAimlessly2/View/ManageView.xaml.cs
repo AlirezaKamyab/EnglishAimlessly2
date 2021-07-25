@@ -106,5 +106,15 @@ namespace EnglishAimlessly2.View
                 ShowDialog();
             }
         }
+
+        private void btnAddTogether_Click(object sender, RoutedEventArgs e)
+        {
+            if (ManagerViewModel.SelectedGroup == null) return;
+
+            Hide();
+            AddTogetherView atv = new AddTogetherView(ManagerViewModel);
+            atv.ShowDialog();
+            ShowDialog();
+        }
     }
 }

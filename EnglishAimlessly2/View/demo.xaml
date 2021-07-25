@@ -10,6 +10,7 @@
 
     <StackPanel Margin="10">
         <TextBlock x:Name="txt" FontSize="12" TextAlignment="Center"/>
-        <TextBlock x:Name="txt2" FontSize="15" TextAlignment="Center"/>
+        <TextBox x:Name="txtBox" FontSize="12" AcceptsReturn="True"
+                 Height="200" TextChanged="txtBox_TextChanged"/>
     </StackPanel>
 </Window>

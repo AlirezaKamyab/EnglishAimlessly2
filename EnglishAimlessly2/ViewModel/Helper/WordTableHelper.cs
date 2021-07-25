@@ -149,7 +149,14 @@ namespace EnglishAimlessly2.ViewModel.Helper
             foreach(WordModel item in _innerList)
             {
                 long time = (long)DateTimeHelper.NextWordPracticeSpan(item).Miliseconds;
-                if (item.GroupId == fromGroup.Id && time <= 0) pairs.Add((long) DateTimeHelper.NextWordPracticeSpan(item).Miliseconds, item);
+                WordModel temp;
+
+                while (true) 
+                {
+                    if (!pairs.TryGetValue(time, out temp)) break;
+                    time++;
+                }
+                if (item.GroupId == fromGroup.Id && time <= 0) pairs.Add(time, item);
             }
 
             return pairs;

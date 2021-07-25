@@ -100,8 +100,9 @@ namespace EnglishAimlessly2.ViewModel
                     _groupHelper.Reload();
                     _selectedGroup = _groupHelper.SearchById(temp.Id);
                     UpdateInformationForGroup();
-                    OnPropertyChanged(nameof(SelectedGroup));
                 }
+                else _selectedGroup = null;
+                OnPropertyChanged(nameof(SelectedGroup));
             }
         }
 
@@ -145,6 +146,7 @@ namespace EnglishAimlessly2.ViewModel
         {
             if (SelectedGroup == null) return;
             _groupHelper.Remove(SelectedGroup);
+            SelectedGroup = null;
 
             ReloadGroups();
         }
@@ -159,6 +161,7 @@ namespace EnglishAimlessly2.ViewModel
 
         public void ForceUpdateInformationForGroup()
         {
+            _groupHelper.Reload();
             _wordHelper.Reload();
             ItemCount = _wordHelper.SearchByGroupId(SelectedGroup.Id).Count.ToString();
             NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();

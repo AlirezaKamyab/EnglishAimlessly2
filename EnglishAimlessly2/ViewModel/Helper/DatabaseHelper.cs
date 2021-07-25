@@ -9,6 +9,6 @@ namespace EnglishAimlessly2.ViewModel.Helper
 {
     public class DatabaseHelper
     {
-        public static string DATABASE_PATH = Path.Combine(Environment.CurrentDirectory, "Database.db");
+        public static string DATABASE_PATH { get; set; } = Path.Combine(Environment.CurrentDirectory, "Database.db");
     }
 }

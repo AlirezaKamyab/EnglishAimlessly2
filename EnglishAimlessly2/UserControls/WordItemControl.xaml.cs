@@ -39,7 +39,7 @@ namespace EnglishAimlessly2.UserControls
             {
                 WordModel newWord = e.NewValue as WordModel;
                 wic.txtWord.Text = newWord.Name;
-                wic.txtType.Text = "(" + newWord.WordType + ")";
+                wic.txtType.Text = " " + newWord.WordType;
                 wic.txtDesc.Text = newWord.Description;
             }
         }

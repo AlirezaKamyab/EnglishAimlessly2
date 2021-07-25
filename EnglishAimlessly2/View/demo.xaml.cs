@@ -25,24 +25,22 @@ namespace EnglishAimlessly2.View
         public demo()
         {
             InitializeComponent();
+        }
 
-            DateTime today = DateTime.Now;
-            DateTime dteTime = DateTime.Now;
-            dteTime = dteTime.AddHours(1);
-            dteTime = dteTime.AddMinutes(23);
-            dteTime = dteTime.AddSeconds(12);
-            dteTime = dteTime.AddDays(-2);
-            TimeModel time = DateTimeHelper.GetTimeModel(today, dteTime);
-            txt.Text = string.Format("Seconds: {0}\n" + "Minutes: {1}\n" + "Hours: {2}\n" + "Days: {3}\n" + "Date Today: {4}\n" + "Date Target: {5}",time.Seconds.ToString(), time.Minutes.ToString(), time.Hours.ToString(), time.Days.ToString(), DateTime.Now.ToLongDateString(), dteTime.ToLongDateString());
+        private void txtBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string[] line = txtBox.Text.Split('\n');
+            txt.Text = "";
 
-            SortedList<int, string> a = new SortedList<int, string>()
+            for (int l = 0; l < line.Length; l++)
             {
-                {1,  "Alireza"}, {2, "Someoneelse"}, {3, "hello, world"}
-            };
-
-            foreach (string item in a.Values)
-            {
-                txt2.Text += string.Format("{0}\n", item);
+                string[] word = line[l].Split(':');
+                if (word.Length != 3) continue;
+                WordModel model = new WordModel();
+                model.Name = word[0].Trim();
+                model.Equivalent = word[1].Trim();
+                model.Description = word[2].Trim();
+                txt.Text += string.Format("Name: {0}\t Equivalent: {1}\tDescription: {2}\n", model.Name, model.Equivalent, model.Description);
             }
         }
     }

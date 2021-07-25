@@ -53,7 +53,8 @@
                         HorizontalAlignment="Left"
                         DockPanel.Dock="Left"
                         Margin="5 0 0 0"
-                        BorderBrush="Transparent"/>
+                        BorderBrush="Transparent"
+                        Click="btnAddTogether_Click"/>
 
                 <Button Style="{StaticResource CurveButton}"
                         x:Name="btnClose"
@@ -168,7 +169,7 @@
                                 Margin="10">
                         <TextBlock FontSize="16" TextAlignment="Center" Margin="0 5 0 0">
                             <Run Text="{Binding SelectedWord.Name, Mode=TwoWay}"/>
-                            <Run Foreground="Red" Text="{Binding SelectedWord.WordType, Mode=TwoWay, StringFormat=({0})}"/>
+                            <Run Foreground="Red" Text="{Binding SelectedWord.WordType, Mode=TwoWay, StringFormat={} {0}}"/>
                         </TextBlock>
                         <TextBlock Margin="0 5 0 0" FontWeight="Bold">
                             <Run Foreground="#555" Text="Equivalent:"/>

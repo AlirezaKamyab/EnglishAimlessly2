@@ -160,7 +160,7 @@
                             <TextBlock x:Name="txtWord" FontSize="20"
                                        TextAlignment="Center">
                                 <Run Text="{Binding SelectedWord.Name}"/>
-                                <Run Foreground="Red" Text="{Binding SelectedWord.WordType, StringFormat=({0})}"/>
+                                <Run Foreground="Red" Text="{Binding SelectedWord.WordType, StringFormat={} {0}}"/>
                             </TextBlock>
 
                             <TextBlock FontSize="14"

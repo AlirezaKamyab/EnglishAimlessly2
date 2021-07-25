@@ -70,6 +70,7 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-win
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\TextboxDictionary.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\UserControls\GroupItemControl.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\UserControls\WordItemControl.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\AddTogetherView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\AddWordView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\ConfirmationView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\demo.g.cs
@@ -88,6 +89,7 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-win
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\VariablesDictionary.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\UserControls\GroupItemControl.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\UserControls\WordItemControl.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\AddTogetherView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\AddWordView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\ConfirmationView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\demo.baml
