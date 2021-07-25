@@ -192,7 +192,8 @@
                                 </ScrollViewer.RenderTransform>
                                 <TextBlock FontSize="11"
                                            x:Name="txtDescription"
-                                           Visibility="Visible">
+                                           Visibility="Visible"
+                                           TextWrapping="Wrap">
                                     <Run Foreground="#888" Text="Description:"/>
                                     <Run Text="{Binding SelectedWord.Description}"/>
                                 </TextBlock>

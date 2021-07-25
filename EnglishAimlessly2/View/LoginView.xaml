@@ -62,9 +62,11 @@
 
                     <Grid Margin="5 0">
                         <CheckBox Margin="0 5"
+                                  x:Name="checkedStayLoggedIn"
                                   Style="{StaticResource NewCheckBox}"
                                   Content="Stay logged in"
-                                  HorizontalAlignment="left"/>
+                                  HorizontalAlignment="left"
+                                  Click="checkedStayLoggedIn_Click"/>
                         <Button Style="{StaticResource ClickableText}" Content="Forgot Password?"
                                 Foreground="Black"
                                 HorizontalAlignment="Right"/>

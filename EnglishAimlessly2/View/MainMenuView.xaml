@@ -155,10 +155,15 @@
                                    HorizontalAlignment="Right"/>
                     </DockPanel>
 
-                    <TextBlock Margin="0 5" FontSize="18"
+                    <TextBlock Margin="0 5 0 0" FontSize="18"
                                TextAlignment="Center">
                         <Run Text="Available for practice:"/>
                         <Run Text="{Binding PracticeAvailableCount}" Foreground="DodgerBlue"/>
+                    </TextBlock>
+
+                    <TextBlock Margin="0 2 0 0" FontSize="11"
+                               TextAlignment="Center">
+                        <Run Text="{Binding NextPracticeCounter}"/>
                     </TextBlock>
                 </StackPanel>
 

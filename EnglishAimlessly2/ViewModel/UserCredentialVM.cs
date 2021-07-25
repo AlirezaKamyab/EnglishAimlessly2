@@ -23,7 +23,7 @@ namespace EnglishAimlessly2.ViewModel
         private DateTime _birthDay = DateTime.Now;
         private string _hint;
 
-        private readonly UserTableHelper _userTableHelper;
+        public UserTableHelper UserTableHelper { get; set; }
 
         public string Name
         {
@@ -127,13 +127,13 @@ namespace EnglishAimlessly2.ViewModel
             LoginCmd = new LoginCommand(this);
             if (DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) == false)
             {
-                _userTableHelper = new UserTableHelper(DatabaseHelper.DATABASE_PATH);
+                UserTableHelper = new UserTableHelper(DatabaseHelper.DATABASE_PATH);
             }
         }
 
         public void Reload()
         {
-            _userTableHelper.Reload();
+            UserTableHelper.Reload();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -147,25 +147,25 @@ namespace EnglishAimlessly2.ViewModel
             UserModel userModel = new(Name, Lastname, Email, Birthday, Username, Password);
             userModel.CreatedAccountDate = DateTime.Now;
 
-            if (_userTableHelper.SearchByUsername(Username).Id != -1)
+            if (UserTableHelper.SearchByUsername(Username).Id != -1)
             {
                 Hint = "Username is already taken!";
                 return;
             }
 
-            _userTableHelper.Insert(userModel);
+            UserTableHelper.Insert(userModel);
             Registered?.Invoke(this, userModel);
         }
 
         public void LoginAccount()
         {
-            UserModel foundUsername = _userTableHelper.SearchByUsername(Username);
+            UserModel foundUsername = UserTableHelper.SearchByUsername(Username);
             if (foundUsername.Id == -1)
             {
                 Hint = "Username does not exist";
                 return; 
             }
-            if (_userTableHelper.isValidCredential(foundUsername.Username, Password) == false)
+            if (UserTableHelper.isValidCredential(foundUsername.Username, Password) == false)
             {
                 Hint = "Password is incorrect";
                 return;

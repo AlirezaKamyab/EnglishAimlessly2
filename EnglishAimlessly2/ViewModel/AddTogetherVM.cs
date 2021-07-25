@@ -68,10 +68,10 @@ namespace EnglishAimlessly2.ViewModel
             string[] line = Text.Split('\n');
             Collection.Clear();
 
-            for (int l = 0; l < line.Length; l++)
+            for (int l = line.Length - 1; l >= 0; l--)
             {
                 string[] word = line[l].Split(':');
-                if (word.Length != 3) continue;
+                if (!(word.Length >= 3 && word.Length <= 4)) continue;
 
                 WordModel model = new WordModel();
                 model.Name = word[0].Trim();
@@ -83,7 +83,9 @@ namespace EnglishAimlessly2.ViewModel
                 model.DueDate = DateTime.Now;
                 model.GroupId = SelectedGroup.Id;
                 model.UserId = SelectedGroup.UserId;
-                model.WordType = "";
+
+                if (word.Length != 4) model.WordType = "";
+                else model.WordType = word[3].Trim();
 
                 Collection.Add(model);
             }

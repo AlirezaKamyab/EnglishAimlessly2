@@ -64,6 +64,8 @@ namespace EnglishAimlessly2.View
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             baseWindow = false;
+            Properties.Settings.Default.StayLoggedin = false;
+            Properties.Settings.Default.Save();
             loginView.Show();
             Close();
         }

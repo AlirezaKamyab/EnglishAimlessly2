@@ -6,8 +6,9 @@
     <UseWPF>true</UseWPF>
     <Authors>Alireza Kamyab</Authors>
     <Product>EnglishAimlessly</Product>
-    <Version>0.1.0</Version>
+    <Version>0.5.0</Version>
     <Copyright>Alireza Kamyab; Copyright 2021</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,6 +37,21 @@
     <Resource Include="Resources\Images\Icons\instagram.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

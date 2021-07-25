@@ -101,5 +101,21 @@ namespace EnglishAimlessly2.ViewModel.Helper
             }
             return temp;
         }
+
+        public TimeModel NextPractice(int id)
+        {
+            TimeModel time = new TimeModel(TimeSpan.MaxValue);
+            WordTableHelper wordHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
+            foreach (WordModel item in wordHelper.GetData())
+            {
+                if(item.GroupId == id)
+                {
+                    TimeModel temp = DateTimeHelper.NextWordPracticeSpan(item);
+                    if (temp.Miliseconds < time.Miliseconds) time = temp;
+                }
+            }
+
+            return time;
+        }
     }
 }

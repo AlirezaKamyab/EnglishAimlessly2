@@ -1,4 +1,5 @@
-﻿using EnglishAimlessly2.ViewModel;
+﻿using EnglishAimlessly2.Model;
+using EnglishAimlessly2.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,23 @@ namespace EnglishAimlessly2.View
         {
             InitializeComponent();
             uvm = Resources["uvm"] as UserCredentialVM;
+            checkedStayLoggedIn.IsChecked = Properties.Settings.Default.StayLoggedin;
+
+            Loaded += LoginView_Loaded;
+        }
+
+        private void LoginView_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Properties.Settings.Default.StayLoggedin)
+            {
+                UserModel logged = uvm.UserTableHelper.SearchById(Properties.Settings.Default.UserId);
+                if (logged != null && logged.Id > 0)
+                {
+                    Hide();
+                    MainMenuView mmv = new(logged, this);
+                    mmv.ShowDialog();
+                }
+            }
         }
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
@@ -44,8 +62,16 @@ namespace EnglishAimlessly2.View
         private void UserCredentialVM_Loggedin(object sender, Model.UserModel user)
         {
             Hide();
+            Properties.Settings.Default.UserId = user.Id;
+            Properties.Settings.Default.Save();
             MainMenuView mmv = new(user, this);
             mmv.ShowDialog();
+        }
+
+        private void checkedStayLoggedIn_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.StayLoggedin = (bool) checkedStayLoggedIn.IsChecked;
+            Properties.Settings.Default.Save();
         }
     }
 }
