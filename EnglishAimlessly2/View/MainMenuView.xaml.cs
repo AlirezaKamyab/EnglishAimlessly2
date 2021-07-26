@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Notification.Wpf;
 
 namespace EnglishAimlessly2.View
 {
@@ -25,6 +26,8 @@ namespace EnglishAimlessly2.View
         UserModel loggedUser;
         MainMenuVM mmvm;
         LoginView loginView;
+
+        private readonly System.Windows.Forms.NotifyIcon notify;
         public MainMenuView(UserModel user, LoginView login)
         {
             InitializeComponent();
@@ -33,14 +36,43 @@ namespace EnglishAimlessly2.View
             mmvm.LoggedUser = loggedUser;
             loginView = login;
 
+            notify = new System.Windows.Forms.NotifyIcon();
+            notify.Icon = Properties.Resources.English;
+            notify.Visible = true;
+            notify.Text = "English Aimlessly";
+            notify.Click += Notify_Click;
+
             Owner = Application.Current.MainWindow;
             borderMain.Visibility = Visibility.Hidden;
 
             Closing += MainMenuView_Closing;
+            mmvm.OnTime += Mmvm_OnTime;
+        }
+
+        private void Notify_Click(object sender, EventArgs e)
+        {
+            if (Visibility == Visibility.Hidden)
+            {
+                ShowDialog();
+                Activate();
+            }
+        }
+
+        private void Mmvm_OnTime(object sender, GroupModel readyGroup)
+        {
+            NotificationContent content = new NotificationContent();
+            content.Title = "Practice is ready";
+            content.Message = string.Format("{0} is available for practice", readyGroup.Name);
+            content.RightButtonContent = "Show";
+            content.RightButtonAction = Show;
+            content.Type = NotificationType.Success;
+            NotificationManager manager = new NotificationManager();
+            manager.Show(content);
         }
 
         private void MainMenuView_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            notify.Dispose();
             if (baseWindow) Application.Current.Shutdown();
         }
 
@@ -104,6 +136,11 @@ namespace EnglishAimlessly2.View
                 mmvm.ForceUpdateInformationForGroup();
                 ShowDialog();
             }
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
         }
     }
 }

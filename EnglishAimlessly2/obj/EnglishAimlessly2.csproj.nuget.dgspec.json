@@ -22,15 +22,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0-windows7.0"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0-windows7.0": {
-            "targetAlias": "net5.0-windows",
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -41,9 +41,13 @@
         }
       },
       "frameworks": {
-        "net5.0-windows7.0": {
-          "targetAlias": "net5.0-windows",
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Notification.Wpf": {
+              "target": "Package",
+              "version": "[5.1.1.1, )"
+            },
             "sqlite-net-pcl": {
               "target": "Package",
               "version": "[1.7.335, )"
@@ -63,7 +67,7 @@
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             },
-            "Microsoft.WindowsDesktop.App.WPF": {
+            "Microsoft.WindowsDesktop.App": {
               "privateAssets": "none"
             }
           },

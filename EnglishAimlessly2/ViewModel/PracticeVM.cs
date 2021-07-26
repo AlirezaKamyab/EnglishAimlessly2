@@ -74,7 +74,7 @@ namespace EnglishAimlessly2.ViewModel
             }
 
             // Commands
-            NextWordPracticeCmd = new(this);
+            NextWordPracticeCmd = new NextWordPracticeCommand(this);
         }
 
         private void Reload()

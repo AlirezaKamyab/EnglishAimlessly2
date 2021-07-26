@@ -75,7 +75,7 @@ namespace EnglishAimlessly2.ViewModel.Helper
 
         public UserModel SearchByUsername(string username)
         {
-            foreach(UserModel um in _innerList)
+            foreach (UserModel um in _innerList)
             {
                 if (um.Username == username) return um;
             }
@@ -105,6 +105,25 @@ namespace EnglishAimlessly2.ViewModel.Helper
             UserModel user = SearchByUsername(username);
             if (user.Id == -1) return false;
             return user.Password == password;
+        }
+
+        public GroupModel MinPracticeTime(int id)
+        {
+            TimeModel min = DateTimeHelper.GetTimeModel(DateTime.MinValue, DateTime.MaxValue);
+            GroupModel nearestPracticeGroup = null;
+
+            GroupTableHelper tableHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
+            foreach (GroupModel item in tableHelper.SearchByUserId(id))
+            {
+                TimeModel span = tableHelper.NextPractice(item.Id);
+                if (span.Miliseconds < min.Miliseconds)
+                {
+                    min = span;
+                    nearestPracticeGroup = item;
+                }
+            }
+
+            return nearestPracticeGroup;
         }
     }
 }

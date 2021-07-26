@@ -164,10 +164,10 @@ namespace EnglishAimlessly2.ViewModel
             }
 
             // Commands
-            AddWordCmd = new(this);
-            EditWordCmd = new(this);
-            RemoveWordCmd = new(this);
-            ResetWordCmd = new(this);
+            AddWordCmd = new AddWordCommand(this);
+            EditWordCmd = new EditWordCommand(this);
+            RemoveWordCmd = new RemoveWordCommand(this);
+            ResetWordCmd = new ResetWordCommand(this);
         }
 
         public void Reload()

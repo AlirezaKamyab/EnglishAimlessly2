@@ -62,7 +62,7 @@ namespace EnglishAimlessly2.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EnglishAimlessly2;component/view/groupsettingsview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EnglishAimlessly2;V0.5.0.0;component/view/groupsettingsview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\GroupSettingsView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

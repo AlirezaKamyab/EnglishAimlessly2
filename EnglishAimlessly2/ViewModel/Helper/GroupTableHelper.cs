@@ -79,7 +79,7 @@ namespace EnglishAimlessly2.ViewModel.Helper
             {
                 if (item.Id == id) return item;
             }
-            return new();
+            return new GroupModel();
         }
 
         public List<GroupModel> SearchByUserId(int id)

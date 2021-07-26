@@ -1,15 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "2u4Ig9qpiAdFeA1qBGfPtiaY4WIiyilYohjkVl0uP5yufZW5RGs8i37r8WcHkuj54iCdK5d8wHlZFCAxlIG3IQ==",
+  "dgSpecHash": "ghcWfAFkaUIx6+KbKQbCxODUmX+jpZI7M+xISit3yrErHBHf8C6dxSNzq4H2nPh3vPguTEbVFbd5YVW9Xr9nmw==",
   "success": true,
   "projectFilePath": "G:\\Programming Projects\\EnglishAimlessly2\\EnglishAimlessly2\\EnglishAimlessly2.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Alireza\\.nuget\\packages\\fontawesome5\\2.1.0\\fontawesome5.2.1.0.nupkg.sha512",
+    "C:\\Users\\Alireza\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
+    "C:\\Users\\Alireza\\.nuget\\packages\\notification.wpf\\5.1.1.1\\notification.wpf.5.1.1.1.nupkg.sha512",
     "C:\\Users\\Alireza\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
     "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",
     "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.3\\sqlitepclraw.lib.e_sqlite3.2.0.3.nupkg.sha512",
     "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.3\\sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512",
-    "C:\\Users\\Alireza\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+    "C:\\Users\\Alireza\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\Alireza\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

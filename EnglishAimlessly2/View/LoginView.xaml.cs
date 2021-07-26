@@ -44,7 +44,7 @@ namespace EnglishAimlessly2.View
                 if (logged != null && logged.Id > 0)
                 {
                     Hide();
-                    MainMenuView mmv = new(logged, this);
+                    MainMenuView mmv = new MainMenuView(logged, this);
                     mmv.ShowDialog();
                 }
             }
@@ -69,7 +69,7 @@ namespace EnglishAimlessly2.View
             Hide();
             Properties.Settings.Default.UserId = user.Id;
             Properties.Settings.Default.Save();
-            MainMenuView mmv = new(user, this);
+            MainMenuView mmv = new MainMenuView(user, this);
             mmv.ShowDialog();
         }
 

@@ -1,7 +1,47 @@
 {
   "version": 3,
   "targets": {
-    "net5.0-windows7.0": {
+    ".NETCoreApp,Version=v3.1": {
+      "FontAwesome5/2.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/FontAwesome5.Net.dll": {},
+          "lib/netcoreapp3.1/FontAwesome5.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/FontAwesome5.Net.dll": {},
+          "lib/netcoreapp3.1/FontAwesome5.dll": {}
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.31": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "Notification.Wpf/5.1.1.1": {
+        "type": "package",
+        "dependencies": {
+          "FontAwesome5": "2.1.0",
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.31",
+          "System.ValueTuple": "4.5.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Notification.Wpf.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Notification.Wpf.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
       "sqlite-net-pcl/1.7.335": {
         "type": "package",
         "dependencies": {
@@ -121,10 +161,105 @@
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
         }
+      },
+      "System.ValueTuple/4.5.0": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/_._": {}
+        }
       }
     }
   },
   "libraries": {
+    "FontAwesome5/2.1.0": {
+      "sha512": "AHVpPBi8fDnPVFqos07UT+C/XGziRYP90s+8Eixd0M4vDuEZ9ZyIn3gcaBkXmWgmPVuEnR1GtAQlBTjNwRg3QA==",
+      "type": "package",
+      "path": "fontawesome5/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fontawesome5.2.1.0.nupkg.sha512",
+        "fontawesome5.nuspec",
+        "icon.png",
+        "lib/net40/FontAwesome5.Net.dll",
+        "lib/net40/FontAwesome5.Net.xml",
+        "lib/net40/FontAwesome5.dll",
+        "lib/net40/FontAwesome5.xml",
+        "lib/net462/FontAwesome5.Net.dll",
+        "lib/net462/FontAwesome5.Net.xml",
+        "lib/net462/FontAwesome5.dll",
+        "lib/net462/FontAwesome5.xml",
+        "lib/net472/FontAwesome5.Net.dll",
+        "lib/net472/FontAwesome5.Net.xml",
+        "lib/net472/FontAwesome5.dll",
+        "lib/net472/FontAwesome5.xml",
+        "lib/net5.0-windows/FontAwesome5.Net.dll",
+        "lib/net5.0-windows/FontAwesome5.Net.xml",
+        "lib/net5.0-windows/FontAwesome5.dll",
+        "lib/net5.0-windows/FontAwesome5.xml",
+        "lib/netcoreapp3.1/FontAwesome5.Net.dll",
+        "lib/netcoreapp3.1/FontAwesome5.Net.xml",
+        "lib/netcoreapp3.1/FontAwesome5.dll",
+        "lib/netcoreapp3.1/FontAwesome5.xml",
+        "lib/netstandard1.4/FontAwesome5.dll",
+        "lib/netstandard1.4/FontAwesome5.xml",
+        "lib/uap10.0/FontAwesome5.UWP.XML",
+        "lib/uap10.0/FontAwesome5.UWP.dll",
+        "lib/uap10.0/FontAwesome5.UWP.pri",
+        "lib/uap10.0/FontAwesome5.UWP/Fonts/Font Awesome 5 Brands-Regular-400.otf",
+        "lib/uap10.0/FontAwesome5.UWP/Fonts/Font Awesome 5 Free-Regular-400.otf",
+        "lib/uap10.0/FontAwesome5.UWP/Fonts/Font Awesome 5 Free-Solid-900.otf",
+        "lib/uap10.0/FontAwesome5.dll",
+        "lib/uap10.0/FontAwesome5.xml"
+      ]
+    },
+    "Microsoft.Xaml.Behaviors.Wpf/1.1.31": {
+      "sha512": "LZpuf82ACZWldmfMuv3CTUMDh3o0xo0uHUaybR5HgqVLDBJJ9RZLykplQ/bTJd0/VDt3EhD4iDgUgbdIUAM+Kg==",
+      "type": "package",
+      "path": "microsoft.xaml.behaviors.wpf/1.1.31",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Design/Microsoft.Xaml.Behaviors.Design.dll",
+        "lib/net45/Microsoft.Xaml.Behaviors.dll",
+        "lib/net45/Microsoft.Xaml.Behaviors.pdb",
+        "lib/net45/Microsoft.Xaml.Behaviors.xml",
+        "lib/net5.0-windows7.0/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
+        "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll",
+        "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.pdb",
+        "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.xml",
+        "lib/netcoreapp3.1/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
+        "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.dll",
+        "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.pdb",
+        "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.xml",
+        "microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
+        "microsoft.xaml.behaviors.wpf.nuspec",
+        "tools/Install.ps1"
+      ]
+    },
+    "Notification.Wpf/5.1.1.1": {
+      "sha512": "8B4M+0pxDr96KR/jCAL47iJ6qTvgqToTvsAgHvPZgRE3s5aJwE3/uV4y/lZhwydelvNpWWzcBnQCmsBF40UUEQ==",
+      "type": "package",
+      "path": "notification.wpf/5.1.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "icon.png",
+        "lib/net46/Notification.Wpf.dll",
+        "lib/net461/Notification.Wpf.dll",
+        "lib/net47/Notification.Wpf.dll",
+        "lib/net48/Notification.Wpf.dll",
+        "lib/net5.0-windows7.0/Notification.Wpf.dll",
+        "lib/netcoreapp3.1/Notification.Wpf.dll",
+        "notification.wpf.5.1.1.1.nupkg.sha512",
+        "notification.wpf.nuspec"
+      ]
+    },
     "sqlite-net-pcl/1.7.335": {
       "sha512": "0A9YNPbp66aB+Sitxmh9lq1KDtD4+EBPfdtnYN8WenvQqh5dNgMxUV7kaEG6EXYTi4zBxcsDKpyYJzbViWJXtw==",
       "type": "package",
@@ -231,10 +366,55 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "System.ValueTuple/4.5.0": {
+      "sha512": "okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ==",
+      "type": "package",
+      "path": "system.valuetuple/4.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.ValueTuple.dll",
+        "lib/net461/System.ValueTuple.xml",
+        "lib/net47/System.ValueTuple.dll",
+        "lib/net47/System.ValueTuple.xml",
+        "lib/netcoreapp2.0/_._",
+        "lib/netstandard1.0/System.ValueTuple.dll",
+        "lib/netstandard1.0/System.ValueTuple.xml",
+        "lib/netstandard2.0/_._",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "lib/portable-net40+sl4+win8+wp8/System.ValueTuple.xml",
+        "lib/uap10.0.16299/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net461/System.ValueTuple.dll",
+        "ref/net47/System.ValueTuple.dll",
+        "ref/netcoreapp2.0/_._",
+        "ref/netstandard2.0/_._",
+        "ref/portable-net40+sl4+win8+wp8/System.ValueTuple.dll",
+        "ref/uap10.0.16299/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.valuetuple.4.5.0.nupkg.sha512",
+        "system.valuetuple.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0-windows7.0": [
+    ".NETCoreApp,Version=v3.1": [
+      "Notification.Wpf >= 5.1.1.1",
       "sqlite-net-pcl >= 1.7.335"
     ]
   },
@@ -260,15 +440,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0-windows7.0"
+        "netcoreapp3.1"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0-windows7.0": {
-          "targetAlias": "net5.0-windows",
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -279,9 +459,13 @@
       }
     },
     "frameworks": {
-      "net5.0-windows7.0": {
-        "targetAlias": "net5.0-windows",
+      "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "Notification.Wpf": {
+            "target": "Package",
+            "version": "[5.1.1.1, )"
+          },
           "sqlite-net-pcl": {
             "target": "Package",
             "version": "[1.7.335, )"
@@ -301,7 +485,7 @@
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           },
-          "Microsoft.WindowsDesktop.App.WPF": {
+          "Microsoft.WindowsDesktop.App": {
             "privateAssets": "none"
           }
         },

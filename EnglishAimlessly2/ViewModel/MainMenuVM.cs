@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 
 namespace EnglishAimlessly2.ViewModel
 {
@@ -22,6 +23,9 @@ namespace EnglishAimlessly2.ViewModel
         private string _itemCount;
         private string _newWords;
         private int _practiceAvailableCount;
+
+        private DispatcherTimer _timer;
+        private GroupModel nearestPracticeGroup;
 
         public string NewWords
         {
@@ -131,10 +135,37 @@ namespace EnglishAimlessly2.ViewModel
             Groups = new ObservableCollection<GroupModel>();
             if (DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) == false)
             {
+                _timer = new DispatcherTimer();
+                _timer.Interval = new TimeSpan(10,0,0,0,0);
+                _timer.Tick += _timer_Tick;
+
                 _groupHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
                 _wordHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
                 ReloadGroups();
             }
+        }
+
+        private void _timer_Tick(object sender, EventArgs e)
+        {
+            _timer.Stop();
+            ForceUpdateInformationForGroup();
+
+            if (nearestPracticeGroup == null) return;
+            OnTime?.Invoke(this, nearestPracticeGroup);
+        }
+
+        private void UpdateTimeInterval()
+        {
+            _timer.Stop();
+            UserTableHelper userHelper = new UserTableHelper(DatabaseHelper.DATABASE_PATH);
+            nearestPracticeGroup = userHelper.MinPracticeTime(LoggedUser.Id);
+
+            if (nearestPracticeGroup == null) return;
+
+            TimeModel nearestPracticeTime = _groupHelper.NextPractice(nearestPracticeGroup.Id);
+            int seconds = ((int)nearestPracticeTime.Seconds >= 0) ? (int)nearestPracticeTime.Seconds: 0;
+            _timer.Interval = new TimeSpan(0, 0, seconds);
+            if(nearestPracticeTime.Miliseconds > 0) _timer.Start();
         }
 
         public void AddGroup()
@@ -173,6 +204,7 @@ namespace EnglishAimlessly2.ViewModel
             ItemCount = _wordHelper.SearchByGroupId(SelectedGroup.Id).Count.ToString();
             NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
             PracticeAvailableCount = _wordHelper.GetSortedDueTime(SelectedGroup).Count;
+            UpdateTimeInterval();
             UpdateNextPracticeCounter();
         }
 
@@ -184,6 +216,7 @@ namespace EnglishAimlessly2.ViewModel
             NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
             PracticeAvailableCount = _wordHelper.GetSortedDueTime(SelectedGroup).Count;
             ReloadGroups();
+            UpdateTimeInterval();
             UpdateNextPracticeCounter();
         }
 
@@ -198,7 +231,7 @@ namespace EnglishAimlessly2.ViewModel
                 int hours = (int)nextPractice.Hours - days * 24;
                 int minutes = (int)nextPractice.Minutes - hours * 60;
 
-                if(days > 1000000) NextPracticeCounter = string.Format("No practice available");
+                if (days > 1000000) NextPracticeCounter = string.Format("No practice available");
                 else if (days > 0)
                 {
                     NextPracticeCounter = string.Format("Next practice is available in {0} day(s) and {1} hours(s)", days, hours);
@@ -226,6 +259,7 @@ namespace EnglishAimlessly2.ViewModel
             {
                 Groups.Add(item);
             }
+            UpdateTimeInterval();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -233,5 +267,8 @@ namespace EnglishAimlessly2.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public delegate void OnTimeHandler(object sender, GroupModel readyGroup);
+        public event OnTimeHandler OnTime;
     }
 }

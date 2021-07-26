@@ -58,7 +58,7 @@ namespace EnglishAimlessly2.ViewModel
             }
 
             // Commands
-            AddTogetherCmd = new(this);
+            AddTogetherCmd = new AddTogetherCommand(this);
         }
 
         private void Clasify()

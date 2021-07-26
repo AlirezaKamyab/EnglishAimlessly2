@@ -144,7 +144,7 @@ namespace EnglishAimlessly2.ViewModel
 
         public void CreateAccount()
         {
-            UserModel userModel = new(Name, Lastname, Email, Birthday, Username, Password);
+            UserModel userModel = new UserModel(Name, Lastname, Email, Birthday, Username, Password);
             userModel.CreatedAccountDate = DateTime.Now;
 
             if (UserTableHelper.SearchByUsername(Username).Id != -1)
