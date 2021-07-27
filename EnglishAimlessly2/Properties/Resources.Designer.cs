@@ -63,9 +63,9 @@ namespace EnglishAimlessly2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon English {
+        internal static System.Drawing.Icon EAIcon {
             get {
-                object obj = ResourceManager.GetObject("English", resourceCulture);
+                object obj = ResourceManager.GetObject("EAIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

@@ -6,10 +6,11 @@
     <UseWPF>true</UseWPF>
     <Authors>Alireza Kamyab</Authors>
     <Product>EnglishAimlessly</Product>
-    <Version>0.5.0</Version>
+    <Version>1.0.0</Version>
     <Copyright>Alireza Kamyab; Copyright 2021</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>EAIcon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,9 @@
     <None Remove="Resources\Fonts\RobotoCondensed-Light.ttf" />
     <None Remove="Resources\Fonts\RobotoCondensed-LightItalic.ttf" />
     <None Remove="Resources\Fonts\RobotoCondensed-Regular.ttf" />
+    <None Remove="Resources\Images\Backgrounds\Background.jpg" />
+    <None Remove="Resources\Images\Icons\EAIcon.ico" />
+    <None Remove="Resources\Images\Icons\EAPng.png" />
     <None Remove="Resources\Images\Icons\github.png" />
     <None Remove="Resources\Images\Icons\instagram.png" />
   </ItemGroup>
@@ -35,6 +39,9 @@
     <Resource Include="Resources\Fonts\RobotoCondensed-Light.ttf" />
     <Resource Include="Resources\Fonts\RobotoCondensed-LightItalic.ttf" />
     <Resource Include="Resources\Fonts\RobotoCondensed-Regular.ttf" />
+    <Resource Include="Resources\Images\Backgrounds\Background.jpg" />
+    <Resource Include="Resources\Images\Icons\EAIcon.ico" />
+    <Resource Include="Resources\Images\Icons\EAPng.png" />
     <Resource Include="Resources\Images\Icons\github.png" />
     <Resource Include="Resources\Images\Icons\instagram.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

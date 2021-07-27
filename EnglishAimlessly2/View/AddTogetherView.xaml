@@ -9,7 +9,8 @@
         mc:Ignorable="d"
         Title="AddTogetherView" Height="600" Width="900"
         Background="#c33124"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterOwner"
+        Icon="/Resources/Images/Icons/EAIcon.ico">
 
     <Window.Resources>
         <vm:AddTogetherVM x:Key="atvm"/>

@@ -37,7 +37,7 @@ namespace EnglishAimlessly2.View
             loginView = login;
 
             notify = new System.Windows.Forms.NotifyIcon();
-            notify.Icon = Properties.Resources.English;
+            notify.Icon = Properties.Resources.EAIcon;
             notify.Visible = true;
             notify.Text = "English Aimlessly";
             notify.Click += Notify_Click;
