@@ -113,3 +113,9 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-win
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.csproj.AssemblyReference.cache
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\UserControls\WordPreviewItemControl.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\UserControls\WordPreviewItemControl.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\FontAwesome5.Net.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\FontAwesome5.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\Microsoft.Xaml.Behaviors.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\Notification.Wpf.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.Properties.Resources.resources
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.csproj.GenerateResource.cache

@@ -69,3 +69,9 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcorea
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\EnglishAimlessly2.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\EnglishAimlessly2.pdb
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\EnglishAimlessly2.genruntimeconfig.cache
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\netcoreapp3.1\FontAwesome5.Net.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\netcoreapp3.1\FontAwesome5.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\netcoreapp3.1\Microsoft.Xaml.Behaviors.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\netcoreapp3.1\Notification.Wpf.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\EnglishAimlessly2.Properties.Resources.resources
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\EnglishAimlessly2.csproj.GenerateResource.cache

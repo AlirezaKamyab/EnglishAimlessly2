@@ -53,6 +53,7 @@ namespace EnglishAimlessly2.View
         {
             if (Visibility == Visibility.Hidden)
             {
+                mmvm.ForceUpdateInformationForGroup();
                 ShowDialog();
                 Activate();
             }
@@ -68,6 +69,8 @@ namespace EnglishAimlessly2.View
             content.Type = NotificationType.Success;
             NotificationManager manager = new NotificationManager();
             manager.Show(content);
+            mmvm.ForceUpdateInformationForGroup();
+            mmvm.SelectedGroup = readyGroup;
         }
 
         private void MainMenuView_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -106,10 +109,12 @@ namespace EnglishAimlessly2.View
         {
             if(mmvm.SelectedGroup != null)
             {
+                mmvm.StopTimer();
                 Hide();
                 ManageView manageView = new ManageView(loggedUser, mmvm.SelectedGroup);
                 manageView.ShowDialog();
                 mmvm.ForceUpdateInformationForGroup();
+                mmvm.StartTimer();
                 ShowDialog();
             }
         }
@@ -118,10 +123,12 @@ namespace EnglishAimlessly2.View
         {
             if(mmvm.SelectedGroup != null)
             {
+                mmvm.StopTimer();
                 Hide();
                 GroupSettingsView view = new GroupSettingsView(mmvm.SelectedGroup);
                 view.ShowDialog();
                 mmvm.ForceUpdateInformationForGroup();
+                mmvm.StartTimer();
                 ShowDialog();
             }
         }
@@ -130,10 +137,12 @@ namespace EnglishAimlessly2.View
         {
             if(mmvm.SelectedGroup != null)
             {
+                mmvm.StopTimer();
                 Hide();
                 PracticeView view = new PracticeView(mmvm.SelectedGroup);
                 view.ShowDialog();
                 mmvm.ForceUpdateInformationForGroup();
+                mmvm.StartTimer();
                 ShowDialog();
             }
         }

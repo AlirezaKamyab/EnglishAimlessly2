@@ -6,6 +6,39 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
+      "FontAwesome5/2.1.0": {
+        "runtime": {
+          "lib/net5.0-windows/FontAwesome5.Net.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          },
+          "lib/net5.0-windows/FontAwesome5.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.31": {
+        "runtime": {
+          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.31.10800"
+          }
+        }
+      },
+      "Notification.Wpf/5.1.1.1": {
+        "dependencies": {
+          "FontAwesome5": "2.1.0",
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.31",
+          "System.ValueTuple": "4.5.0"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Notification.Wpf.dll": {
+            "assemblyVersion": "5.1.1.1",
+            "fileVersion": "5.1.1.1"
+          }
+        }
+      },
       "sqlite-net-pcl/1.7.335": {
         "dependencies": {
           "SQLitePCLRaw.bundle_green": "2.0.3"
@@ -120,10 +153,32 @@
           }
         }
       },
-      "System.Memory/4.5.3": {}
+      "System.Memory/4.5.3": {},
+      "System.ValueTuple/4.5.0": {}
     }
   },
   "libraries": {
+    "FontAwesome5/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AHVpPBi8fDnPVFqos07UT+C/XGziRYP90s+8Eixd0M4vDuEZ9ZyIn3gcaBkXmWgmPVuEnR1GtAQlBTjNwRg3QA==",
+      "path": "fontawesome5/2.1.0",
+      "hashPath": "fontawesome5.2.1.0.nupkg.sha512"
+    },
+    "Microsoft.Xaml.Behaviors.Wpf/1.1.31": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LZpuf82ACZWldmfMuv3CTUMDh3o0xo0uHUaybR5HgqVLDBJJ9RZLykplQ/bTJd0/VDt3EhD4iDgUgbdIUAM+Kg==",
+      "path": "microsoft.xaml.behaviors.wpf/1.1.31",
+      "hashPath": "microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512"
+    },
+    "Notification.Wpf/5.1.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8B4M+0pxDr96KR/jCAL47iJ6qTvgqToTvsAgHvPZgRE3s5aJwE3/uV4y/lZhwydelvNpWWzcBnQCmsBF40UUEQ==",
+      "path": "notification.wpf/5.1.1.1",
+      "hashPath": "notification.wpf.5.1.1.1.nupkg.sha512"
+    },
     "sqlite-net-pcl/1.7.335": {
       "type": "package",
       "serviceable": true,
@@ -165,6 +220,13 @@
       "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "path": "system.memory/4.5.3",
       "hashPath": "system.memory.4.5.3.nupkg.sha512"
+    },
+    "System.ValueTuple/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ==",
+      "path": "system.valuetuple/4.5.0",
+      "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
     }
   }
 }

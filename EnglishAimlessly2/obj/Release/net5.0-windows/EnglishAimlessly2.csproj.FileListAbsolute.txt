@@ -5,6 +5,10 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-w
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-windows\EnglishAimlessly2.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-windows\ref\EnglishAimlessly2.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-windows\EnglishAimlessly2.pdb
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-windows\FontAwesome5.Net.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-windows\FontAwesome5.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-windows\Microsoft.Xaml.Behaviors.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-windows\Notification.Wpf.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-windows\SQLite-net.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-windows\SQLitePCLRaw.batteries_v2.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-windows\SQLitePCLRaw.nativelibrary.dll
@@ -22,7 +26,6 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-w
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\net5.0-windows\runtimes\win-x86\native\e_sqlite3.dll
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.csproj.AssemblyReference.cache
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\ResourceDictionary\ButtonDictionary.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\ResourceDictionary\CheckboxDictionary.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\ResourceDictionary\DatePickerDictionary.baml
@@ -30,6 +33,8 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-w
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\ResourceDictionary\TextboxDictionary.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\UserControls\GroupItemControl.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\UserControls\WordItemControl.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\UserControls\WordPreviewItemControl.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\AddTogetherView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\AddWordView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\ConfirmationView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\demo.g.cs
@@ -48,6 +53,8 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-w
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\ResourceDictionary\VariablesDictionary.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\UserControls\GroupItemControl.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\UserControls\WordItemControl.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\UserControls\WordPreviewItemControl.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\AddTogetherView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\AddWordView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\ConfirmationView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\demo.baml
@@ -59,6 +66,8 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-w
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\PracticeView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\RegisterView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.g.resources
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.Properties.Resources.resources
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.csproj.GenerateResource.cache
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.GeneratedMSBuildEditorConfig.editorconfig
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.AssemblyInfoInputs.cache
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.AssemblyInfo.cs
@@ -68,7 +77,4 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-w
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\ref\EnglishAimlessly2.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.pdb
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.genruntimeconfig.cache
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\AddTogetherView.g.cs
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\AddTogetherView.baml
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\UserControls\WordPreviewItemControl.g.cs
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\UserControls\WordPreviewItemControl.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.csproj.AssemblyReference.cache

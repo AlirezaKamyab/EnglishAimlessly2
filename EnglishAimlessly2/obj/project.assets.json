@@ -1,25 +1,25 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
+    "net5.0-windows7.0": {
       "FontAwesome5/2.1.0": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.1/FontAwesome5.Net.dll": {},
-          "lib/netcoreapp3.1/FontAwesome5.dll": {}
+          "lib/net5.0-windows/FontAwesome5.Net.dll": {},
+          "lib/net5.0-windows/FontAwesome5.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/FontAwesome5.Net.dll": {},
-          "lib/netcoreapp3.1/FontAwesome5.dll": {}
+          "lib/net5.0-windows/FontAwesome5.Net.dll": {},
+          "lib/net5.0-windows/FontAwesome5.dll": {}
         }
       },
       "Microsoft.Xaml.Behaviors.Wpf/1.1.31": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.dll": {}
+          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.dll": {}
+          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
@@ -33,10 +33,10 @@
           "System.ValueTuple": "4.5.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/Notification.Wpf.dll": {}
+          "lib/net5.0-windows7.0/Notification.Wpf.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/Notification.Wpf.dll": {}
+          "lib/net5.0-windows7.0/Notification.Wpf.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
@@ -413,7 +413,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
+    "net5.0-windows7.0": [
       "Notification.Wpf >= 5.1.1.1",
       "sqlite-net-pcl >= 1.7.335"
     ]
@@ -440,15 +440,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.1"
+        "net5.0-windows7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
           "projectReferences": {}
         }
       },
@@ -459,8 +459,8 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
         "dependencies": {
           "Notification.Wpf": {
             "target": "Package",

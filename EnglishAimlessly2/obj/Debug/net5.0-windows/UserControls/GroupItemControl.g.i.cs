@@ -19,6 +19,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Controls.Ribbon;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms.Integration;
 using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Markup;
@@ -69,7 +70,7 @@ namespace EnglishAimlessly2.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EnglishAimlessly2;V0.5.0.0;component/usercontrols/groupitemcontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EnglishAimlessly2;component/usercontrols/groupitemcontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControls\GroupItemControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
