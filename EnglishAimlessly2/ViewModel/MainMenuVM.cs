@@ -147,7 +147,6 @@ namespace EnglishAimlessly2.ViewModel
 
         private void _timer_Tick(object sender, EventArgs e)
         {
-            ForceUpdateInformationForGroup();
             _timer.Stop();
 
             if (nearestPracticeGroup == null) return;
@@ -163,18 +162,20 @@ namespace EnglishAimlessly2.ViewModel
             if (nearestPracticeGroup == null) return;
 
             TimeModel nearestPracticeTime = _groupHelper.NextPractice(nearestPracticeGroup.Id);
-            int seconds = ((int)nearestPracticeTime.Seconds >= 0) ? (int)nearestPracticeTime.Seconds : 60;
+            int seconds = ((int)nearestPracticeTime.Seconds >= 60) ? (int)nearestPracticeTime.Seconds : 60;
             _timer.Interval = new TimeSpan(0, 0, seconds);
             if(nearestPracticeTime.Seconds > 0) _timer.Start();
         }
 
         public void StopTimer()
         {
+            UpdateTimeInterval();
             _timer.Stop();
         }
 
         public void StartTimer()
         {
+            UpdateTimeInterval();
             _timer.Start();
         }
 

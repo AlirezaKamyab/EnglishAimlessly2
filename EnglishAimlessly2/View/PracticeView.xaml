@@ -180,7 +180,7 @@
                             </TextBlock>
 
                             <ScrollViewer x:Name="scrollDescription" ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                                          Height="100" Margin="10" Width="300" RenderTransformOrigin="0.5,0.5"
+                                          Height="100" Margin="10" Width="500" RenderTransformOrigin="0.5,0.5"
                                           Visibility="Collapsed">
                                 <ScrollViewer.RenderTransform>
                                     <TransformGroup>
@@ -198,13 +198,17 @@
                                     <Run Text="{Binding SelectedWord.Description}"/>
                                 </TextBlock>
                             </ScrollViewer>
+                            <TextBlock Text="Example" Margin="8 20 0 3" Foreground="#888"/>
+                            <TextBox Width="500" Padding="2" FontSize="12" Margin="5 0" Style="{StaticResource NewTextBox}"
+                                     Text="{Binding Example, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                     MaxLength="250"/>
                             <Button Style="{StaticResource CurveButton}"
                                     x:Name="btnShow"
                                     Content="Show"
                                     HorizontalAlignment="Center"
                                     Width="100"
                                     Height="30"
-                                    Margin="0 20 0 0"
+                                    Margin="0 60 0 0"
                                     Background="Green"
                                     Foreground="White"
                                     Click="btnShow_Click"/>

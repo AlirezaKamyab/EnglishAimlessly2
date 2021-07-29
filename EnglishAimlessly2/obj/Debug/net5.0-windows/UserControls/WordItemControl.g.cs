@@ -78,7 +78,7 @@ namespace EnglishAimlessly2.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EnglishAimlessly2;component/usercontrols/worditemcontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EnglishAimlessly2;V1.0.1.0;component/usercontrols/worditemcontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControls\WordItemControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

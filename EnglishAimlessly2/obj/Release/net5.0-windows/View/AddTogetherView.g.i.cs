@@ -56,7 +56,7 @@ namespace EnglishAimlessly2.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EnglishAimlessly2;component/view/addtogetherview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EnglishAimlessly2;V1.0.1.0;component/view/addtogetherview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\AddTogetherView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

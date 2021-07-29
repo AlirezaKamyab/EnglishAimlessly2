@@ -151,5 +151,17 @@ namespace EnglishAimlessly2.View
         {
             Hide();
         }
+
+        private void btnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            if(mmvm.SelectedGroup != null)
+            {
+                Hide();
+                HistoryView hv = new HistoryView(mmvm.SelectedGroup.Id);
+                hv.ShowDialog();
+                mmvm.ForceUpdateInformationForGroup();
+                ShowDialog();
+            }
+        }
     }
 }

@@ -204,6 +204,17 @@
 
                         <StackPanel Margin="0 30" HorizontalAlignment="Center" Orientation="Horizontal">
                             <Button Style="{StaticResource CurveButton}"
+                                    x:Name="btnHistory"
+                                    Content="History"
+                                    Background="White"
+                                    Foreground="Black"
+                                    Margin="5 0"
+                                    Padding="10"
+                                    Width="100"
+                                    BorderThickness="2"
+                                    Click="btnHistory_Click"/>
+                            
+                            <Button Style="{StaticResource CurveButton}"
                                     x:Name="btnEdit"
                                     Content="Edit"
                                     Background="White"

@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="EnglishAimlessly2.UserControls.HistoryItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EnglishAimlessly2.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="500">
+    <Border x:Name="border" BorderBrush="Black"
+            BorderThickness="2"
+            CornerRadius="10">
+        <StackPanel Orientation="Vertical" Margin="10" VerticalAlignment="Center">
+            <TextBlock FontSize="14" TextWrapping="Wrap">
+                <Run x:Name="txtWord" Text="Word"/>
+                <Run x:Name="txtType" Foreground="Red" Text=" Type"/>
+            </TextBlock>
+
+            <TextBlock FontSize="9"
+                       Margin="0 2 0 0"
+                       TextWrapping="WrapWithOverflow">
+                <Run x:Name="txtDate" Text="2021/1/30"/>
+                <Run x:Name="txtTime" Text=" 12:30PM" Foreground="BlueViolet"/>
+            </TextBlock>
+
+            <TextBlock Margin="0 10 0 0" FontSize="12" TextWrapping="Wrap">
+                <Run x:Name="lblExample" Foreground="#888" Text="Example: "/>
+                <Run x:Name="txtExample" Text=" This is an example" Foreground="#555"/>
+            </TextBlock>
+        </StackPanel>
+    </Border>
+</UserControl>

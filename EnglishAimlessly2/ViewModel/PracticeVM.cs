@@ -13,9 +13,23 @@ namespace EnglishAimlessly2.ViewModel
     public class PracticeVM : INotifyPropertyChanged
     {
         private int _selectedIndex = 0;
+        private string _example = "";
         private WordModel _selectedWord;
         private GroupModel _selectedGroup;
         private SortedList<long, WordModel> _words;
+
+        public string Example
+        {
+            get
+            {
+                return _example;
+            }
+            set
+            {
+                _example = value;
+                OnPropertyChanged(nameof(Example));
+            }
+        }
 
         public GroupModel SelectedGroup
         {
@@ -107,6 +121,7 @@ namespace EnglishAimlessly2.ViewModel
             updateWord.DueDate = dueDate;
 
             WordDatabaseHelper.Update(updateWord);
+            AddHistory(updateWord, 1);
 
             SelectedIndex++;
 
@@ -129,6 +144,7 @@ namespace EnglishAimlessly2.ViewModel
             updateWord.DueDate = dueDate;
 
             WordDatabaseHelper.Update(updateWord);
+            AddHistory(updateWord, 2);
 
             SelectedIndex++;
 
@@ -151,10 +167,29 @@ namespace EnglishAimlessly2.ViewModel
             updateWord.DueDate = dueDate;
 
             WordDatabaseHelper.Update(updateWord);
+            AddHistory(updateWord, 3);
 
             SelectedIndex++;
 
             GoneNext?.Invoke(this, SelectedWord);
+        }
+
+        public void AddHistory(WordModel word, int difficultyLevel)
+        {
+            HistoryTableHelper historyHelper = new HistoryTableHelper(DatabaseHelper.DATABASE_PATH);
+            HistoryModel history = new HistoryModel();
+            history.WordId = word.Id;
+            history.UserId = word.UserId;
+            history.GroupId = word.GroupId;
+            history.Word = word.Name;
+            history.PracticedDate = DateTime.Now;
+            history.Example = Example;
+            history.DifficultyLevel = difficultyLevel;
+            history.WordType = word.WordType;
+
+            Example = ""; // Reset the value of the example property for the next word
+
+            historyHelper.Insert(history);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

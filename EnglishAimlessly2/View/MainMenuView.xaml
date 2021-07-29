@@ -227,6 +227,7 @@
                             Click="btnGroupSettings_Click"/>
 
                     <Button Style="{StaticResource CurveButton}"
+                            x:Name="btnHistory"
                             Margin="0 5"
                             Content="History"
                             FontSize="12"
@@ -234,7 +235,8 @@
                             Width="300"
                             Padding="7"
                             Background="#fcb500"
-                            Foreground="Black"/>
+                            Foreground="Black"
+                            Click="btnHistory_Click"/>
 
                     <Button Style="{StaticResource CurveButton}"
                             Margin="0 5"

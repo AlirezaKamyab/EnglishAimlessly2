@@ -119,3 +119,9 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-win
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\Notification.Wpf.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.Properties.Resources.resources
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.csproj.GenerateResource.cache
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\HistoryView.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\HistoryView.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\UserControls\HistoryItemControl.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\UserControls\HistoryItemControl.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\WordHistoryView.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\View\WordHistoryView.baml

@@ -87,7 +87,7 @@ namespace EnglishAimlessly2.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EnglishAimlessly2;component/view/editwordview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EnglishAimlessly2;V1.0.1.0;component/view/editwordview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\EditWordView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -10,6 +10,9 @@
     <Compile Update="UserControls\GroupItemControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\HistoryItemControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\WordItemControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,6 +37,9 @@
     <Compile Update="View\GroupSettingsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\HistoryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -47,6 +53,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\RegisterView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\WordHistoryView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -70,6 +79,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\GroupItemControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\HistoryItemControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\WordItemControl.xaml">
@@ -96,6 +108,9 @@
     <Page Update="View\GroupSettingsView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\HistoryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\LoginView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -109,6 +124,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\RegisterView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\WordHistoryView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

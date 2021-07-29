@@ -77,3 +77,10 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-w
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\ref\EnglishAimlessly2.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.pdb
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.genruntimeconfig.cache
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.csproj.AssemblyReference.cache
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\UserControls\HistoryItemControl.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\HistoryView.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\WordHistoryView.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\UserControls\HistoryItemControl.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\HistoryView.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\WordHistoryView.baml

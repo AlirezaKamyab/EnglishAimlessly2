@@ -116,5 +116,16 @@ namespace EnglishAimlessly2.View
             atv.ShowDialog();
             ShowDialog();
         }
+
+        private void btnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            if (ManagerViewModel.SelectedWord != null)
+            {
+                Hide();
+                WordHistoryView hv = new WordHistoryView(ManagerViewModel.SelectedWord.Id);
+                hv.ShowDialog();
+                ShowDialog();
+            }
+        }
     }
 }
