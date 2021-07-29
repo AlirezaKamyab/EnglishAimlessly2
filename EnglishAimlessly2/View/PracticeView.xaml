@@ -81,6 +81,10 @@
                 <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="00:00:00.0170000" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="btnHistory" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.0170000" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
 
@@ -181,7 +185,8 @@
 
                             <ScrollViewer x:Name="scrollDescription" ScrollViewer.VerticalScrollBarVisibility="Hidden"
                                           Height="100" Margin="10" Width="500" RenderTransformOrigin="0.5,0.5"
-                                          Visibility="Collapsed">
+                                          Visibility="Collapsed"
+                                          CanContentScroll="False">
                                 <ScrollViewer.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
@@ -198,10 +203,26 @@
                                     <Run Text="{Binding SelectedWord.Description}"/>
                                 </TextBlock>
                             </ScrollViewer>
-                            <TextBlock Text="Example" Margin="8 20 0 3" Foreground="#888"/>
-                            <TextBox Width="500" Padding="2" FontSize="12" Margin="5 0" Style="{StaticResource NewTextBox}"
-                                     Text="{Binding Example, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                     MaxLength="250"/>
+
+                            <StackPanel Orientation="Vertical" Margin="0 40 0 0">
+                                <TextBlock Text="Example" Margin="5 5 0 0" Foreground="#888"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox Padding="2" FontSize="12" Margin="0 3 0 0" Style="{StaticResource NewTextBox}"
+                                             Text="{Binding Example, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                             MaxLength="250" DockPanel.Dock="Left"
+                                             Width="450"/>
+                                    <Button Style="{StaticResource CurveButton}" DockPanel.Dock="Left"
+                                            x:Name="btnHistory"
+                                            Margin="5 0 0 0"
+                                            Width="75"
+                                            Padding="2"
+                                            Height="25"
+                                            Content="History"
+                                            Click="btnHistory_Click"
+                                            Visibility="Collapsed"/>
+                                </StackPanel>
+                            </StackPanel>
+
                             <Button Style="{StaticResource CurveButton}"
                                     x:Name="btnShow"
                                     Content="Show"

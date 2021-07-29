@@ -75,3 +75,9 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\netcorea
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\netcoreapp3.1\Notification.Wpf.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\EnglishAimlessly2.Properties.Resources.resources
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\EnglishAimlessly2.csproj.GenerateResource.cache
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\UserControls\HistoryItemControl.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\HistoryView.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\WordHistoryView.g.cs
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\UserControls\HistoryItemControl.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\HistoryView.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\WordHistoryView.baml

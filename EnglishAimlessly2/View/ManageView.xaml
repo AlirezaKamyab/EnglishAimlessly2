@@ -103,6 +103,7 @@
                 <Grid Margin="5" DockPanel.Dock="Top" Grid.Row="1">
                     <ListView x:Name="lstView" BorderThickness="0"
                               Background="Transparent"
+                              ScrollViewer.CanContentScroll="False"
                               ScrollViewer.VerticalScrollBarVisibility="Hidden"
                               ItemsSource="{Binding WordList}"
                               SelectedValue="{Binding SelectedWord, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
@@ -179,6 +180,7 @@
                         <Border Margin="10" BorderBrush="#888" BorderThickness="1" CornerRadius="10">
                             <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="10"
                                           Background="Transparent"
+                                          ScrollViewer.CanContentScroll="False"
                                           Height="150">
                                 <TextBlock Margin="0 0 0 0"
                                            TextWrapping="Wrap" LineStackingStrategy="MaxHeight">

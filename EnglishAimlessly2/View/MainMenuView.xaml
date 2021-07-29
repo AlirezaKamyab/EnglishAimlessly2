@@ -115,6 +115,7 @@
                 <Grid Margin="5" DockPanel.Dock="Top" Grid.Row="1">
                     <ListView x:Name="lstView" BorderThickness="0"
                               Background="Transparent"
+                              ScrollViewer.CanContentScroll="False"
                               SelectionChanged="lstView_SelectionChanged"
                               ScrollViewer.VerticalScrollBarVisibility="Hidden"
                               ItemsSource="{Binding Groups}"

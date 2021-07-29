@@ -80,7 +80,7 @@ namespace EnglishAimlessly2.ViewModel
                 string[] descriptions = word[2].Trim().Split('#');
                 for(int i = 0; i < descriptions.Length; i++)
                 {
-                    model.Description += string.Format("{0}: {1}\n", i + 1, descriptions[i]);
+                    model.Description += string.Format("{0}: {1}", i + 1, descriptions[i]);
                 }
 
                 model.PracticeCount = 0;

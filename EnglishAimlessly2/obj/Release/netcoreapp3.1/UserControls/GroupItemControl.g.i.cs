@@ -70,7 +70,7 @@ namespace EnglishAimlessly2.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EnglishAimlessly2;component/usercontrols/groupitemcontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EnglishAimlessly2;V1.0.1.0;component/usercontrols/groupitemcontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControls\GroupItemControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

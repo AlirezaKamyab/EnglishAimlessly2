@@ -64,6 +64,7 @@
                     <TextBlock Margin="5 0" Text="Description"/>
                     <TextBox Style="{StaticResource NewTextBox}"
                              Margin="5"
+                             ScrollViewer.CanContentScroll="False"
                              Height="100"
                              TextWrapping="Wrap"
                              MaxLines="10"

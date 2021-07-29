@@ -129,7 +129,9 @@ namespace EnglishAimlessly2.ViewModel
 
             if (GroupId > 0)
             {
-                foreach (HistoryModel item in _historyTableHelper.SearchHistoryByGroupId(GroupId))
+                List<HistoryModel> result = _historyTableHelper.SearchHistoryByGroupId(GroupId);
+                result.Reverse();
+                foreach (HistoryModel item in result)
                 {
                     GroupHistories.Add(item);
                 }

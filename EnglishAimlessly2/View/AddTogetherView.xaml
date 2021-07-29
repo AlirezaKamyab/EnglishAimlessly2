@@ -36,10 +36,15 @@
                                VerticalAlignment="Center" Text="Add Word"/>
 
                     <TextBox Grid.Row="1" Style="{StaticResource NewTextBox}" Margin="10" BorderThickness="1"
-                             AcceptsReturn="True" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                             AcceptsReturn="True" Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                             ScrollViewer.CanContentScroll="False"/>
 
-                    <TextBlock Grid.Row="2" FontSize="12" Margin="10" Foreground="#888"
-                               VerticalAlignment="Center" Text="Separate each Name/Equivalent/Description by colons (:)"/>
+                    <TextBlock Grid.Row="2" FontSize="10" Margin="10" Foreground="#888"
+                               VerticalAlignment="Center" 
+                               TextWrapping="Wrap">
+                        <Run Text="Separate each Name/Equivalent/Description/WordType by colons (:). For multiple description separate them using a '#'; For instance"/>
+                        <Run Foreground="Red" Text="word : equivalent : #des1 #des2 : noun"/>
+                    </TextBlock>
                 </Grid>
             </Border>
 
@@ -56,7 +61,8 @@
                                VerticalAlignment="Center" Text="Preview"/>
 
                     <ListView Grid.Row="1" Margin="10" ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                              ItemsSource="{Binding Collection}">
+                              ItemsSource="{Binding Collection}"
+                              ScrollViewer.CanContentScroll="False">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
