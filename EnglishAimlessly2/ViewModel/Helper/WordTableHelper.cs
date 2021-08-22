@@ -161,5 +161,19 @@ namespace EnglishAimlessly2.ViewModel.Helper
 
             return pairs;
         }
+
+        public List<WordModel> GetListByScore(int groupId, int minScore)
+        {
+            List<WordModel> temp = new List<WordModel>();
+            foreach(WordModel word in _innerList)
+            {
+                if (word.GroupId == groupId && word.Score >= minScore)
+                {
+                    temp.Add(word);
+                }
+            }
+
+            return temp;
+        }
     }
 }

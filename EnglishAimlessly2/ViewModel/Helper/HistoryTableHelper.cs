@@ -143,5 +143,18 @@ namespace EnglishAimlessly2.ViewModel.Helper
 
             return temp;
         }
+
+        public List<HistoryModel> SearchHistoryByDate(int GroupId, DateTime dteTime)
+        {
+            List<HistoryModel> temp = new List<HistoryModel>();
+            foreach (HistoryModel item in _innerList)
+            {
+                if(item.PracticedDate.ToShortDateString() == dteTime.ToShortDateString() && item.GroupId == GroupId)
+                {
+                    temp.Add(item);
+                }
+            }
+            return temp;
+        }
     }
 }

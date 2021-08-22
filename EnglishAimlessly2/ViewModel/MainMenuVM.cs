@@ -19,9 +19,10 @@ namespace EnglishAimlessly2.ViewModel
         private WordTableHelper _wordHelper;
         private GroupModel _selectedGroup;
         private string _nextPracticeCounter;
-        private string _groupName;
+        private string _groupName = "";
         private string _itemCount;
         private string _newWords;
+        private int _masteredWordsCount = 0;
         private int _practiceAvailableCount;
 
         private DispatcherTimer _timer;
@@ -123,6 +124,19 @@ namespace EnglishAimlessly2.ViewModel
             }
         }
 
+        public int MasterWordsCount
+        {
+            get
+            {
+                return _masteredWordsCount;
+            }
+            set
+            {
+                _masteredWordsCount = value;
+                OnPropertyChanged(nameof(MasterWordsCount));
+            }
+        }
+
         public ObservableCollection<GroupModel> Groups { get; set; }
         public CreateGroupCommand CreateGroupCmd { get; set; }
         public RemoveGroupCommand RemoveGroupCmd { get; set; }
@@ -200,6 +214,11 @@ namespace EnglishAimlessly2.ViewModel
         public void RemoveGroup()
         {
             if (SelectedGroup == null) return;
+            List<WordModel> words = _wordHelper.SearchByGroupId(SelectedGroup.Id);
+            foreach (WordModel item in words)
+            {
+                _wordHelper.Remove(item);
+            }
             _groupHelper.Remove(SelectedGroup);
 
 
@@ -215,17 +234,14 @@ namespace EnglishAimlessly2.ViewModel
             ItemCount = _wordHelper.SearchByGroupId(SelectedGroup.Id).Count.ToString();
             NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
             PracticeAvailableCount = _wordHelper.GetSortedDueTime(SelectedGroup).Count;
+            MasterWordsCount = _wordHelper.GetListByScore(SelectedGroup.Id, 1000).Count;
             UpdateTimeInterval();
             UpdateNextPracticeCounter();
         }
 
         public void ForceUpdateInformationForGroup()
         {
-            _groupHelper.Reload();
-            _wordHelper.Reload();
-            ItemCount = _wordHelper.SearchByGroupId(SelectedGroup.Id).Count.ToString();
-            NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
-            PracticeAvailableCount = _wordHelper.GetSortedDueTime(SelectedGroup).Count;
+            UpdateInformationForGroup();
             ReloadGroups();
             UpdateTimeInterval();
             UpdateNextPracticeCounter();

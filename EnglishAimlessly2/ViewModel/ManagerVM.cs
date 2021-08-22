@@ -174,7 +174,7 @@ namespace EnglishAimlessly2.ViewModel
         {
             WordDatabaseHelper.Reload();
             WordList.Clear();
-            foreach(WordModel item in WordDatabaseHelper.SearchByGroupId(SelectedGroup.Id))
+            foreach(WordModel item in WordDatabaseHelper.SearchByGroupId(SelectedGroup.Id).OrderBy(x => x.Name))
             {
                 WordList.Add(item);
             }
@@ -195,6 +195,7 @@ namespace EnglishAimlessly2.ViewModel
             word.PracticeCount = 0;
             word.UserId = LoggedUser.Id;
             word.GroupId = SelectedGroup.Id;
+            word.Score = 0;
             WordDatabaseHelper.Insert(word);
 
             Added?.Invoke(this, word);
@@ -214,6 +215,7 @@ namespace EnglishAimlessly2.ViewModel
             word.PracticeCount = SelectedWordForFunctioning.PracticeCount;
             word.UserId = SelectedWordForFunctioning.UserId;
             word.GroupId = SelectedWordForFunctioning.GroupId;
+            word.Score = SelectedWordForFunctioning.Score;
             WordDatabaseHelper.Update(word);
 
             Edited?.Invoke(this, word);
@@ -233,6 +235,7 @@ namespace EnglishAimlessly2.ViewModel
             word.PracticeCount = SelectedWordForFunctioning.PracticeCount;
             word.UserId = SelectedWordForFunctioning.UserId;
             word.GroupId = SelectedWordForFunctioning.GroupId;
+            word.Score = SelectedWordForFunctioning.Score;
             WordDatabaseHelper.Remove(word);
 
             Removed?.Invoke(this, word);
@@ -252,6 +255,7 @@ namespace EnglishAimlessly2.ViewModel
             word.PracticeCount = 0;
             word.UserId = SelectedWordForFunctioning.UserId;
             word.GroupId = SelectedWordForFunctioning.GroupId;
+            word.Score = 0;
             WordDatabaseHelper.Update(word);
 
             Edited?.Invoke(this, word);

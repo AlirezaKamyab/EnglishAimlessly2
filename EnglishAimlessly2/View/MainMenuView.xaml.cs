@@ -81,7 +81,7 @@ namespace EnglishAimlessly2.View
 
         private void txtGroupName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lstView.ItemsSource = mmvm.Groups.ToList().Where(x => x.Name.ToLower().Contains(txtGroupName.Text.ToLower()));
+            
         }
 
         private void lstView_SelectionChanged(object sender, SelectionChangedEventArgs e)

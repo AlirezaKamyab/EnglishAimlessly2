@@ -19,6 +19,8 @@ namespace EnglishAimlessly2.ViewModel
         private HistoryModel _selectedHistory;
         private HistoryModel _selectedGroupHistory;
         private HistoryTableHelper _historyTableHelper;
+        private DateTime _practicedDateTime;
+        private System.Windows.Visibility _datePickerVisibility = System.Windows.Visibility.Collapsed;
 
         public int WordId
         {
@@ -31,6 +33,7 @@ namespace EnglishAimlessly2.ViewModel
                 if (value > 0)
                 {
                     _wordId = value;
+                    DatePickerVisibility = System.Windows.Visibility.Collapsed;
                     Reload();
                     OnPropertyChanged(nameof(WordId));
                 }
@@ -61,6 +64,7 @@ namespace EnglishAimlessly2.ViewModel
                 if (value > 0)
                 {
                     _groupId = value;
+                    DatePickerVisibility = System.Windows.Visibility.Visible;
                     Reload();
                     OnPropertyChanged(nameof(GroupId));
                 }
@@ -93,6 +97,33 @@ namespace EnglishAimlessly2.ViewModel
             }
         }
 
+        public DateTime PracticedDateTime
+        {
+            get
+            {
+                return _practicedDateTime;
+            }
+            set
+            {
+                _practicedDateTime = value;
+                Reload();
+                OnPropertyChanged(nameof(PracticedDateTime));
+            }
+        }
+
+        public System.Windows.Visibility DatePickerVisibility
+        {
+            get
+            {
+                return _datePickerVisibility;
+            }
+            set
+            {
+                _datePickerVisibility = value;
+                OnPropertyChanged(nameof(DatePickerVisibility));
+            }
+        }
+
         public ObservableCollection<HistoryModel> Histories { get; set; }
         public ObservableCollection<HistoryModel> GroupHistories { get; set; }
         public RemoveHistoryCommand RemoveHistoryCmd { get; set; }
@@ -104,8 +135,8 @@ namespace EnglishAimlessly2.ViewModel
             if (!DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
             {
                 _historyTableHelper = new HistoryTableHelper(DatabaseHelper.DATABASE_PATH);
+                PracticedDateTime = DateTime.Now;
             }
-
             // Commands
             RemoveHistoryCmd = new RemoveHistoryCommand(this);
         }
@@ -129,7 +160,7 @@ namespace EnglishAimlessly2.ViewModel
 
             if (GroupId > 0)
             {
-                List<HistoryModel> result = _historyTableHelper.SearchHistoryByGroupId(GroupId);
+                List<HistoryModel> result = _historyTableHelper.SearchHistoryByDate(GroupId, PracticedDateTime);
                 result.Reverse();
                 foreach (HistoryModel item in result)
                 {

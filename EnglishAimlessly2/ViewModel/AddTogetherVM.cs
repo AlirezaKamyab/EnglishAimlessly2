@@ -80,7 +80,7 @@ namespace EnglishAimlessly2.ViewModel
                 string[] descriptions = word[2].Trim().Split('#');
                 for(int i = 0; i < descriptions.Length; i++)
                 {
-                    model.Description += string.Format("{0}: {1}", i + 1, descriptions[i]);
+                    model.Description += string.Format("{0}: {1}\n", i + 1, descriptions[i]);
                 }
 
                 model.PracticeCount = 0;
@@ -89,6 +89,7 @@ namespace EnglishAimlessly2.ViewModel
                 model.DueDate = DateTime.Now;
                 model.GroupId = SelectedGroup.Id;
                 model.UserId = SelectedGroup.UserId;
+                model.Score = 0;
 
                 if (word.Length != 4) model.WordType = "";
                 else model.WordType = word[3].Trim();

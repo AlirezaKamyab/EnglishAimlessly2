@@ -49,6 +49,18 @@
                 <EasingDoubleKeyFrame KeyTime="00:00:00" Value="20"/>
                 <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="18"/>
             </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="btnHistory" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.0170000" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="btnHistory" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="pnlExample" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.3000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="NextWord">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="pnlCard" Storyboard.TargetProperty="(UIElement.Opacity)">
@@ -82,8 +94,8 @@
                 <EasingDoubleKeyFrame KeyTime="00:00:00.0170000" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="btnHistory" Storyboard.TargetProperty="(UIElement.Visibility)">
-                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
-                <DiscreteObjectKeyFrame KeyTime="00:00:00.0170000" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.0170000" Value="{x:Static Visibility.Collapsed}"/>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -204,13 +216,14 @@
                                 </TextBlock>
                             </ScrollViewer>
 
-                            <StackPanel Orientation="Vertical" Margin="0 40 0 0">
+                            <StackPanel x:Name="pnlExample" Orientation="Vertical" Margin="0 40 0 0">
                                 <TextBlock Text="Example" Margin="5 5 0 0" Foreground="#888"/>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBox Padding="2" FontSize="12" Margin="0 3 0 0" Style="{StaticResource NewTextBox}"
                                              Text="{Binding Example, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                              MaxLength="250" DockPanel.Dock="Left"
-                                             Width="450"/>
+                                             Width="450"
+                                             x:Name="txtExample"/>
                                     <Button Style="{StaticResource CurveButton}" DockPanel.Dock="Left"
                                             x:Name="btnHistory"
                                             Margin="5 0 0 0"
@@ -240,7 +253,21 @@
                 <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"
                             Orientation="Horizontal"
                             x:Name="pnlButtons">
-
+                    <Button Style="{StaticResource ResourceKey=CurveButton}"
+                            x:Name="btnNextHours"
+                            HorizontalAlignment="Right"
+                            Content="Next Hours"
+                            Width="100"
+                            Padding="10"
+                            Margin="5"
+                            FontSize="11"
+                            Foreground="White"
+                            Background="#444"
+                            BorderThickness="0"
+                            CommandParameter="4"
+                            Command="{Binding NextWordPracticeCmd}"
+                            Click="btnNextEasy_Click"/>
+                    
                     <Button Style="{StaticResource CurveButton}"
                             x:Name="btnNextHard"
                             HorizontalAlignment="Right"

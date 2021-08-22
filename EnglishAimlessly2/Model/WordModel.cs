@@ -33,5 +33,7 @@ namespace EnglishAimlessly2.Model
         public DateTime DueDate { get; set; }
         [Column("PracticedTime")]
         public int PracticeCount { get; set; }
+        [Column("Score"), NotNull]
+        public int Score { get; set; } = 0;
     }
 }

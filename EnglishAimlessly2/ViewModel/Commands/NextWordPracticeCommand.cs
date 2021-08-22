@@ -23,19 +23,21 @@ namespace EnglishAimlessly2.ViewModel.Commands
 
         public bool CanExecute(object parameter)
         {
-            String p = parameter as String;
+            string p = parameter as string;
             if (p == "1") return true;
             else if (p == "2") return true;
             else if (p == "3") return true;
+            else if (p == "4") return true;
             else return false;
         }
 
         public void Execute(object parameter)
         {
-            String p = parameter as String;
+            string p = parameter as string;
             if (p == "1") pvm.NextWordEasy();
             else if (p == "2") pvm.NextWordNormal();
             else if (p == "3") pvm.NextWordHard();
+            else if (p == "4") pvm.NextHours();
         }
     }
 }

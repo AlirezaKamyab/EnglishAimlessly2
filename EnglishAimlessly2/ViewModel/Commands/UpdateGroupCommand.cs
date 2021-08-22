@@ -28,6 +28,7 @@ namespace EnglishAimlessly2.ViewModel.Commands
             {
                 return false;
             }
+            if (GroupVM.GroupName.Trim().Length < 3) return false;
             else return true;
         }
 

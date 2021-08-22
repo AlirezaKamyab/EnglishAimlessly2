@@ -27,5 +27,7 @@ namespace EnglishAimlessly2.Model
         public int DifficultyLevel { get; set; }
         [Column("PracticedDate")]
         public DateTime PracticedDate { get; set; }
+        [Column("Score")]
+        public int Score { get; set; } = 0;
     }
 }

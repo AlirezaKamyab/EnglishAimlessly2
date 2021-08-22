@@ -56,14 +56,9 @@ namespace EnglishAimlessly2.View
         private void btnShow_Click(object sender, RoutedEventArgs e)
         {
             Storyboard showDetailsAnimation = FindResource("ShowDetails") as Storyboard;
-            showDetailsAnimation.Completed += ShowDetailsAnimation_Completed;
             showDetailsAnimation.Begin();
         }
 
-        private void ShowDetailsAnimation_Completed(object sender, EventArgs e)
-        {
-            btnHistory.Visibility = Visibility.Visible;
-        }
 
         private void btnNextEasy_Click(object sender, RoutedEventArgs e)
         {

@@ -109,8 +109,10 @@ namespace EnglishAimlessly2.ViewModel
         {
             if (SelectedWord == null) return;
 
-            double p = SelectedWord.PracticeCount; // Practice count for the function addHours
-            double addHours = (0.75 * p * p * p) + (1 * p * p) + (8 * (p + 1));
+            int score = SelectedWord.Score + 100;
+            double s = score / 100;  // Scores / 100
+            //double p = SelectedWord.PracticeCount; // Practice count for the function addHours
+            double addHours = (0.8 * s * s / 2) + (6 * (s)) + 5;
 
             WordModel updateWord = SelectedWord;
             updateWord.UpdatedDate = DateTime.Now;
@@ -119,9 +121,10 @@ namespace EnglishAimlessly2.ViewModel
             DateTime dueDate = DateTime.Now;
             dueDate = dueDate.AddHours(addHours);
             updateWord.DueDate = dueDate;
+            updateWord.Score += 1000;
 
             WordDatabaseHelper.Update(updateWord);
-            AddHistory(updateWord, 1);
+            AddHistory(updateWord, 1, score);
 
             SelectedIndex++;
 
@@ -132,8 +135,10 @@ namespace EnglishAimlessly2.ViewModel
         {
             if (SelectedWord == null) return;
 
-            double p = SelectedWord.PracticeCount; // Practice count for the function addHours
-            double addHours = (2 * p * p) + (5 * (p + 1));
+            int score = SelectedWord.Score + 75;
+            double s = score / 100;  // Scores / 100
+            //double p = SelectedWord.PracticeCount; // Practice count for the function addHours
+            double addHours = (0.95 * s * s / 3) + (3 * (s)) + 7;
 
             WordModel updateWord = SelectedWord;
             updateWord.UpdatedDate = DateTime.Now;
@@ -142,9 +147,10 @@ namespace EnglishAimlessly2.ViewModel
             DateTime dueDate = DateTime.Now;
             dueDate = dueDate.AddHours(addHours);
             updateWord.DueDate = dueDate;
+            updateWord.Score += 75;
 
             WordDatabaseHelper.Update(updateWord);
-            AddHistory(updateWord, 2);
+            AddHistory(updateWord, 2, score);
 
             SelectedIndex++;
 
@@ -155,8 +161,33 @@ namespace EnglishAimlessly2.ViewModel
         {
             if (SelectedWord == null) return;
 
-            int p = SelectedWord.PracticeCount; // Practice count for the function addHours
-            double addHours = (1 * p * p) + (5 * (p + 1));
+            int score = SelectedWord.Score + 50;
+            double s = score / 100;  // Scores / 100
+            //double p = SelectedWord.PracticeCount; // Practice count for the function addHours
+            double addHours = (1 * s * s / 4) + (4 * (s)) + 10;
+
+            WordModel updateWord = SelectedWord;
+            updateWord.UpdatedDate = DateTime.Now;
+            updateWord.PracticeCount++;
+
+            DateTime dueDate = DateTime.Now;
+            dueDate = dueDate.AddHours(addHours);
+            updateWord.DueDate = dueDate;
+            updateWord.Score += 50;
+
+            WordDatabaseHelper.Update(updateWord);
+            AddHistory(updateWord, 3, score);
+
+            SelectedIndex++;
+
+            GoneNext?.Invoke(this, SelectedWord);
+        }
+
+        public void NextHours()
+        {
+            if (SelectedWord == null) return;
+            Random random = new Random();
+            double addHours = random.Next(1, 25);
 
             WordModel updateWord = SelectedWord;
             updateWord.UpdatedDate = DateTime.Now;
@@ -167,14 +198,14 @@ namespace EnglishAimlessly2.ViewModel
             updateWord.DueDate = dueDate;
 
             WordDatabaseHelper.Update(updateWord);
-            AddHistory(updateWord, 3);
+            AddHistory(updateWord, 4, updateWord.Score);
 
             SelectedIndex++;
 
             GoneNext?.Invoke(this, SelectedWord);
         }
 
-        public void AddHistory(WordModel word, int difficultyLevel)
+        public void AddHistory(WordModel word, int difficultyLevel, int score)
         {
             HistoryTableHelper historyHelper = new HistoryTableHelper(DatabaseHelper.DATABASE_PATH);
             HistoryModel history = new HistoryModel();

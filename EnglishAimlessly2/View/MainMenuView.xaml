@@ -80,37 +80,40 @@
                     <RowDefinition Height="3.5*"/>
                 </Grid.RowDefinitions>
 
-                <StackPanel Margin="10">
-                    <TextBlock Text="Groups"
-                               FontSize="25"
-                               TextAlignment="Center"
-                               FontWeight="Bold"
-                               Foreground="#222"/>
+                <Border Margin="5" BorderThickness="0 0 0 1" BorderBrush="#999"
+                        CornerRadius="0" Padding="2">
+                    <StackPanel Margin="0">
+                        <TextBlock Text="Groups"
+                                   FontSize="20"
+                                   TextAlignment="Center"
+                                   FontWeight="Bold"
+                                   Foreground="#222"/>
                     
-                    <TextBlock Margin="5 10 0 3"
-                               Text="Input to add or search"
-                               Foreground="#222"/>
+                        <TextBlock Margin="5 10 0 3"
+                                   Text="Input group name with at least 3 characters to add"
+                                   Foreground="#222"/>
 
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox x:Name="txtGroupName" Style="{StaticResource NewTextBox}"
-                                 Width="220"
-                                 Margin="2"
-                                 Text="{Binding GroupName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                 TextChanged="txtGroupName_TextChanged"/>
-                    
-                        <Button Style="{StaticResource CurveButton}"
-                                Background="Green"
-                                Content="ADD"
-                                Width="50"
-                                Height="30"
-                                Foreground="White"
-                                HorizontalAlignment="Right"
-                                Padding="10 0"
-                                Margin="5 0"
-                                BorderBrush="Transparent"
-                                Command="{Binding CreateGroupCmd}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox x:Name="txtGroupName" Style="{StaticResource NewTextBox}"
+                                         Width="220"
+                                         Margin="2"
+                                         Text="{Binding GroupName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         TextChanged="txtGroupName_TextChanged"/>
+
+                                <Button Style="{StaticResource CurveButton}"
+                                        Background="Green"
+                                        Content="ADD"
+                                        Width="50"
+                                        Height="30"
+                                        Foreground="White"
+                                        HorizontalAlignment="Right"
+                                        Padding="10 0"
+                                        Margin="5 0"
+                                        BorderBrush="Transparent"
+                                        Command="{Binding CreateGroupCmd}"/>
+                            </StackPanel>
                     </StackPanel>
-                </StackPanel>
+                </Border>
 
                 <Grid Margin="5" DockPanel.Dock="Top" Grid.Row="1">
                     <ListView x:Name="lstView" BorderThickness="0"
@@ -118,7 +121,7 @@
                               ScrollViewer.CanContentScroll="False"
                               SelectionChanged="lstView_SelectionChanged"
                               ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                              ItemsSource="{Binding Groups}"
+                              ItemsSource="{Binding Groups, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                               SelectedValue="{Binding SelectedGroup, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
@@ -163,7 +166,7 @@
 
                         <TextBlock Margin="0 5"
                                    FontSize="14"
-                                   Text="Masterd Words: 0"
+                                   Text="{Binding MasterWordsCount, StringFormat={}Mastered Words: {0}}"
                                    DockPanel.Dock="Right"
                                    HorizontalAlignment="Right"/>
                     </DockPanel>

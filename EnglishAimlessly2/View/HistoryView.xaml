@@ -67,15 +67,18 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="6*"/>
                 </Grid.RowDefinitions>
 
                 <StackPanel Margin="10">
                     <TextBlock Text="History"
-                               FontSize="25"
+                               FontSize="20"
                                TextAlignment="Center"
                                FontWeight="Bold"
-                               Foreground="#888"/>
+                               Foreground="#555"/>
+                    <DatePicker Margin="0 5 0 0" Style="{StaticResource NewDatePicker}"
+                                SelectedDate="{Binding PracticedDateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                Visibility="{Binding DatePickerVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
                 <Grid Margin="5" DockPanel.Dock="Top" Grid.Row="1">

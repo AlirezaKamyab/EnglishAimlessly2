@@ -51,6 +51,7 @@ namespace EnglishAimlessly2.UserControls
                 if (history.DifficultyLevel == 1) itemControl.border.BorderBrush = itemControl.dodgerBlue;
                 else if (history.DifficultyLevel == 2) itemControl.border.BorderBrush = itemControl.orange;
                 else if (history.DifficultyLevel == 3) itemControl.border.BorderBrush = itemControl.red;
+                else if (history.DifficultyLevel == 4) itemControl.border.BorderBrush = itemControl.black;
                 else itemControl.border.BorderBrush = itemControl.black;
             }
         }
