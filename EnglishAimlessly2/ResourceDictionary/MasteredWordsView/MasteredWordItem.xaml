@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="MasterWordItem" TargetType="ListViewItem">
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#FF4C29"/>
+            </Trigger>
+        </Style.Triggers>
+        <Style.Setters>
+            <Setter Property="Background" Value="#334756"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Border Background="{TemplateBinding Background}" Margin="5"
+                                CornerRadius="8"
+                                Padding="0 10">
+                            <Grid>
+                                <StackPanel VerticalAlignment="Center">
+                                    <StackPanel Orientation="Horizontal" Margin="10 0 0 0"
+                                            VerticalAlignment="Center">
+                                        <TextBlock Foreground="White"
+                                           Text="{Binding Name}"
+                                           FontSize="14"
+                                           FontWeight="Bold"/>
+                                        <TextBlock Foreground="Yellow"
+                                           Text="{Binding WordType}"
+                                           Margin="10 0 0 0"
+                                           FontSize="14"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding Score, StringFormat=Score: {0}}"
+                                               FontSize="12"
+                                               Margin="5 8 0 0"
+                                               Foreground="#ccc"
+                                               x:Name="txtScore"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+</ResourceDictionary>

@@ -110,7 +110,8 @@ namespace EnglishAimlessly2.ViewModel
             if (SelectedWord == null) return;
 
             int score = SelectedWord.Score + 100;
-            double s = score / 100;  // Scores / 100
+            int checkpoint = SelectedWord.CheckPointScore;
+            double s = score - checkpoint  / 100;  // Scores / 100
             //double p = SelectedWord.PracticeCount; // Practice count for the function addHours
             double addHours = (0.8 * s * s / 2) + (6 * (s)) + 5;
 
@@ -121,7 +122,9 @@ namespace EnglishAimlessly2.ViewModel
             DateTime dueDate = DateTime.Now;
             dueDate = dueDate.AddHours(addHours);
             updateWord.DueDate = dueDate;
-            updateWord.Score += 1000;
+
+            int exampleScore = (Example.Trim().Length >= 5) ? 5 : 0;
+            updateWord.Score += 100 + exampleScore;
 
             WordDatabaseHelper.Update(updateWord);
             AddHistory(updateWord, 1, score);
@@ -136,7 +139,8 @@ namespace EnglishAimlessly2.ViewModel
             if (SelectedWord == null) return;
 
             int score = SelectedWord.Score + 75;
-            double s = score / 100;  // Scores / 100
+            int checkpoint = SelectedWord.CheckPointScore;
+            double s = score - checkpoint / 100;  // Scores / 100
             //double p = SelectedWord.PracticeCount; // Practice count for the function addHours
             double addHours = (0.95 * s * s / 3) + (3 * (s)) + 7;
 
@@ -147,7 +151,9 @@ namespace EnglishAimlessly2.ViewModel
             DateTime dueDate = DateTime.Now;
             dueDate = dueDate.AddHours(addHours);
             updateWord.DueDate = dueDate;
-            updateWord.Score += 75;
+
+            int exampleScore = (Example.Trim().Length >= 5) ? 5 : 0;
+            updateWord.Score += 75 + exampleScore;
 
             WordDatabaseHelper.Update(updateWord);
             AddHistory(updateWord, 2, score);
@@ -162,7 +168,8 @@ namespace EnglishAimlessly2.ViewModel
             if (SelectedWord == null) return;
 
             int score = SelectedWord.Score + 50;
-            double s = score / 100;  // Scores / 100
+            int checkpoint = SelectedWord.CheckPointScore;
+            double s = score - checkpoint / 100;  // Scores / 100
             //double p = SelectedWord.PracticeCount; // Practice count for the function addHours
             double addHours = (1 * s * s / 4) + (4 * (s)) + 10;
 
@@ -173,7 +180,9 @@ namespace EnglishAimlessly2.ViewModel
             DateTime dueDate = DateTime.Now;
             dueDate = dueDate.AddHours(addHours);
             updateWord.DueDate = dueDate;
-            updateWord.Score += 50;
+
+            int exampleScore = (Example.Trim().Length >= 5) ? 5 : 0;
+            updateWord.Score += 50 + exampleScore;
 
             WordDatabaseHelper.Update(updateWord);
             AddHistory(updateWord, 3, score);
@@ -192,6 +201,9 @@ namespace EnglishAimlessly2.ViewModel
             WordModel updateWord = SelectedWord;
             updateWord.UpdatedDate = DateTime.Now;
             updateWord.PracticeCount++;
+
+            int exampleScore = (Example.Trim().Length >= 5) ? 5 : 0;
+            updateWord.Score += 0 + exampleScore;
 
             DateTime dueDate = DateTime.Now;
             dueDate = dueDate.AddHours(addHours);

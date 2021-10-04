@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="TextBox" x:Key="MasterAnswerTextBox">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="#999"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border x:Name="border" CornerRadius="15" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <TextBox x:Name="TextBoxAnswer"
+                                     Foreground="{TemplateBinding Foreground}"
+                                     FontSize="{TemplateBinding FontSize}"
+                                     Background="Transparent"
+                                     VerticalAlignment="Center"
+                                     Margin="7 0"
+                                     TextAlignment="Left"
+                                     BorderThickness="0"
+                                     Text="{Binding Answer, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                            </TextBox>
+
+                            <TextBlock Text="Enter a word equivalent to the description"
+                                       Panel.ZIndex="-1"
+                                       Foreground="#aaa"
+                                       VerticalAlignment="Center"
+                                       TextAlignment="Left"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       Margin="7 0"
+                                       Background="Transparent">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, ElementName=TextBoxAnswer}" Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding IsFocused, ElementName=TextBoxAnswer}" Value="True">
+                            <Setter Property="BorderBrush" Value="DodgerBlue"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>    
+</ResourceDictionary>

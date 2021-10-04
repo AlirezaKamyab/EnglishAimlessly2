@@ -2,16 +2,19 @@
   "version": 3,
   "targets": {
     "net5.0-windows7.0": {
-      "FontAwesome5/2.1.0": {
+      "FontAwesome5/2.1.4": {
         "type": "package",
         "compile": {
-          "lib/net5.0-windows/FontAwesome5.Net.dll": {},
-          "lib/net5.0-windows/FontAwesome5.dll": {}
+          "lib/net5.0-windows7.0/FontAwesome5.Net.dll": {},
+          "lib/net5.0-windows7.0/FontAwesome5.dll": {}
         },
         "runtime": {
-          "lib/net5.0-windows/FontAwesome5.Net.dll": {},
-          "lib/net5.0-windows/FontAwesome5.dll": {}
+          "lib/net5.0-windows7.0/FontAwesome5.Net.dll": {},
+          "lib/net5.0-windows7.0/FontAwesome5.dll": {}
         }
+      },
+      "Microsoft.Toolkit.Uwp.UI.Controls/7.1.0": {
+        "type": "package"
       },
       "Microsoft.Xaml.Behaviors.Wpf/1.1.31": {
         "type": "package",
@@ -25,10 +28,10 @@
           "Microsoft.WindowsDesktop.App.WPF"
         ]
       },
-      "Notification.Wpf/5.1.1.1": {
+      "Notification.Wpf/5.4.0": {
         "type": "package",
         "dependencies": {
-          "FontAwesome5": "2.1.0",
+          "FontAwesome5": "2.1.4",
           "Microsoft.Xaml.Behaviors.Wpf": "1.1.31",
           "System.ValueTuple": "4.5.0"
         },
@@ -42,10 +45,10 @@
           "Microsoft.WindowsDesktop.App.WPF"
         ]
       },
-      "sqlite-net-pcl/1.7.335": {
+      "sqlite-net-pcl/1.8.116": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.bundle_green": "2.0.3"
+          "SQLitePCLRaw.bundle_green": "2.0.4"
         },
         "compile": {
           "lib/netstandard2.0/SQLite-net.dll": {}
@@ -54,23 +57,23 @@
           "lib/netstandard2.0/SQLite-net.dll": {}
         }
       },
-      "SQLitePCLRaw.bundle_green/2.0.3": {
+      "SQLitePCLRaw.bundle_green/2.0.4": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.3",
-          "SQLitePCLRaw.lib.e_sqlite3": "2.0.3",
-          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.3"
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.lib.e_sqlite3": "2.0.4",
+          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.4"
         },
         "compile": {
-          "lib/netcoreapp3.0/SQLitePCLRaw.batteries_v2.dll": {},
-          "lib/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll": {}
+          "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.0/SQLitePCLRaw.batteries_v2.dll": {},
-          "lib/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll": {}
+          "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll": {},
+          "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll": {}
         }
       },
-      "SQLitePCLRaw.core/2.0.3": {
+      "SQLitePCLRaw.core/2.0.4": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3"
@@ -82,7 +85,7 @@
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {}
         }
       },
-      "SQLitePCLRaw.lib.e_sqlite3/2.0.3": {
+      "SQLitePCLRaw.lib.e_sqlite3/2.0.4": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -106,6 +109,10 @@
           "runtimes/linux-armel/native/libe_sqlite3.so": {
             "assetType": "native",
             "rid": "linux-armel"
+          },
+          "runtimes/linux-mips64/native/libe_sqlite3.so": {
+            "assetType": "native",
+            "rid": "linux-mips64"
           },
           "runtimes/linux-musl-x64/native/libe_sqlite3.so": {
             "assetType": "native",
@@ -141,10 +148,10 @@
           }
         }
       },
-      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.3": {
+      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
         "type": "package",
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.3"
+          "SQLitePCLRaw.core": "2.0.4"
         },
         "compile": {
           "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {}
@@ -174,14 +181,14 @@
     }
   },
   "libraries": {
-    "FontAwesome5/2.1.0": {
-      "sha512": "AHVpPBi8fDnPVFqos07UT+C/XGziRYP90s+8Eixd0M4vDuEZ9ZyIn3gcaBkXmWgmPVuEnR1GtAQlBTjNwRg3QA==",
+    "FontAwesome5/2.1.4": {
+      "sha512": "n0G6GPSoZNlE8JmjIegS9BERCcqoy9R4eVrfkejW9wIjJXxrSPVX82hbWvFCDNMCebclQePnitTbG3/IYqYB3A==",
       "type": "package",
-      "path": "fontawesome5/2.1.0",
+      "path": "fontawesome5/2.1.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "fontawesome5.2.1.0.nupkg.sha512",
+        "fontawesome5.2.1.4.nupkg.sha512",
         "fontawesome5.nuspec",
         "icon.png",
         "lib/net40/FontAwesome5.Net.dll",
@@ -196,16 +203,20 @@
         "lib/net472/FontAwesome5.Net.xml",
         "lib/net472/FontAwesome5.dll",
         "lib/net472/FontAwesome5.xml",
-        "lib/net5.0-windows/FontAwesome5.Net.dll",
-        "lib/net5.0-windows/FontAwesome5.Net.xml",
-        "lib/net5.0-windows/FontAwesome5.dll",
-        "lib/net5.0-windows/FontAwesome5.xml",
+        "lib/net5.0-windows7.0/FontAwesome5.Net.dll",
+        "lib/net5.0-windows7.0/FontAwesome5.Net.xml",
+        "lib/net5.0-windows7.0/FontAwesome5.dll",
+        "lib/net5.0-windows7.0/FontAwesome5.xml",
+        "lib/net5.0/FontAwesome5.dll",
+        "lib/net5.0/FontAwesome5.xml",
         "lib/netcoreapp3.1/FontAwesome5.Net.dll",
         "lib/netcoreapp3.1/FontAwesome5.Net.xml",
         "lib/netcoreapp3.1/FontAwesome5.dll",
         "lib/netcoreapp3.1/FontAwesome5.xml",
         "lib/netstandard1.4/FontAwesome5.dll",
         "lib/netstandard1.4/FontAwesome5.xml",
+        "lib/netstandard2.1/FontAwesome5.dll",
+        "lib/netstandard2.1/FontAwesome5.xml",
         "lib/uap10.0/FontAwesome5.UWP.XML",
         "lib/uap10.0/FontAwesome5.UWP.dll",
         "lib/uap10.0/FontAwesome5.UWP.pri",
@@ -214,6 +225,21 @@
         "lib/uap10.0/FontAwesome5.UWP/Fonts/Font Awesome 5 Free-Solid-900.otf",
         "lib/uap10.0/FontAwesome5.dll",
         "lib/uap10.0/FontAwesome5.xml"
+      ]
+    },
+    "Microsoft.Toolkit.Uwp.UI.Controls/7.1.0": {
+      "sha512": "OMRMaXPtZBMcx67Y9E16ftnXeGsubkrm3Ncyn0exx3ME5bwWsGPTiEocNYkchmXBVgh00lUC/j4dNsuSK1hN+Q==",
+      "type": "package",
+      "path": "microsoft.toolkit.uwp.ui.controls/7.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "License.md",
+        "ReadMe.txt",
+        "ThirdPartyNotices.txt",
+        "microsoft.toolkit.uwp.ui.controls.7.1.0.nupkg.sha512",
+        "microsoft.toolkit.uwp.ui.controls.nuspec"
       ]
     },
     "Microsoft.Xaml.Behaviors.Wpf/1.1.31": {
@@ -241,43 +267,50 @@
         "tools/Install.ps1"
       ]
     },
-    "Notification.Wpf/5.1.1.1": {
-      "sha512": "8B4M+0pxDr96KR/jCAL47iJ6qTvgqToTvsAgHvPZgRE3s5aJwE3/uV4y/lZhwydelvNpWWzcBnQCmsBF40UUEQ==",
+    "Notification.Wpf/5.4.0": {
+      "sha512": "gvkn0mkO6en52jpWS1Y6Wcm/ihvrqElWMgvv4HeYR++ULpq+rOMOT91p+28GhCQin39FIczs67dtALgBu4nhhw==",
       "type": "package",
-      "path": "notification.wpf/5.1.1.1",
+      "path": "notification.wpf/5.4.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE",
         "icon.png",
         "lib/net46/Notification.Wpf.dll",
+        "lib/net46/Notification.Wpf.xml",
         "lib/net461/Notification.Wpf.dll",
+        "lib/net461/Notification.Wpf.xml",
         "lib/net47/Notification.Wpf.dll",
+        "lib/net47/Notification.Wpf.xml",
         "lib/net48/Notification.Wpf.dll",
+        "lib/net48/Notification.Wpf.xml",
         "lib/net5.0-windows7.0/Notification.Wpf.dll",
+        "lib/net5.0-windows7.0/Notification.Wpf.xml",
         "lib/netcoreapp3.1/Notification.Wpf.dll",
-        "notification.wpf.5.1.1.1.nupkg.sha512",
+        "lib/netcoreapp3.1/Notification.Wpf.xml",
+        "notification.wpf.5.4.0.nupkg.sha512",
         "notification.wpf.nuspec"
       ]
     },
-    "sqlite-net-pcl/1.7.335": {
-      "sha512": "0A9YNPbp66aB+Sitxmh9lq1KDtD4+EBPfdtnYN8WenvQqh5dNgMxUV7kaEG6EXYTi4zBxcsDKpyYJzbViWJXtw==",
+    "sqlite-net-pcl/1.8.116": {
+      "sha512": "W0NuwAOVVAR9LP4eZwNBIrim1p3EN7t8iNfSHXEhtzKAd4YyItekoQ8NyWYs4faVSrN2KZr/P5u4hycCjKKexg==",
       "type": "package",
-      "path": "sqlite-net-pcl/1.7.335",
+      "path": "sqlite-net-pcl/1.8.116",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.txt",
+        "Logo-low.png",
         "lib/netstandard2.0/SQLite-net.dll",
         "lib/netstandard2.0/SQLite-net.xml",
-        "sqlite-net-pcl.1.7.335.nupkg.sha512",
+        "sqlite-net-pcl.1.8.116.nupkg.sha512",
         "sqlite-net-pcl.nuspec"
       ]
     },
-    "SQLitePCLRaw.bundle_green/2.0.3": {
-      "sha512": "QgevRdYSy/MtL1TDdWuhoCH5cpBPZYUZd8h/WqgiLGXDa8e93Fv4/SE812SDCdjTb2+6s8SIwSLRq0z2bUeieg==",
+    "SQLitePCLRaw.bundle_green/2.0.4": {
+      "sha512": "ubFgOHDmtTcq2LU7Ss10yHnFVMm2rFVr65Ggi+Mh514KjGx4pal98P2zSvZtWf3wbtJw6G1InBgeozBtnpEfKQ==",
       "type": "package",
-      "path": "sqlitepclraw.bundle_green/2.0.3",
+      "path": "sqlitepclraw.bundle_green/2.0.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -285,29 +318,29 @@
         "lib/Xamarin.iOS10/SQLitePCLRaw.nativelibrary.dll",
         "lib/net461/SQLitePCLRaw.batteries_v2.dll",
         "lib/net461/SQLitePCLRaw.nativelibrary.dll",
-        "lib/netcoreapp3.0/SQLitePCLRaw.batteries_v2.dll",
-        "lib/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll",
+        "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll",
+        "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll",
         "lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll",
-        "sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
+        "sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
         "sqlitepclraw.bundle_green.nuspec"
       ]
     },
-    "SQLitePCLRaw.core/2.0.3": {
-      "sha512": "9LO3qT7tP+0qBAQxg/PGLHPcsKri4H2zIiiMEg+7EGrnBbuUnJg1tcfKiiqFtRp74kZSAV6N0ZeSGYiodqYnoQ==",
+    "SQLitePCLRaw.core/2.0.4": {
+      "sha512": "4XlDZpDAsboMD6qZQcz9AaKblKDUTVHF+8f3lvbP7QjoqSRr2Xc0Lm34IK2pjRIYnyFLhI3yOJ5YWfOiCid2yg==",
       "type": "package",
-      "path": "sqlitepclraw.core/2.0.3",
+      "path": "sqlitepclraw.core/2.0.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/SQLitePCLRaw.core.dll",
-        "sqlitepclraw.core.2.0.3.nupkg.sha512",
+        "sqlitepclraw.core.2.0.4.nupkg.sha512",
         "sqlitepclraw.core.nuspec"
       ]
     },
-    "SQLitePCLRaw.lib.e_sqlite3/2.0.3": {
-      "sha512": "VSTQBlcPOcqCCxXnXwo8N2msQuE/Hd6oKpZ5Nn022tq5/+liyx5uEYNw6Hj8logTdkuq+3Nlq7qYQhraFWn1wg==",
+    "SQLitePCLRaw.lib.e_sqlite3/2.0.4": {
+      "sha512": "oetvmtDZOE4Nnrtxd8Trapl9geBiu0rDCUXff46qGYjnUwzaU1mZ3OHnfR402tl32rx8gBWg3n5OBRaPJRbsGw==",
       "type": "package",
-      "path": "sqlitepclraw.lib.e_sqlite3/2.0.3",
+      "path": "sqlitepclraw.lib.e_sqlite3/2.0.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -318,6 +351,7 @@
         "runtimes/linux-arm/native/libe_sqlite3.so",
         "runtimes/linux-arm64/native/libe_sqlite3.so",
         "runtimes/linux-armel/native/libe_sqlite3.so",
+        "runtimes/linux-mips64/native/libe_sqlite3.so",
         "runtimes/linux-musl-x64/native/libe_sqlite3.so",
         "runtimes/linux-x64/native/libe_sqlite3.so",
         "runtimes/linux-x86/native/libe_sqlite3.so",
@@ -330,19 +364,19 @@
         "runtimes/win10-arm64/nativeassets/uap10.0/e_sqlite3.dll",
         "runtimes/win10-x64/nativeassets/uap10.0/e_sqlite3.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/e_sqlite3.dll",
-        "sqlitepclraw.lib.e_sqlite3.2.0.3.nupkg.sha512",
+        "sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
         "sqlitepclraw.lib.e_sqlite3.nuspec"
       ]
     },
-    "SQLitePCLRaw.provider.dynamic_cdecl/2.0.3": {
-      "sha512": "RybfknbgdhjD+g38vyLA8Ram3CbivpZEUa+ZthtULROrEp81V8hxK30mIsAM9YFb3cOmnF/3hOIjhpVo9h72Lg==",
+    "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
+      "sha512": "AY6+vv/4ji1mCkLrS6HP/88rHT9YFKRyg3LUj8RyIk6imJMUFdQDiP8rK8gq0a/0FbqspLjK1t7rtKcr7FXRYA==",
       "type": "package",
-      "path": "sqlitepclraw.provider.dynamic_cdecl/2.0.3",
+      "path": "sqlitepclraw.provider.dynamic_cdecl/2.0.4",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll",
-        "sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512",
+        "sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512",
         "sqlitepclraw.provider.dynamic_cdecl.nuspec"
       ]
     },
@@ -414,13 +448,13 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "Notification.Wpf >= 5.1.1.1",
-      "sqlite-net-pcl >= 1.7.335"
+      "Microsoft.Toolkit.Uwp.UI.Controls >= 7.1.0",
+      "Notification.Wpf >= 5.4.0",
+      "sqlite-net-pcl >= 1.8.116"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alireza\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Alireza\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.1",
@@ -431,12 +465,8 @@
       "packagesPath": "C:\\Users\\Alireza\\.nuget\\packages\\",
       "outputPath": "G:\\Programming Projects\\EnglishAimlessly2\\EnglishAimlessly2\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\Alireza\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -462,13 +492,17 @@
       "net5.0-windows7.0": {
         "targetAlias": "net5.0-windows",
         "dependencies": {
+          "Microsoft.Toolkit.Uwp.UI.Controls": {
+            "target": "Package",
+            "version": "[7.1.0, )"
+          },
           "Notification.Wpf": {
             "target": "Package",
-            "version": "[5.1.1.1, )"
+            "version": "[5.4.0, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",
-            "version": "[1.7.335, )"
+            "version": "[1.8.116, )"
           }
         },
         "imports": [
@@ -481,6 +515,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.9, 5.0.9]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -489,7 +529,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.1.21463.6\\RuntimeIdentifierGraph.json"
       }
     }
   }

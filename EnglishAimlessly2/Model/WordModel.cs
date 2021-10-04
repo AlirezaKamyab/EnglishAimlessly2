@@ -31,9 +31,13 @@ namespace EnglishAimlessly2.Model
         public DateTime UpdatedDate { get; set; }
         [Column("DueDate")]
         public DateTime DueDate { get; set; }
+        [Column("MasterLastPractice")]
+        public DateTime MasterLastPractice { get; set; }
         [Column("PracticedTime")]
         public int PracticeCount { get; set; }
         [Column("Score"), NotNull]
         public int Score { get; set; } = 0;
+        [Column("CheckPoint")]
+        public int CheckPointScore { get; set; }
     }
 }

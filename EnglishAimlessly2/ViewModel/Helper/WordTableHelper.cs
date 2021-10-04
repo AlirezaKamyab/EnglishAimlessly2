@@ -162,6 +162,13 @@ namespace EnglishAimlessly2.ViewModel.Helper
             return pairs;
         }
 
+        public List<WordModel> GetSortedMasterPracticeTime(GroupModel fromGroup, int filterScore = 0)
+        {
+            List<WordModel> temp = _innerList.Where(x => x.Score >= filterScore).OrderBy(x => x.MasterLastPractice).ToList();
+
+            return temp;
+        }
+
         public List<WordModel> GetListByScore(int groupId, int minScore)
         {
             List<WordModel> temp = new List<WordModel>();

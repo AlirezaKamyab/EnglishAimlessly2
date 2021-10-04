@@ -1,0 +1,35 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="TextBox" x:Key="SearchTextbox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border x:Name="border" CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="#aaa" BorderThickness="2">
+                        <Grid>
+                            <TextBox x:Name="textbox" Margin="7 5" VerticalAlignment="Center" TextAlignment="Left"
+                                     BorderThickness="0"
+                                     Background="Transparent"/>
+                            <TextBlock x:Name="hintBox" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0"
+                                       Text="Search . . ."
+                                       Foreground="#aaa"
+                                       Background="Transparent"
+                                       Panel.ZIndex="-1"
+                                       Visibility="Collapsed"/>
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Binding="{Binding IsFocused, ElementName=textbox}" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="dodgerblue"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="2"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Text, ElementName=textbox}" Value="">
+                            <Setter TargetName="hintBox" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>    
+</ResourceDictionary>

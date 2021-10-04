@@ -23,15 +23,21 @@
     <None Remove="Resources\Fonts\RobotoCondensed-LightItalic.ttf" />
     <None Remove="Resources\Fonts\RobotoCondensed-Regular.ttf" />
     <None Remove="Resources\Images\Backgrounds\Background.jpg" />
+    <None Remove="Resources\Images\Icons\AddIcon.jpg" />
+    <None Remove="Resources\Images\Icons\AlphaIcon.png" />
+    <None Remove="Resources\Images\Icons\BookIcon.jpg" />
     <None Remove="Resources\Images\Icons\EAIcon.ico" />
     <None Remove="Resources\Images\Icons\EAPng.png" />
     <None Remove="Resources\Images\Icons\github.png" />
     <None Remove="Resources\Images\Icons\instagram.png" />
+    <None Remove="Resources\Images\Icons\lightOff.png" />
+    <None Remove="Resources\Images\Icons\lightOn.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Notification.Wpf" Version="5.1.1.1" />
-    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls" Version="7.1.0" />
+    <PackageReference Include="Notification.Wpf" Version="5.4.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,12 +48,19 @@
     <Resource Include="Resources\Fonts\RobotoCondensed-LightItalic.ttf" />
     <Resource Include="Resources\Fonts\RobotoCondensed-Regular.ttf" />
     <Resource Include="Resources\Images\Backgrounds\Background.jpg" />
+    <Resource Include="Resources\Images\Icons\AddIcon.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\Icons\AlphaIcon.png" />
+    <Resource Include="Resources\Images\Icons\BookIcon.jpg" />
     <Resource Include="Resources\Images\Icons\EAIcon.ico" />
     <Resource Include="Resources\Images\Icons\EAPng.png" />
     <Resource Include="Resources\Images\Icons\github.png" />
     <Resource Include="Resources\Images\Icons\instagram.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Images\Icons\lightOff.png" />
+    <Resource Include="Resources\Images\Icons\lightOn.png" />
   </ItemGroup>
 
   <ItemGroup>

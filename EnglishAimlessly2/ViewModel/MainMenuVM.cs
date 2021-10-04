@@ -15,8 +15,6 @@ namespace EnglishAimlessly2.ViewModel
     public class MainMenuVM : INotifyPropertyChanged
     {
         private UserModel _loggedUser;
-        private GroupTableHelper _groupHelper;
-        private WordTableHelper _wordHelper;
         private GroupModel _selectedGroup;
         private string _nextPracticeCounter;
         private string _groupName = "";
@@ -100,7 +98,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _loggedUser = value;
-                if(DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) == false && _groupHelper != null) ReloadGroups();
+                if(DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) == false) ReloadGroups();
                 OnPropertyChanged(nameof(LoggedUser));
             }
         }
@@ -113,11 +111,12 @@ namespace EnglishAimlessly2.ViewModel
             }
             set
             {
+                GroupTableHelper helper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
                 GroupModel temp = value;
                 if (temp != null)
                 {
-                    _groupHelper.Reload();
-                    _selectedGroup = _groupHelper.SearchById(temp.Id);
+                    helper.Reload();
+                    _selectedGroup = helper.SearchById(temp.Id);
                     UpdateInformationForGroup();
                     OnPropertyChanged(nameof(SelectedGroup));
                 }
@@ -153,8 +152,6 @@ namespace EnglishAimlessly2.ViewModel
                 _timer.Interval = new TimeSpan(10,0,0,0,0);
                 _timer.Tick += _timer_Tick;
 
-                _groupHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
-                _wordHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
                 ReloadGroups();
             }
         }
@@ -167,35 +164,37 @@ namespace EnglishAimlessly2.ViewModel
             OnTime?.Invoke(this, nearestPracticeGroup);
         }
 
-        private void UpdateTimeInterval()
-        {
-            _timer.Stop();
-            UserTableHelper userHelper = new UserTableHelper(DatabaseHelper.DATABASE_PATH);
-            nearestPracticeGroup = userHelper.MinPracticeTime(LoggedUser.Id);
+        //private void UpdateTimeInterval()
+        //{
+        //    _timer.Stop();
+        //    UserTableHelper userHelper = new UserTableHelper(DatabaseHelper.DATABASE_PATH);
+        //    nearestPracticeGroup = userHelper.MinPracticeTime(LoggedUser.Id);
 
-            if (nearestPracticeGroup == null) return;
+        //    if (nearestPracticeGroup == null) return;
 
-            TimeModel nearestPracticeTime = _groupHelper.NextPractice(nearestPracticeGroup.Id);
-            int seconds = ((int)nearestPracticeTime.Seconds >= 60) ? (int)nearestPracticeTime.Seconds : 60;
-            _timer.Interval = new TimeSpan(0, 0, seconds);
-            if(nearestPracticeTime.Seconds > 0) _timer.Start();
-        }
+        //    GroupTableHelper helper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH); 
+        //    TimeModel nearestPracticeTime = helper.NextPractice(nearestPracticeGroup.Id);
+        //    int seconds = ((int)nearestPracticeTime.Seconds >= 60) ? (int)nearestPracticeTime.Seconds : 60;
+        //    _timer.Interval = new TimeSpan(0, 0, seconds);
+        //    if(nearestPracticeTime.Seconds > 0) _timer.Start();
+        //}
 
-        public void StopTimer()
-        {
-            UpdateTimeInterval();
-            _timer.Stop();
-        }
+        //public void StopTimer()
+        //{
+        //    UpdateTimeInterval();
+        //    _timer.Stop();
+        //}
 
-        public void StartTimer()
-        {
-            UpdateTimeInterval();
-            _timer.Start();
-        }
+        //public void StartTimer()
+        //{
+        //    UpdateTimeInterval();
+        //    _timer.Start();
+        //}
 
         public void AddGroup()
         {
-            List<GroupModel> searched = _groupHelper.SearchByName(GroupName);
+            GroupTableHelper groupHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
+            List<GroupModel> searched = groupHelper.SearchByName(GroupName);
             foreach (GroupModel item in searched)
             {
                 if (item.Id == LoggedUser.Id) return;
@@ -206,7 +205,7 @@ namespace EnglishAimlessly2.ViewModel
             newGroup.CreationDate = DateTime.Now;
             newGroup.UpdatedDate = DateTime.Now;
             newGroup.Description = "Description Here"; // This should be updated later
-            _groupHelper.Insert(newGroup);
+            groupHelper.Insert(newGroup);
             ReloadGroups();
             GroupName = "";
         }
@@ -214,12 +213,16 @@ namespace EnglishAimlessly2.ViewModel
         public void RemoveGroup()
         {
             if (SelectedGroup == null) return;
-            List<WordModel> words = _wordHelper.SearchByGroupId(SelectedGroup.Id);
+
+            WordTableHelper wordHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
+            GroupTableHelper groupHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
+
+            List<WordModel> words = wordHelper.SearchByGroupId(SelectedGroup.Id);
             foreach (WordModel item in words)
             {
-                _wordHelper.Remove(item);
+                wordHelper.Remove(item);
             }
-            _groupHelper.Remove(SelectedGroup);
+            groupHelper.Remove(SelectedGroup);
 
 
             _selectedGroup = null;
@@ -230,27 +233,19 @@ namespace EnglishAimlessly2.ViewModel
 
         void UpdateInformationForGroup()
         {
-            _wordHelper.Reload();
-            ItemCount = _wordHelper.SearchByGroupId(SelectedGroup.Id).Count.ToString();
-            NewWords = _wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
-            PracticeAvailableCount = _wordHelper.GetSortedDueTime(SelectedGroup).Count;
-            MasterWordsCount = _wordHelper.GetListByScore(SelectedGroup.Id, 1000).Count;
-            UpdateTimeInterval();
-            UpdateNextPracticeCounter();
-        }
-
-        public void ForceUpdateInformationForGroup()
-        {
-            UpdateInformationForGroup();
-            ReloadGroups();
-            UpdateTimeInterval();
+            WordTableHelper wordHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
+            ItemCount = wordHelper.SearchByGroupId(SelectedGroup.Id).Count.ToString();
+            NewWords = wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
+            PracticeAvailableCount = wordHelper.GetSortedDueTime(SelectedGroup).Count;
+            MasterWordsCount = wordHelper.GetListByScore(SelectedGroup.Id, 1000).Count;
+            //UpdateTimeInterval();
             UpdateNextPracticeCounter();
         }
 
         private void UpdateNextPracticeCounter()
         {
-
-            TimeModel nextPractice = _groupHelper.NextPractice(SelectedGroup.Id);
+            GroupTableHelper groupHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
+            TimeModel nextPractice = groupHelper.NextPractice(SelectedGroup.Id);
             if (nextPractice.Miliseconds <= 0) NextPracticeCounter = "Next practice is available";
             else
             {
@@ -280,13 +275,13 @@ namespace EnglishAimlessly2.ViewModel
 
         private void ReloadGroups()
         {
-            _groupHelper.Reload();
+            GroupTableHelper groupHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
             Groups.Clear();
-            foreach (GroupModel item in _groupHelper.SearchByUserId(LoggedUser.Id))
+            foreach (GroupModel item in groupHelper.SearchByUserId(LoggedUser.Id))
             {
                 Groups.Add(item);
             }
-            UpdateTimeInterval();
+            //UpdateTimeInterval();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

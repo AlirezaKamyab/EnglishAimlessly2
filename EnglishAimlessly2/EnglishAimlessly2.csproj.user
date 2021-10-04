@@ -46,7 +46,16 @@
     <Compile Update="View\MainMenuView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\MainMenuViewPreview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\ManageView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MasteredWordsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MasterPractice.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\PracticeView.xaml.cs">
@@ -67,6 +76,21 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ResourceDictionary\DatePickerDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\MainMenu\GroupListItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\MainMenu\MainMenuTextBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\MainMenu\MenuOptionButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\MasteredWordsView\MasteredWordItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\MasterPractice\AnswerTextBox.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ResourceDictionary\TextblockDictionary.xaml">
@@ -117,7 +141,16 @@
     <Page Update="View\MainMenuView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\MainMenuViewPreview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\ManageView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MasteredWordsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MasterPractice.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\PracticeView.xaml">

@@ -21,15 +21,6 @@
                 Margin="0 0 0 5"
                 Padding="5" Background="#4c394f">
             <DockPanel Margin="10 0">
-                <!--<TextBlock DockPanel.Dock="left"
-                           VerticalAlignment="Center"
-                           FontSize="15"
-                           Foreground="White">
-                    <Run Text="{Binding LoggedUser.Name}"/>
-                    <Run Text="{Binding LoggedUser.Lastname}"/>
-                    <Run Text="{Binding LoggedUser.Username, StringFormat=({0})}"/>
-                </TextBlock>-->
-
                 <Button Style="{StaticResource CurveButton}"
                         x:Name="btnClose"
                         Background="red"

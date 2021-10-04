@@ -1,19 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "bCJoAY970bj0k94ElE5NpUlc+Gz/pLTgFVXxxT56epwIf0yN+x1UPRcAfQN4MUG21HhaFNpRpU/kTXUSWsOmAQ==",
+  "dgSpecHash": "2ATH4NeKDz6DaIg6BTVxSltGRA2rseag71mpybFMwnRw5vvowCRZpEMJ++Vk5wvzTCsXW4/qSAbrhYKbz3Mwzw==",
   "success": true,
   "projectFilePath": "G:\\Programming Projects\\EnglishAimlessly2\\EnglishAimlessly2\\EnglishAimlessly2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Alireza\\.nuget\\packages\\fontawesome5\\2.1.0\\fontawesome5.2.1.0.nupkg.sha512",
+    "C:\\Users\\Alireza\\.nuget\\packages\\fontawesome5\\2.1.4\\fontawesome5.2.1.4.nupkg.sha512",
+    "C:\\Users\\Alireza\\.nuget\\packages\\microsoft.toolkit.uwp.ui.controls\\7.1.0\\microsoft.toolkit.uwp.ui.controls.7.1.0.nupkg.sha512",
     "C:\\Users\\Alireza\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.31\\microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512",
-    "C:\\Users\\Alireza\\.nuget\\packages\\notification.wpf\\5.1.1.1\\notification.wpf.5.1.1.1.nupkg.sha512",
-    "C:\\Users\\Alireza\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
-    "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
-    "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",
-    "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.3\\sqlitepclraw.lib.e_sqlite3.2.0.3.nupkg.sha512",
-    "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.3\\sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512",
+    "C:\\Users\\Alireza\\.nuget\\packages\\notification.wpf\\5.4.0\\notification.wpf.5.4.0.nupkg.sha512",
+    "C:\\Users\\Alireza\\.nuget\\packages\\sqlite-net-pcl\\1.8.116\\sqlite-net-pcl.1.8.116.nupkg.sha512",
+    "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.4\\sqlitepclraw.bundle_green.2.0.4.nupkg.sha512",
+    "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",
+    "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.4\\sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512",
+    "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.4\\sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512",
     "C:\\Users\\Alireza\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\Alireza\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+    "C:\\Users\\Alireza\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
+    "C:\\Users\\Alireza\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.9\\microsoft.netcore.app.host.win-x64.5.0.9.nupkg.sha512"
   ],
   "logs": []
 }

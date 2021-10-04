@@ -163,5 +163,21 @@ namespace EnglishAimlessly2.View
                 ShowDialog();
             }
         }
+
+        private void btnMasteredWords_Click(object sender, RoutedEventArgs e)
+        {
+            MasteredWordsView mwv = new MasteredWordsView(mmvm.SelectedGroup);
+            Hide();
+            mwv.ShowDialog();
+            ShowDialog();
+        }
+
+        private void btnMasterPractice_Click(object sender, RoutedEventArgs e)
+        {
+            MasterPractice mp = new MasterPractice(mmvm.SelectedGroup);
+            Hide();
+            mp.ShowDialog();
+            ShowDialog();
+        }
     }
 }

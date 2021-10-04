@@ -2,6 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style TargetType="TextBlock">
-        <Setter Property="FontFamily" Value="/Resources/Fonts/#Roboto Condensed"/>
+        <!--<Setter Property="FontFamily" Value="/Resources/Fonts/#Roboto Condensed"/>-->
     </Style>
 </ResourceDictionary>

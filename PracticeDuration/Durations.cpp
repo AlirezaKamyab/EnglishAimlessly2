@@ -37,19 +37,19 @@ int main() {
         practice_t temp;
         if(input == '1') {
             temp._pd = "Easy";
-            score += 100;
+            score += 105;
             practice++;
             temp._r = easy(score, practice);
         }
         else if(input == '2') {
             temp._pd = "Normal";
-            score += 75;
+            score += 80;
             practice++;
             temp._r = normal(score, practice);
         }
         else if(input == '3') {
             temp._pd = "Hard";
-            score += 50;
+            score += 55;
             practice++;
             temp._r = hard(score, practice);
         }
