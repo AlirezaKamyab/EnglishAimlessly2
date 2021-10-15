@@ -6,7 +6,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="ListViewItem">
                         <Border x:Name="border" Background="#eee" BorderBrush="#aaa" BorderThickness="0"
-                                CornerRadius="8" Padding="5" Margin="0 5 0 0">
+                                CornerRadius="8" Padding="5" Margin="0 5 0 0" Width="300">
                             <StackPanel VerticalAlignment="Center" Margin="2">
                                 <TextBlock x:Name="username" Margin="5 0 0 0"
                                            Text="{Binding Username}"

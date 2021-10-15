@@ -45,7 +45,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Border x:Name="pnlCard" Grid.Row="1" Background="#FFFDF8F8"
+                <Border x:Name="pnlCard" Grid.Row="1" Background="#FFF1F1F1"
                         CornerRadius="10"
                         Margin="5">
 
