@@ -32,12 +32,12 @@ namespace EnglishAimlessly2.Model
         [Column("DueDate")]
         public DateTime DueDate { get; set; }
         [Column("MasterLastPractice")]
-        public DateTime MasterLastPractice { get; set; }
+        public DateTime MasterLastPractice { get; set; } = DateTime.MinValue;
         [Column("PracticedTime")]
-        public int PracticeCount { get; set; }
-        [Column("Score"), NotNull]
+        public int PracticeCount { get; set; } = 0;
+        [Column("Score")]
         public int Score { get; set; } = 0;
         [Column("CheckPoint")]
-        public int CheckPointScore { get; set; }
+        public int CheckPointScore { get; set; } = 0;
     }
 }
