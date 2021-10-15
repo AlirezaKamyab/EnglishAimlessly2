@@ -26,19 +26,15 @@ namespace EnglishAimlessly2.View
             Owner = Application.Current.MainWindow;
         }
 
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            txtPass.Text = (sender as PasswordBox).Password;
-        }
 
         private void btnBackToLogin_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
-        private void UserCredentialVM_Registered(object sender, Model.UserModel user)
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Close();
+            DragMove();
         }
     }
 }

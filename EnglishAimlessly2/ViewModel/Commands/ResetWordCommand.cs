@@ -27,13 +27,17 @@ namespace EnglishAimlessly2.ViewModel.Commands
 
         public void Execute(object parameter)
         {
-            ManagerViewModel.SelectedWordForFunctioning = ManagerViewModel.SelectedWord;
-            if (ManagerViewModel.SelectedWordForFunctioning == null) return;
+            ManagerViewModel.SelectedWord = ManagerViewModel.SelectedWord;
+            if (ManagerViewModel.SelectedWord == null) return;
             DialogResultModel drm = new DialogResultModel();
-            ConfirmationView confirmation = new ConfirmationView("Reset confirmation", string.Format("Are you sure to reset the word \"{0}\" from database?", ManagerViewModel.SelectedWordForFunctioning.Name), drm);
+            ConfirmationView confirmation = new ConfirmationView("Reset confirmation", string.Format("Are you sure to reset the word \"{0}\" from database?", ManagerViewModel.SelectedWord.Name), drm);
             confirmation.ShowDialog();
 
-            if (drm.DialogResult == Result.Yes) ManagerViewModel.ResetWord();
+            if (drm.DialogResult == Result.Yes)
+            {
+                ManagerViewModel.ResetWord();
+                ManagerViewModel.Reload();
+            }
         }
     }
 }

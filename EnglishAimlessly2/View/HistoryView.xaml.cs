@@ -20,19 +20,21 @@ namespace EnglishAimlessly2.View
     /// </summary>
     public partial class HistoryView : Window
     {
-        private HistoryVM hvm { get; set; }
-        public HistoryView(int groupId)
+        public HistoryView()
         {
             InitializeComponent();
-
+            DataContext = new HistoryVM();
             Owner = Application.Current.MainWindow;
-            hvm = FindResource("hvm") as HistoryVM;
-            hvm.GroupId = groupId;
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private void Close_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

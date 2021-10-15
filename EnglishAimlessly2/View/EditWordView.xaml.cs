@@ -21,31 +21,17 @@ namespace EnglishAimlessly2.View
     /// </summary>
     public partial class EditWordView : Window
     {
-        private ManagerVM ManagerViewModel { get; set; }
-        private ManagerVM SenderMVM { get; set; }
 
-        public EditWordView(ManagerVM senderMVM)
+        public EditWordView(ManagerVM sendermvm)
         {
             InitializeComponent();
 
             Owner = Application.Current.MainWindow;
-            SenderMVM = senderMVM;
-            ManagerViewModel = Resources["mvm"] as ManagerVM;
-
-            ManagerViewModel.SelectedWordForFunctioning = SenderMVM.SelectedWordForFunctioning;
-
-            ManagerViewModel.WordName = ManagerViewModel.SelectedWordForFunctioning.Name;
-            ManagerViewModel.WordType = ManagerViewModel.SelectedWordForFunctioning.WordType;
-            ManagerViewModel.Equivalent = ManagerViewModel.SelectedWordForFunctioning.Equivalent;
-            ManagerViewModel.Description = ManagerViewModel.SelectedWordForFunctioning.Description;
-
-            ManagerViewModel.Edited += ManagerViewModel_Edited;
+            DataContext = sendermvm;
         }
 
-        private void ManagerViewModel_Edited(object sender, WordModel newWord)
+        private void Close_Click(object sender, RoutedEventArgs e)
         {
-            SenderMVM.Reload();
-            SenderMVM.SelectedWord = newWord;
             Close();
         }
     }

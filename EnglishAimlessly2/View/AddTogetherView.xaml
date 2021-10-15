@@ -81,7 +81,8 @@
                     <Button Style="{StaticResource CurveButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
                             Grid.Row="3" Content="Add All" Width="100" Height="30" Background="Green"
                             Foreground="White" BorderThickness="0"
-                            Command="{Binding AddTogetherCmd}"/>
+                            Command="{Binding AddTogetherCmd}"
+                            Click="Closed_Click"/>
                 </Grid>
             </Border>
         </Grid>

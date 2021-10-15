@@ -1,5 +1,5 @@
 ﻿EnglishAimlessly2
-1.0.1.0
+2.0.0.0
 
 winexe
 C#
@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\App.xaml
-311947005921
+39-1653146865
 
-641938814596
+78389561211
 211651774366
-ResourceDictionary\ButtonDictionary.xaml;ResourceDictionary\CheckboxDictionary.xaml;ResourceDictionary\DatePickerDictionary.xaml;ResourceDictionary\MainMenu\GroupListItem.xaml;ResourceDictionary\MainMenu\MainMenuTextBox.xaml;ResourceDictionary\MainMenu\MenuOptionButton.xaml;ResourceDictionary\MasteredWordsView\MasteredWordItem.xaml;ResourceDictionary\MasterPractice\AnswerTextBox.xaml;ResourceDictionary\TextblockDictionary.xaml;ResourceDictionary\TextboxDictionary.xaml;ResourceDictionary\VariablesDictionary.xaml;UserControls\GroupItemControl.xaml;UserControls\HistoryItemControl.xaml;UserControls\WordItemControl.xaml;UserControls\WordPreviewItemControl.xaml;View\AddTogetherView.xaml;View\AddWordView.xaml;View\ConfirmationView.xaml;View\demo.xaml;View\EditWordView.xaml;View\GroupSettingsView.xaml;View\HistoryView.xaml;View\LoginView.xaml;View\MainMenuView.xaml;View\MainMenuViewPreview.xaml;View\ManageView.xaml;View\MasteredWordsView.xaml;View\MasterPractice.xaml;View\PracticeView.xaml;View\RegisterView.xaml;View\WordHistoryView.xaml;
+ResourceDictionary\ButtonDictionary.xaml;ResourceDictionary\CheckboxDictionary.xaml;ResourceDictionary\DatePickerDictionary.xaml;ResourceDictionary\History\HistoryButton.xaml;ResourceDictionary\History\HistoryItem.xaml;ResourceDictionary\Login\UserItem.xaml;ResourceDictionary\MainMenu\GroupListItem.xaml;ResourceDictionary\MainMenu\MainMenuTextBox.xaml;ResourceDictionary\MainMenu\MenuOptionButton.xaml;ResourceDictionary\Manager\SearchBox.xaml;ResourceDictionary\Manager\WordItemsManager.xaml;ResourceDictionary\MasteredWordsView\MasteredWordItem.xaml;ResourceDictionary\MasterPractice\AnswerTextBox.xaml;ResourceDictionary\Practice\ExampleBox.xaml;ResourceDictionary\TextblockDictionary.xaml;ResourceDictionary\TextboxDictionary.xaml;ResourceDictionary\VariablesDictionary.xaml;UserControls\GroupItemControl.xaml;UserControls\HistoryItemControl.xaml;UserControls\WordItemControl.xaml;UserControls\WordPreviewItemControl.xaml;View\AddTogetherView.xaml;View\AddWordView.xaml;View\AdvancedGroupSettingsView.xaml;View\ConfirmationView.xaml;View\demo.xaml;View\EditWordView.xaml;View\GroupSettingsView.xaml;View\HistoryView.xaml;View\LoginView.xaml;View\MainMenuView.xaml;View\MainMenuViewPreview.xaml;View\MainWindow.xaml;View\ManageView.xaml;View\MasteredWordsView.xaml;View\MasterPractice.xaml;View\PracticeView.xaml;View\RegisterView.xaml;View\WordHistoryView.xaml;
 
-False
+True
 

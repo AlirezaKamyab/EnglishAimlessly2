@@ -1,5 +1,8 @@
 ﻿using EnglishAimlessly2.Model;
+using EnglishAimlessly2.View;
+using EnglishAimlessly2.ViewModel.Base;
 using EnglishAimlessly2.ViewModel.Commands;
+using EnglishAimlessly2.ViewModel.Commands.Manager;
 using EnglishAimlessly2.ViewModel.Helper;
 using System;
 using System.Collections.Generic;
@@ -8,10 +11,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace EnglishAimlessly2.ViewModel
 {
-    public class ManagerVM : INotifyPropertyChanged
+    public class ManagerVM : BaseVM
     {
         private UserModel _loggedUser;
         private GroupModel _selectedGroup;
@@ -23,6 +27,11 @@ namespace EnglishAimlessly2.ViewModel
         private string _equivalent;
         private string _description;
 
+        // Direct Design
+        private Visibility _mainPanelVisibility = Visibility.Collapsed;
+
+        public static MainViewVM MainViewModel { get; set; }
+
         public UserModel LoggedUser
         {
             get
@@ -32,7 +41,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _loggedUser = value;
-                OnPropertyChanged(nameof(LoggedUser));
+                onPropertyChanged(nameof(LoggedUser));
             }
         }
 
@@ -46,7 +55,7 @@ namespace EnglishAimlessly2.ViewModel
             {
                 _selectedGroup = value;
                 if (!DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) && SelectedGroup != null && WordList != null && SelectedWord != null) Reload();
-                OnPropertyChanged(nameof(SelectedGroup));
+                onPropertyChanged(nameof(SelectedGroup));
             }
         }
 
@@ -58,10 +67,17 @@ namespace EnglishAimlessly2.ViewModel
             }
             set
             {
+                if(value != null && value.Id > 0)
+                {
+                    MainPanelVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    MainPanelVisibility = Visibility.Collapsed;
+                }
                 _selectedWord = value;
-                SelectionWordChanged?.Invoke(this);
-                OnPropertyChanged(nameof(SelectedWord));
-                OnPropertyChanged(nameof(LastPracticed));
+                onPropertyChanged(nameof(SelectedWord));
+                onPropertyChanged(nameof(LastPracticed));
             }
         }
 
@@ -74,7 +90,9 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _searchWordName = value;
-                OnPropertyChanged(nameof(SearchWordName));
+                onPropertyChanged(nameof(SearchWordName));
+                if (SelectedGroup == null) return;
+                FilterWords();
             }
         }
 
@@ -98,7 +116,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _wordName = value;
-                OnPropertyChanged(nameof(WordName));
+                onPropertyChanged(nameof(WordName));
             }
         }
 
@@ -111,7 +129,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _wordType = value;
-                OnPropertyChanged(nameof(WordType));
+                onPropertyChanged(nameof(WordType));
             }
         }
 
@@ -124,7 +142,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _equivalent = value;
-                OnPropertyChanged(nameof(Equivalent));
+                onPropertyChanged(nameof(Equivalent));
             }
         }
 
@@ -137,19 +155,27 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _description = value;
-                OnPropertyChanged(nameof(Description));
+                onPropertyChanged(nameof(Description));
             }
         }
 
-        public WordModel SelectedWordForFunctioning { get; set; }
+        public Visibility MainPanelVisibility
+        {
+            get { return _mainPanelVisibility; }
+            set
+            {
+                _mainPanelVisibility = value;
+                onPropertyChanged(nameof(MainPanelVisibility));
+            }
+        }
 
-        public WordTableHelper WordDatabaseHelper { get; set; }
-        public GroupTableHelper GroupDatabaseHelper { get; set; }
         public ObservableCollection<WordModel> WordList { get; set; }
         public AddWordCommand AddWordCmd { get; set; }
         public EditWordCommand EditWordCmd { get; set; }
         public RemoveWordCommand RemoveWordCmd { get; set; }
         public ResetWordCommand ResetWordCmd { get; set; }
+        public OpenManagerWindowsCommand OpenManagerWindowsCmd { get; set; }
+        public CloseManagerToMainMenuCommand CloseToMainMenuCmd { get; set; }
         public ManagerVM()
         {
             WordList = new ObservableCollection<WordModel>();
@@ -159,8 +185,12 @@ namespace EnglishAimlessly2.ViewModel
 
             if (!DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
             {
-                WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
-                GroupDatabaseHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
+
+            }
+
+            if(MainViewModel != null)
+            {
+                SelectedGroup = MainViewModel.SelectedGroup;
             }
 
             // Commands
@@ -168,22 +198,35 @@ namespace EnglishAimlessly2.ViewModel
             EditWordCmd = new EditWordCommand(this);
             RemoveWordCmd = new RemoveWordCommand(this);
             ResetWordCmd = new ResetWordCommand(this);
+            OpenManagerWindowsCmd = new OpenManagerWindowsCommand(this);
+            CloseToMainMenuCmd = new CloseManagerToMainMenuCommand();
         }
 
         public void Reload()
         {
-            WordDatabaseHelper.Reload();
+            WordTableHelper WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
             WordList.Clear();
             foreach(WordModel item in WordDatabaseHelper.SearchByGroupId(SelectedGroup.Id).OrderBy(x => x.Name))
             {
                 WordList.Add(item);
             }
+            //SelectedWord = null;
+        }
 
-            SearchWordName = ""; // to reset what was searching in the textbox for searching
+        public void FilterWords()
+        {
+            WordTableHelper WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
+            WordList.Clear();
+            foreach (WordModel item in WordDatabaseHelper.SearchByGroupId(SelectedGroup.Id).OrderBy(x => x.Name))
+            {
+                if(item.Name.ToLower().Trim().Contains(SearchWordName.Trim().ToLower())) WordList.Add(item);
+            }
+            //SelectedWord = null;
         }
 
         public void AddWord()
         {
+            WordTableHelper WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
             WordModel word = new WordModel();
             word.Name = WordName;
             word.WordType = WordType;
@@ -197,95 +240,110 @@ namespace EnglishAimlessly2.ViewModel
             word.GroupId = SelectedGroup.Id;
             word.Score = 0;
             WordDatabaseHelper.Insert(word);
-
-            Added?.Invoke(this, word);
         }
 
         public void EditWord()
         {
+            WordTableHelper WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
             WordModel word = new WordModel();
-            word.Id = SelectedWordForFunctioning.Id;
+            word.Id = SelectedWord.Id;
             word.Name = WordName;
             word.WordType = WordType;
             word.Equivalent = Equivalent;
             word.Description = Description;
-            word.CreationDate = SelectedWordForFunctioning.CreationDate;
-            word.DueDate = SelectedWordForFunctioning.DueDate;
-            word.UpdatedDate = SelectedWordForFunctioning.UpdatedDate;
-            word.PracticeCount = SelectedWordForFunctioning.PracticeCount;
-            word.UserId = SelectedWordForFunctioning.UserId;
-            word.GroupId = SelectedWordForFunctioning.GroupId;
-            word.Score = SelectedWordForFunctioning.Score;
+            word.CreationDate = SelectedWord.CreationDate;
+            word.DueDate = SelectedWord.DueDate;
+            word.UpdatedDate = SelectedWord.UpdatedDate;
+            word.PracticeCount = SelectedWord.PracticeCount;
+            word.UserId = SelectedWord.UserId;
+            word.GroupId = SelectedWord.GroupId;
+            word.Score = SelectedWord.Score;
             WordDatabaseHelper.Update(word);
-
-            Edited?.Invoke(this, word);
         }
 
         public void RemoveWord()
         {
+            WordTableHelper WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
             WordModel word = new WordModel();
-            word.Id = SelectedWordForFunctioning.Id;
-            word.Name = SelectedWordForFunctioning.Name;
-            word.WordType = SelectedWordForFunctioning.WordType;
-            word.Equivalent = SelectedWordForFunctioning.Equivalent;
-            word.Description = SelectedWordForFunctioning.Description;
-            word.CreationDate = SelectedWordForFunctioning.CreationDate;
-            word.DueDate = SelectedWordForFunctioning.DueDate;
-            word.UpdatedDate = SelectedWordForFunctioning.UpdatedDate;
-            word.PracticeCount = SelectedWordForFunctioning.PracticeCount;
-            word.UserId = SelectedWordForFunctioning.UserId;
-            word.GroupId = SelectedWordForFunctioning.GroupId;
-            word.Score = SelectedWordForFunctioning.Score;
+            word.Id = SelectedWord.Id;
+            word.Name = SelectedWord.Name;
+            word.WordType = SelectedWord.WordType;
+            word.Equivalent = SelectedWord.Equivalent;
+            word.Description = SelectedWord.Description;
+            word.CreationDate = SelectedWord.CreationDate;
+            word.DueDate = SelectedWord.DueDate;
+            word.UpdatedDate = SelectedWord.UpdatedDate;
+            word.PracticeCount = SelectedWord.PracticeCount;
+            word.UserId = SelectedWord.UserId;
+            word.GroupId = SelectedWord.GroupId;
+            word.Score = SelectedWord.Score;
             WordDatabaseHelper.Remove(word);
-
-            Removed?.Invoke(this, word);
         }
 
         public void ResetWord()
         {
+            WordTableHelper WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
             WordModel word = new WordModel();
-            word.Id = SelectedWordForFunctioning.Id;
-            word.Name = SelectedWordForFunctioning.Name;
-            word.WordType = SelectedWordForFunctioning.WordType;
-            word.Equivalent = SelectedWordForFunctioning.Equivalent;
-            word.Description = SelectedWordForFunctioning.Description;
+            word.Id = SelectedWord.Id;
+            word.Name = SelectedWord.Name;
+            word.WordType = SelectedWord.WordType;
+            word.Equivalent = SelectedWord.Equivalent;
+            word.Description = SelectedWord.Description;
             word.CreationDate = DateTime.Now;
             word.DueDate = DateTime.Now;
             word.UpdatedDate = DateTime.Now;
             word.PracticeCount = 0;
-            word.UserId = SelectedWordForFunctioning.UserId;
-            word.GroupId = SelectedWordForFunctioning.GroupId;
+            word.UserId = SelectedWord.UserId;
+            word.GroupId = SelectedWord.GroupId;
             word.Score = 0;
             WordDatabaseHelper.Update(word);
-
-            Edited?.Invoke(this, word);
         }
 
-        /// <summary>
-        /// If ever groups information has changed this keeps the view up to date
-        /// </summary>
-        public void UpdateGroupInformation()
+        public void OpenAdd()
         {
-            if (SelectedGroup == null) return;
+            WordName = "";
+            WordType = "";
+            Equivalent = "";
+            Description = "";
 
-            GroupTableHelper helper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
-            SelectedGroup = helper.SearchById(SelectedGroup.Id);
+            AddWordView awv = new AddWordView(this);
+            awv.ShowDialog();
+            Reload();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged(string propertyName)
+        public void OpenAddTogether()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            AddTogetherView atv = new AddTogetherView(this);
+            atv.ShowDialog();
+            Reload();
         }
 
-        public delegate void AddHandler(object sender, WordModel addedWord);
-        public delegate void EditHandler(object sender, WordModel newWord);
-        public delegate void RemoveHandler(object sender, WordModel removedWord);
-        public delegate void UpdateControlHandler(object sender);
+        public void OpenEdit()
+        {
+            WordName = SelectedWord.Name;
+            WordType = SelectedWord.WordType;
+            Description = SelectedWord.Description;
+            Equivalent = SelectedWord.Equivalent;
 
-        public event AddHandler Added;
-        public event EditHandler Edited;
-        public event RemoveHandler Removed;
-        public event UpdateControlHandler SelectionWordChanged;
+            EditWordView ewv = new EditWordView(this);
+            ewv.ShowDialog();
+            Reload();
+        }
+
+        public void OpenGroupSettings()
+        {
+            GroupSettingsView hv = new GroupSettingsView(SelectedGroup);
+            hv.ShowDialog();
+            Reload();
+        }
+
+        public void OpenHistory()
+        {
+            MainViewModel.SelectedWord = SelectedWord;
+            MainViewModel.SelectedGroup = null;
+            HistoryVM.MainViewModel = MainViewModel;
+            HistoryView whv = new HistoryView();
+            whv.ShowDialog();
+        }
     }
 }

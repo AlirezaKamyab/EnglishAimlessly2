@@ -11,8 +11,9 @@
     <NeutralLanguage>en</NeutralLanguage>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>EAIcon.ico</ApplicationIcon>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <FileVersion>1.0.1.0</FileVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <PackageIcon>EAPng.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,9 +27,13 @@
     <None Remove="Resources\Images\Icons\AddIcon.jpg" />
     <None Remove="Resources\Images\Icons\AlphaIcon.png" />
     <None Remove="Resources\Images\Icons\BookIcon.jpg" />
+    <None Remove="Resources\Images\Icons\coloredgamma.png" />
     <None Remove="Resources\Images\Icons\EAIcon.ico" />
-    <None Remove="Resources\Images\Icons\EAPng.png" />
+    <None Remove="Resources\Images\Icons\gamma.png" />
     <None Remove="Resources\Images\Icons\github.png" />
+    <None Remove="Resources\Images\Icons\HistoryIcon.png" />
+    <None Remove="Resources\Images\Icons\InspectionOff.png" />
+    <None Remove="Resources\Images\Icons\InspectionOn.png" />
     <None Remove="Resources\Images\Icons\instagram.png" />
     <None Remove="Resources\Images\Icons\lightOff.png" />
     <None Remove="Resources\Images\Icons\lightOn.png" />
@@ -53,9 +58,14 @@
     </Resource>
     <Resource Include="Resources\Images\Icons\AlphaIcon.png" />
     <Resource Include="Resources\Images\Icons\BookIcon.jpg" />
+    <Resource Include="Resources\Images\Icons\coloredgamma.png" />
     <Resource Include="Resources\Images\Icons\EAIcon.ico" />
     <Resource Include="Resources\Images\Icons\EAPng.png" />
+    <Resource Include="Resources\Images\Icons\gamma.png" />
     <Resource Include="Resources\Images\Icons\github.png" />
+    <Resource Include="Resources\Images\Icons\HistoryIcon.png" />
+    <Resource Include="Resources\Images\Icons\InspectionOff.png" />
+    <Resource Include="Resources\Images\Icons\InspectionOn.png" />
     <Resource Include="Resources\Images\Icons\instagram.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
@@ -88,6 +98,13 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Update="Resources\Images\Icons\EAPng.png">
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModel\Commands\History\" />
   </ItemGroup>
 
 </Project>

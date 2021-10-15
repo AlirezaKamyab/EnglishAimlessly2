@@ -1,6 +1,8 @@
 ﻿using EnglishAimlessly2.Model;
 using EnglishAimlessly2.UserControls;
+using EnglishAimlessly2.ViewModel.Base;
 using EnglishAimlessly2.ViewModel.Commands;
+using EnglishAimlessly2.ViewModel.Commands.MasterWords;
 using EnglishAimlessly2.ViewModel.Helper;
 using System;
 using System.Collections.Generic;
@@ -12,12 +14,13 @@ using System.Threading.Tasks;
 
 namespace EnglishAimlessly2.ViewModel
 {
-    public class MasteredWordsVM : INotifyPropertyChanged
+    public class MasteredWordsVM : BaseVM, INotifyPropertyChanged
     {
         private GroupModel _group;
         private WordModel _selectedWord;
         private System.Windows.Visibility _panelVisibility = System.Windows.Visibility.Collapsed;
 
+        public static MainViewVM MainViewModel { get; set; }
         public WordModel SelectedWord
         {
             get {  return _selectedWord; }
@@ -54,22 +57,19 @@ namespace EnglishAimlessly2.ViewModel
                 onPropertyChanged(nameof(PanelVisibility));
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<WordModel> MasterWords { get; set; }
         
         // Commands
         public CheckPointCommand CheckPointCmd { get; set; }
+        public CloseToMainMenuCommand CloseToMainMenuCmd { get; set; }
         public MasteredWordsVM ()
         {
             MasterWords = new ObservableCollection<WordModel>();
-            if(DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) == false)
-            {
-                
-            }
 
             // Commands
+            Group = MainViewModel.SelectedGroup;
             CheckPointCmd = new CheckPointCommand(this);
+            CloseToMainMenuCmd = new CloseToMainMenuCommand();
         }
 
         public void Reload()
@@ -80,11 +80,6 @@ namespace EnglishAimlessly2.ViewModel
             {
                 MasterWords.Add(item);
             }
-        }
-
-        private void onPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
         public void setCheckPoint()

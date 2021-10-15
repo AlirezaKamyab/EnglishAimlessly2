@@ -4,10 +4,10 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="border" Background="#eee" BorderBrush="#444" BorderThickness="0 0 0 5" CornerRadius="10"
+                    <Border x:Name="border" Background="#eee" BorderBrush="{TemplateBinding Background}" BorderThickness="0 0 0 5" CornerRadius="10"
                             Margin="5">
                         <Grid Width="175" Margin="10">
-                            <TextBlock FontSize="16"
+                            <TextBlock x:Name="text" FontSize="16"
                                        VerticalAlignment="Center"
                                        TextAlignment="Center"
                                        FontWeight="SemiBold"
@@ -22,6 +22,11 @@
 
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="border" Property="BorderBrush" Value="blue"/>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="BorderBrush" Value="#aaa"/>
+                            <Setter TargetName="text" Property="Foreground" Value="#aaa"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

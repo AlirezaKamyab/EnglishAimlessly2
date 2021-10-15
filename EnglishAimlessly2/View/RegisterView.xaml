@@ -7,29 +7,48 @@
         xmlns:local="clr-namespace:EnglishAimlessly2.View"
         mc:Ignorable="d"
         Title="Register Page" Height="600" Width="900"
-        WindowStartupLocation="CenterOwner">
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        WindowStyle="None">
 
     <Window.Resources>
-        <vm:UserCredentialVM x:Key="uvm"
-                             Registered="UserCredentialVM_Registered"/>
+        <vm:UserCredentialVM x:Key="uvm"/>
     </Window.Resources>
     
     <Grid Background="#c33124" DataContext="{StaticResource uvm}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="3.5*"/>
+            <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+            <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Grid.ColumnSpan="3" Background="#eee"
+                    MouseDown="Border_MouseDown">
+            <Grid>
+                <Button Style="{StaticResource RectButton}"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Width="25"
+                            Height="25"
+                            Background="Red"
+                            Content="×"
+                            FontSize="16"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            Click="btnBackToLogin_Click"/>
+            </Grid>
+        </Border>
 
         <Border Grid.Column="1" Grid.Row="1"
                 Background="#ffffff"
-                CornerRadius="20">
+                CornerRadius="20"
+                Margin="0 5 0 0">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -52,35 +71,17 @@
                              Style="{StaticResource NewTextBox}"
                              Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <TextBlock Text="Password" FontSize="12"/>
-
-                    <PasswordBox Style="{StaticResource NewPasswordBox}"
-                                 Margin="0 5" FontSize="12"
-                                 PasswordChanged="PasswordBox_PasswordChanged"/>
                     
                     <TextBox x:Name="txtPass" Margin="0 5" FontSize="12" Visibility="Collapsed"
                              Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <Grid Margin="0 5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
                         <StackPanel Orientation="Vertical" Margin="2 0">
                             <TextBlock Text="Name" FontSize="12"/>
 
                             <TextBox Margin="0 5" FontSize="12"
                              Style="{StaticResource NewTextBox}"
                              Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        </StackPanel>
-
-                        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="2 0">
-                            <TextBlock Text="Lastname" FontSize="12"/>
-
-                            <TextBox Margin="0 5" FontSize="12"
-                             Style="{StaticResource NewTextBox}"
-                             Text="{Binding Lastname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-
                         </StackPanel>
 
                     </Grid>
@@ -91,10 +92,6 @@
                              Style="{StaticResource NewTextBox}"
                              Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                    <TextBlock Text="Birthday" FontSize="12"/>
-                    <DatePicker Margin="0 5" SelectedDate="{Binding Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                Style="{StaticResource NewDatePicker}"
-                                Padding="3"/>
 
                     <CheckBox Content="I accept the policies and terms"
                               Style="{StaticResource NewCheckBox}"
@@ -103,7 +100,8 @@
                     <Button Style="{StaticResource CurveButton}" Content="Register"
                             Margin="0 10"
                             CommandParameter="{Binding ElementName=permissionCheck, Path=IsChecked}"
-                            Command="{Binding CreateAccountCmd}"/>
+                            Command="{Binding CreateAccountCmd}"
+                            Click="btnBackToLogin_Click"/>
 
                     <TextBlock Text="{Binding Hint, Mode=TwoWay}" TextAlignment="Center" Foreground="#FFDC8E00"/>
 
@@ -121,7 +119,7 @@
                                VerticalAlignment="Center"
                                Foreground="#555"
                                FontWeight="Bold"
-                               Text="Made by Alireza Kamyab / Preview Version"/>
+                               Text="Made by Alireza Kamyab / Version 2"/>
                 </Grid>
             </Grid>
         </Border>

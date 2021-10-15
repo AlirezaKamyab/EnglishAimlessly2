@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2ATH4NeKDz6DaIg6BTVxSltGRA2rseag71mpybFMwnRw5vvowCRZpEMJ++Vk5wvzTCsXW4/qSAbrhYKbz3Mwzw==",
+  "dgSpecHash": "vHTO2tvoLeDEmhg3yUfIuQoICK1HH2OSMhsrEEb0UW97BT879NzuuUTV7uwZJmqHslgrMgzydeFInKbePMKqUA==",
   "success": true,
   "projectFilePath": "G:\\Programming Projects\\EnglishAimlessly2\\EnglishAimlessly2\\EnglishAimlessly2.csproj",
   "expectedPackageFiles": [
@@ -15,7 +15,7 @@
     "C:\\Users\\Alireza\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.4\\sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512",
     "C:\\Users\\Alireza\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\Alireza\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
-    "C:\\Users\\Alireza\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.9\\microsoft.netcore.app.host.win-x64.5.0.9.nupkg.sha512"
+    "C:\\Users\\Alireza\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.11\\microsoft.netcore.app.host.win-x64.5.0.11.nupkg.sha512"
   ],
   "logs": []
 }

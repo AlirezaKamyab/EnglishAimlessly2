@@ -20,71 +20,13 @@ namespace EnglishAimlessly2.View
     /// <summary>
     /// Interaction logic for PracticeView.xaml
     /// </summary>
-    public partial class PracticeView : Window
+    public partial class PracticeView : UserControl
     {
-        private PracticeVM PracticeViewModel { get; set; }
-        public PracticeView(GroupModel selectedGroup)
+        public PracticeView()
         {
             InitializeComponent();
-            Owner = Application.Current.MainWindow;
 
-            PracticeVM pvm = FindResource("pvm") as PracticeVM;
-            PracticeViewModel = pvm;
-            PracticeViewModel.SelectedGroup = selectedGroup;
-
-            if (PracticeViewModel.SelectedIndex >= PracticeViewModel.WordCount) NotFoundValues();
-            PracticeViewModel.Completed += PracticeViewModel_Completed;
-        }
-
-        private void PracticeViewModel_Completed(object sender)
-        {
-            NotFoundValues();
-        }
-
-        void NotFoundValues()
-        {
-            pnlError.Visibility = Visibility.Visible;
-            stackPanel.Visibility = Visibility.Collapsed;
-            pnlButtons.Visibility = Visibility.Collapsed;
-        }
-
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void btnShow_Click(object sender, RoutedEventArgs e)
-        {
-            Storyboard showDetailsAnimation = FindResource("ShowDetails") as Storyboard;
-            showDetailsAnimation.Begin();
-        }
-
-
-        private void btnNextEasy_Click(object sender, RoutedEventArgs e)
-        {
-            pnlButtons.IsEnabled = false;
-            Storyboard nextWordAnimation = FindResource("NextWord") as Storyboard;
-            nextWordAnimation.Completed += NextWordAnimation_Completed;
-            nextWordAnimation.Begin();
-
-            Storyboard hideDetailsAnimation = FindResource("HideDetails") as Storyboard;
-            hideDetailsAnimation.Begin();
-        }
-
-        private void NextWordAnimation_Completed(object sender, EventArgs e)
-        {
-            pnlButtons.IsEnabled = true;
-        }
-
-        private void btnHistory_Click(object sender, RoutedEventArgs e)
-        {
-            if(PracticeViewModel.SelectedWord != null)
-            {
-                Hide();
-                WordHistoryView whv = new WordHistoryView(PracticeViewModel.SelectedWord.Id);
-                whv.ShowDialog();
-                ShowDialog();
-            }
+            DataContext = new PracticeVM();
         }
     }
 }

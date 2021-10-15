@@ -7,6 +7,7 @@ FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\UserControls\WordIt
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\UserControls\WordPreviewItemControl.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\AddTogetherView.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\AddWordView.xaml;;
+FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\AdvancedGroupSettingsView.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\ConfirmationView.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\demo.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\EditWordView.xaml;;
@@ -15,6 +16,7 @@ FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\HistoryView.xa
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\LoginView.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\MainMenuView.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\MainMenuViewPreview.xaml;;
+FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\MainWindow.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\ManageView.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\MasteredWordsView.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\MasterPractice.xaml;;

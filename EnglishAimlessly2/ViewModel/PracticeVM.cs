@@ -1,5 +1,8 @@
 ﻿using EnglishAimlessly2.Model;
+using EnglishAimlessly2.View;
+using EnglishAimlessly2.ViewModel.Base;
 using EnglishAimlessly2.ViewModel.Commands;
+using EnglishAimlessly2.ViewModel.Commands.Practice;
 using EnglishAimlessly2.ViewModel.Helper;
 using System;
 using System.Collections.Generic;
@@ -7,10 +10,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace EnglishAimlessly2.ViewModel
 {
-    public class PracticeVM : INotifyPropertyChanged
+    public class PracticeVM : BaseVM, INotifyPropertyChanged
     {
         private int _selectedIndex = 0;
         private string _example = "";
@@ -18,6 +22,13 @@ namespace EnglishAimlessly2.ViewModel
         private GroupModel _selectedGroup;
         private SortedList<long, WordModel> _words;
 
+        // Direct design properties
+        private Visibility _errorPanelVisibility = Visibility.Collapsed;
+        private Visibility _controlsPanelVisibility = Visibility.Visible;
+        private Visibility _showButtonVisibility = Visibility.Visible;
+        private Visibility _answerVisibility = Visibility.Collapsed;
+
+        public static MainViewVM MainViewModel { get; set; }
         public string Example
         {
             get
@@ -27,7 +38,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _example = value;
-                OnPropertyChanged(nameof(Example));
+                onPropertyChanged(nameof(Example));
             }
         }
 
@@ -41,7 +52,7 @@ namespace EnglishAimlessly2.ViewModel
             {
                 _selectedGroup = value;
                 if(SelectedGroup != null) Reload();
-                OnPropertyChanged(nameof(SelectedGroup));
+                onPropertyChanged(nameof(SelectedGroup));
             }
         }
         public WordModel SelectedWord
@@ -53,7 +64,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _selectedWord = value;
-                OnPropertyChanged(nameof(SelectedWord));
+                onPropertyChanged(nameof(SelectedWord));
             }
         }
 
@@ -70,30 +81,71 @@ namespace EnglishAimlessly2.ViewModel
                     _selectedIndex = value;
                     SelectedWord = _words.Values[SelectedIndex];
                 }
-                else Completed?.Invoke(this);
+                else
+                {
+                    ErrorPanelVisibility = Visibility.Visible;
+                    ControlPanelVisibility = Visibility.Collapsed;
+                }
+            }
+        }
+        public Visibility ErrorPanelVisibility
+        {
+            get {  return _errorPanelVisibility; }
+            set
+            {
+                _errorPanelVisibility = value;
+                onPropertyChanged(nameof(ErrorPanelVisibility));
+            }
+        }
+        public Visibility ControlPanelVisibility
+        {
+            get { return _controlsPanelVisibility; }
+            set
+            {
+                _controlsPanelVisibility = value;
+                onPropertyChanged(nameof(ControlPanelVisibility));
+            }
+        }
+
+        public Visibility ShowButtonVisibility
+        {
+            get { return _showButtonVisibility; }
+            set
+            {
+                _showButtonVisibility = value;
+                onPropertyChanged(nameof(ShowButtonVisibility));
+            }
+        }
+
+        public Visibility AnswerVisibility
+        {
+            get { return _answerVisibility; }
+            set
+            {
+                _answerVisibility = value;
+                onPropertyChanged(nameof(AnswerVisibility));
             }
         }
 
         public int WordCount { get; set; } = 0;
 
-        public WordTableHelper WordDatabaseHelper { get; set; }
-        //public GroupTableHelper GroupDatabaseHelper { get; set; }
         public NextWordPracticeCommand NextWordPracticeCmd { get; set; }
+        public ClosePracticeToMainMenuCommand ClosePracticeCmd { get; set; }
+        public OpenHistoryCommand OpenHistoryCmd {  get; set; }
+        public ShowAnswerCommand ShowAnswerCmd { get; set; }
         public PracticeVM()
         {
-            if(!DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
-            {
-                WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
-                //GroupDatabaseHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
-            }
-
             // Commands
             NextWordPracticeCmd = new NextWordPracticeCommand(this);
+            ClosePracticeCmd = new ClosePracticeToMainMenuCommand();
+            OpenHistoryCmd = new OpenHistoryCommand(this);
+            ShowAnswerCmd = new ShowAnswerCommand(this);
+            SelectedGroup = MainViewModel.SelectedGroup;
         }
 
         private void Reload()
         {
-            WordDatabaseHelper.Reload();
+            WordTableHelper WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
             _words = WordDatabaseHelper.GetSortedDueTime(SelectedGroup);
 
             WordCount = _words.Count;
@@ -102,6 +154,14 @@ namespace EnglishAimlessly2.ViewModel
             {
                 SelectedIndex = 0;
                 SelectedWord = _words.Values[SelectedIndex];
+
+                ControlPanelVisibility = Visibility.Visible;
+                ErrorPanelVisibility = Visibility.Collapsed;
+            }
+            else
+            {
+                ControlPanelVisibility = Visibility.Collapsed;
+                ErrorPanelVisibility = Visibility.Visible;
             }
         }
 
@@ -109,11 +169,11 @@ namespace EnglishAimlessly2.ViewModel
         {
             if (SelectedWord == null) return;
 
+            WordTableHelper WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
             int score = SelectedWord.Score + 100;
             int checkpoint = SelectedWord.CheckPointScore;
-            double s = score - checkpoint  / 100;  // Scores / 100
-            //double p = SelectedWord.PracticeCount; // Practice count for the function addHours
-            double addHours = (0.8 * s * s / 2) + (6 * (s)) + 5;
+            double s = (score - checkpoint)  / 100;  // Scores / 100
+            double addHours = (0.8 * s * s / 2) + (6 * s) + 5;
 
             WordModel updateWord = SelectedWord;
             updateWord.UpdatedDate = DateTime.Now;
@@ -131,18 +191,19 @@ namespace EnglishAimlessly2.ViewModel
 
             SelectedIndex++;
 
-            GoneNext?.Invoke(this, SelectedWord);
+            AnswerVisibility = Visibility.Collapsed;
+            ShowButtonVisibility = Visibility.Visible;
         }
 
         public void NextWordNormal()
         {
+            WordTableHelper WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
             if (SelectedWord == null) return;
 
             int score = SelectedWord.Score + 75;
             int checkpoint = SelectedWord.CheckPointScore;
-            double s = score - checkpoint / 100;  // Scores / 100
-            //double p = SelectedWord.PracticeCount; // Practice count for the function addHours
-            double addHours = (0.95 * s * s / 3) + (3 * (s)) + 7;
+            double s = (score - checkpoint) / 100;  // Scores / 100
+            double addHours = (0.95 * s * s / 3) + (3 * s) + 7;
 
             WordModel updateWord = SelectedWord;
             updateWord.UpdatedDate = DateTime.Now;
@@ -160,17 +221,18 @@ namespace EnglishAimlessly2.ViewModel
 
             SelectedIndex++;
 
-            GoneNext?.Invoke(this, SelectedWord);
+            AnswerVisibility = Visibility.Collapsed;
+            ShowButtonVisibility = Visibility.Visible;
         }
 
         public void NextWordHard()
         {
             if (SelectedWord == null) return;
+            WordTableHelper WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
 
             int score = SelectedWord.Score + 50;
             int checkpoint = SelectedWord.CheckPointScore;
-            double s = score - checkpoint / 100;  // Scores / 100
-            //double p = SelectedWord.PracticeCount; // Practice count for the function addHours
+            double s = (score - checkpoint) / 100;  // Scores / 100
             double addHours = (1 * s * s / 4) + (4 * (s)) + 10;
 
             WordModel updateWord = SelectedWord;
@@ -189,12 +251,15 @@ namespace EnglishAimlessly2.ViewModel
 
             SelectedIndex++;
 
-            GoneNext?.Invoke(this, SelectedWord);
+            AnswerVisibility = Visibility.Collapsed;
+            ShowButtonVisibility = Visibility.Visible;
         }
 
         public void NextHours()
         {
             if (SelectedWord == null) return;
+            WordTableHelper WordDatabaseHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
+
             Random random = new Random();
             double addHours = random.Next(1, 25);
 
@@ -214,7 +279,8 @@ namespace EnglishAimlessly2.ViewModel
 
             SelectedIndex++;
 
-            GoneNext?.Invoke(this, SelectedWord);
+            AnswerVisibility = Visibility.Collapsed;
+            ShowButtonVisibility = Visibility.Visible;
         }
 
         public void AddHistory(WordModel word, int difficultyLevel, int score)
@@ -235,15 +301,13 @@ namespace EnglishAimlessly2.ViewModel
             historyHelper.Insert(history);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
+        public void OpenHistory()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            MainViewModel.SelectedWord = SelectedWord;
+            MainViewModel.SelectedGroup = null;
+            HistoryVM.MainViewModel = MainViewModel;
+            HistoryView whv = new HistoryView();
+            whv.ShowDialog();
         }
-
-        public delegate void NextHandler(object sender, WordModel word);
-        public delegate void UpdateHandler(object sender);
-        public event NextHandler GoneNext;
-        public event UpdateHandler Completed;
     }
 }

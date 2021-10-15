@@ -1,4 +1,5 @@
 ﻿using EnglishAimlessly2.Model;
+using EnglishAimlessly2.ViewModel.Base;
 using EnglishAimlessly2.ViewModel.Commands;
 using EnglishAimlessly2.ViewModel.Helper;
 using System;
@@ -11,16 +12,17 @@ using System.Threading.Tasks;
 
 namespace EnglishAimlessly2.ViewModel
 {
-    public class HistoryVM : INotifyPropertyChanged
+    public class HistoryVM : BaseVM, INotifyPropertyChanged
     {
         private int _wordId = -1;
         private int _groupId = -1;
         private string _wordName;
         private HistoryModel _selectedHistory;
-        private HistoryModel _selectedGroupHistory;
         private HistoryTableHelper _historyTableHelper;
         private DateTime _practicedDateTime;
         private System.Windows.Visibility _datePickerVisibility = System.Windows.Visibility.Collapsed;
+
+        public static MainViewVM MainViewModel { get; set; }
 
         public int WordId
         {
@@ -35,7 +37,7 @@ namespace EnglishAimlessly2.ViewModel
                     _wordId = value;
                     DatePickerVisibility = System.Windows.Visibility.Collapsed;
                     Reload();
-                    OnPropertyChanged(nameof(WordId));
+                    onPropertyChanged(nameof(WordId));
                 }
             }
         }
@@ -49,7 +51,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _wordName = value;
-                OnPropertyChanged(nameof(WordName));
+                onPropertyChanged(nameof(WordName));
             }
         }
 
@@ -66,7 +68,7 @@ namespace EnglishAimlessly2.ViewModel
                     _groupId = value;
                     DatePickerVisibility = System.Windows.Visibility.Visible;
                     Reload();
-                    OnPropertyChanged(nameof(GroupId));
+                    onPropertyChanged(nameof(GroupId));
                 }
             }
         }
@@ -80,20 +82,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _selectedHistory = value;
-                OnPropertyChanged(nameof(SelectedHistory));
-            }
-        }
-
-        public HistoryModel SelectedGroupHistory
-        {
-            get
-            {
-                return _selectedGroupHistory;
-            }
-            set
-            {
-                _selectedGroupHistory = value;
-                OnPropertyChanged(nameof(SelectedGroupHistory));
+                onPropertyChanged(nameof(SelectedHistory));
             }
         }
 
@@ -107,7 +96,7 @@ namespace EnglishAimlessly2.ViewModel
             {
                 _practicedDateTime = value;
                 Reload();
-                OnPropertyChanged(nameof(PracticedDateTime));
+                onPropertyChanged(nameof(PracticedDateTime));
             }
         }
 
@@ -120,23 +109,24 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _datePickerVisibility = value;
-                OnPropertyChanged(nameof(DatePickerVisibility));
+                onPropertyChanged(nameof(DatePickerVisibility));
             }
         }
 
         public ObservableCollection<HistoryModel> Histories { get; set; }
-        public ObservableCollection<HistoryModel> GroupHistories { get; set; }
         public RemoveHistoryCommand RemoveHistoryCmd { get; set; }
 
         public HistoryVM()
         {
             Histories = new ObservableCollection<HistoryModel>();
-            GroupHistories = new ObservableCollection<HistoryModel>();
             if (!DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()))
             {
                 _historyTableHelper = new HistoryTableHelper(DatabaseHelper.DATABASE_PATH);
                 PracticedDateTime = DateTime.Now;
             }
+
+            if (MainViewModel.SelectedGroup != null) GroupId = MainViewModel.SelectedGroup.Id;
+            if (MainViewModel.SelectedWord != null) WordId = MainViewModel.SelectedWord.Id;
             // Commands
             RemoveHistoryCmd = new RemoveHistoryCommand(this);
         }
@@ -145,7 +135,6 @@ namespace EnglishAimlessly2.ViewModel
         {
             _historyTableHelper.Reload();
             Histories.Clear();
-            GroupHistories.Clear();
 
             if (WordId > 0)
             {
@@ -157,14 +146,13 @@ namespace EnglishAimlessly2.ViewModel
                 WordTableHelper helper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
                 WordName = helper.SearchById(WordId).Name;
             }
-
-            if (GroupId > 0)
+            else if (GroupId > 0)
             {
                 List<HistoryModel> result = _historyTableHelper.SearchHistoryByDate(GroupId, PracticedDateTime);
                 result.Reverse();
                 foreach (HistoryModel item in result)
                 {
-                    GroupHistories.Add(item);
+                    Histories.Add(item);
                 }
             }
         }
@@ -175,20 +163,6 @@ namespace EnglishAimlessly2.ViewModel
             history.Id = SelectedHistory.Id;
             _historyTableHelper.Remove(history);
             Reload();
-        }
-
-        public void DeleteGroupHistory()
-        {
-            HistoryModel groupHistory = new HistoryModel();
-            groupHistory.Id = SelectedGroupHistory.Id;
-            _historyTableHelper.Remove(groupHistory);
-            Reload();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

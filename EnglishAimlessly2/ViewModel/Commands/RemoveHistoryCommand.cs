@@ -25,34 +25,15 @@ namespace EnglishAimlessly2.ViewModel.Commands
 
         public bool CanExecute(object parameter)
         {
-            int value = Convert.ToInt32(parameter as string);
-            if (value == 0)
-            {
-                return _hvm.SelectedHistory != null;
-            }
-            else if (value == 1)
-            {
-                return _hvm.SelectedGroupHistory != null;
-            }
-            else return false;
+            return _hvm.SelectedHistory != null;
         }
 
         public void Execute(object parameter)
         {
-            int value = Convert.ToInt32(parameter as string);
-
             DialogResultModel drm = new DialogResultModel();
             ConfirmationView cv = new ConfirmationView("Remove History Confirmation", "Are you sure you want to remove this history permanently?", drm);
-            if (value == 0)
-            {
-                cv.ShowDialog();
-                if (drm.DialogResult == Result.Yes) _hvm.DeleteHistory();
-            }
-            else if (value == 1)
-            {
-                cv.ShowDialog();
-                if (drm.DialogResult == Result.Yes) _hvm.DeleteGroupHistory();
-            }
+            cv.ShowDialog();
+            if (drm.DialogResult == Result.Yes) _hvm.DeleteHistory();
         }
     }
 }

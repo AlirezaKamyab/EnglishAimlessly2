@@ -21,26 +21,16 @@ namespace EnglishAimlessly2.View
     /// </summary>
     public partial class AddWordView : Window
     {
-        private ManagerVM ManagerViewModel { get; set; }
-        private ManagerVM SenderVM { get; set; }
         public AddWordView(ManagerVM senderVM)
         {
             InitializeComponent();
 
             Owner = Application.Current.MainWindow;
-            SenderVM = senderVM;
-            ManagerViewModel = Resources["mvm"] as ManagerVM;
-
-            ManagerViewModel.SelectedGroup = SenderVM.SelectedGroup;
-            ManagerViewModel.LoggedUser = SenderVM.LoggedUser;
-
-            ManagerViewModel.Added += ManagerViewModel_Added;
+            DataContext = senderVM;
         }
 
-        private void ManagerViewModel_Added(object sender, WordModel addedWord)
+        private void Added_Click(object sender, RoutedEventArgs e)
         {
-            SenderVM.Reload();
-            SenderVM.SelectedWord = addedWord;
             Close();
         }
     }

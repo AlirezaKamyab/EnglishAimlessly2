@@ -1,14 +1,13 @@
-﻿<Window x:Class="EnglishAimlessly2.View.MainMenuViewPreview"
+﻿<UserControl x:Class="EnglishAimlessly2.View.MainMenuViewPreview"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EnglishAimlessly2.View"
+        xmlns:vm="clr-namespace:EnglishAimlessly2.ViewModel"
         mc:Ignorable="d"
-        Title="MainMenuViewPreview" Height="600" Width="1000"
-        WindowStartupLocation="CenterScreen"
-        WindowStyle="None"
-        ResizeMode="NoResize">
+        Height="600" Width="1000">
+
     <Border BorderBrush="#999" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
@@ -19,7 +18,7 @@
             <!-- Top Panel -->
             <Border Grid.Row="0" Background="#EAEAEA" MouseDown="Border_MouseDown">
                 <Grid>
-                    <TextBlock Text="Username"
+                    <TextBlock Text="{Binding LoggedUser.Username}"
                                VerticalAlignment="Center"
                                Margin="10 0 0 0"
                                Foreground="#555"/>
@@ -37,7 +36,9 @@
                             BorderThickness="0 1 1 0"
                             FontWeight="ExtraBold"
                             Margin="0 0 2 0"
-                            Click="CloseButton_Click"/>
+                            CommandParameter="Login"
+                            Command="{Binding ChooseOptionCmd}"/>
+                        
                         <Button Width="60"
                             Height="25"
                             Content="Close"
@@ -63,8 +64,13 @@
 
                 <!-- Side bar -->
                 <Border Grid.Column="0"
-                        Background="#FF3A6184"
                         CornerRadius="0 5 5 0">
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="#FF6F95DC" Offset="0.006"/>
+                            <GradientStop Color="#FF224C9A" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="75"/>
@@ -72,8 +78,8 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Grid.Row="0">
-                            <TextBlock Text="Group" Foreground="#ccc"
-                                       Margin="10 10 0 0"
+                            <TextBlock Text="Group" Foreground="#333"
+                                       Margin="15 10 0 0"
                                        FontSize="14"
                                        FontWeight="Bold"/>
                             <Grid>
@@ -85,7 +91,8 @@
                                         Width="25" Height="25"
                                         HorizontalAlignment="Right"
                                         BorderThickness="0"
-                                        Margin="0 0 20 0">
+                                        Margin="0 0 20 0"
+                                        Command="{Binding CreateGroupCmd}">
                                     <Image Source="/Resources/Images/Icons/AddIcon.jpg"
                                            RenderOptions.BitmapScalingMode="HighQuality"/>
                                 </Button>
@@ -94,9 +101,10 @@
 
                         <Grid Grid.Row="1" Margin="0 5 0 0">
                             <ListView Background="Transparent"
-                                      x:Name="test"
                                       ScrollViewer.VerticalScrollBarVisibility="Hidden"
                                       BorderThickness="0"
+                                      ItemsSource="{Binding Groups, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                      SelectedValue="{Binding SelectedGroup}"
                                       ScrollViewer.CanContentScroll="False"
                                       ItemContainerStyle="{StaticResource MainMenuGroupItem}">
                             </ListView>
@@ -105,7 +113,7 @@
                 </Border>
 
                 <Border Grid.Column="1" Background="#FFF" Grid.ColumnSpan="2">
-                    <Grid>
+                    <Grid Visibility="{Binding MainPanelVisibility}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="200"/>
                             <RowDefinition/>
@@ -116,7 +124,7 @@
                                 BorderThickness="5 0 0 0"
                                 BorderBrush="DodgerBlue">
                             <StackPanel>
-                                <TextBlock Text="Group Name"
+                                <TextBlock Text="{Binding SelectedGroup.Name, UpdateSourceTrigger=PropertyChanged}"
                                            Margin="10"
                                            TextAlignment="Center"
                                            FontSize="20"
@@ -128,22 +136,33 @@
                                             Margin="10 0 10 0"
                                            TextWrapping="Wrap">
                                     <Run Text="There are "/>
-                                    <Run Text="0" Foreground="Red" FontSize="20"/>
+                                    <Run Text="{Binding ItemCount}" Foreground="Red" FontSize="20"/>
                                     <Run Text="word(s) added to this group and "/>
-                                    <Run Text="0" FontSize="20" Foreground="Red"/>
+                                    <Run Text="{Binding MasterWordsCount}" FontSize="20" Foreground="Red"/>
                                     <Run Text="word(s) has been practiced to MASTER level. You can practice via the options below."/>
+                                </TextBlock>
+
+                                <TextBlock TextAlignment="Center" FontSize="16"
+                                           Visibility="{Binding PracticeCountVisibilty}"
+                                           Margin="0 30 0 0"
+                                           Foreground="#333">
+                                    <Run Text="Practice Available :"/>
+                                    <Run Text="{Binding PracticeAvailableCount}" FontWeight="Bold" Foreground="DodgerBlue"/>
                                 </TextBlock>
 
                                 <TextBlock TextAlignment="Center" FontSize="16"
                                            Text="Next Practice in"
                                            Margin="0 10 0 0"
                                            FontWeight="SemiBold"
+                                           Visibility="{Binding CountDownVisibility}"
                                            Foreground="Red"/>
-                                <TextBlock TextAlignment="Center" FontSize="20"
-                                           Text="00d : 00h : 00m : 00s"
+                                <TextBlock TextAlignment="Center" FontSize="16"
+                                           Text="{Binding NextPracticeCounter}"
+                                           Visibility="{Binding CountDownVisibility}"
                                            FontWeight="SemiBold"
                                            Margin="0 5 0 0"
                                            Foreground="#333"/>
+
                             </StackPanel>
                         </Border>
 
@@ -155,13 +174,19 @@
                                         Height="100"
                                         HorizontalAlignment="Center">
                                 <Button Style="{StaticResource MenuOptionButton}"
-                                        Content="Normal Practice"/>
+                                        Content="Normal Practice"
+                                        CommandParameter="NormalPractice"
+                                        Command="{Binding ChooseOptionCmd}"/>
 
                                 <Button Style="{StaticResource MenuOptionButton}"
-                                        Content="Master Practice"/>
+                                        Content="Master Practice"
+                                        CommandParameter="MasterPractice"
+                                        Command="{Binding ChooseOptionCmd}"/>
 
                                 <Button Style="{StaticResource MenuOptionButton}"
-                                        Content="Master Words"/>
+                                        Content="Master Words"
+                                        CommandParameter="MasterWords"
+                                        Command="{Binding ChooseOptionCmd}"/>
                             </StackPanel>
 
                             <!-- Second Row of Options -->
@@ -170,13 +195,30 @@
                                         Height="100"
                                         HorizontalAlignment="Center">
                                 <Button Style="{StaticResource MenuOptionButton}"
-                                        Content="Words Manager"/>
+                                        Content="Words Manager"
+                                        CommandParameter="ManageWords"
+                                        Command="{Binding ChooseOptionCmd}"/>
 
                                 <Button Style="{StaticResource MenuOptionButton}"
-                                        Content="History"/>
+                                        Content="History"
+                                        Command="{Binding OpenHistoryCmd}"/>
 
                                 <Button Style="{StaticResource MenuOptionButton}"
-                                        Content="Settings"/>
+                                        Content="Settings"
+                                        Command="{Binding OpenSettingsCmd}"/>
+                            </StackPanel>
+
+                            <!-- Third Row of Options -->
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="10 0"
+                                        Height="100"
+                                        HorizontalAlignment="Center">
+                                
+                                <Button Style="{StaticResource MenuOptionButton}"
+                                        Content="Remove Group"
+                                        Height="75"
+                                        Background="#FFFFB7B7"
+                                        Command="{Binding RemoveGroupCmd}"/>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
@@ -184,4 +226,4 @@
             </Grid>
         </Grid>
     </Border>
-</Window>
+</UserControl>

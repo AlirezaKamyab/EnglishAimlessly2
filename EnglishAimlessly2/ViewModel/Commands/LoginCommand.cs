@@ -25,7 +25,10 @@ namespace EnglishAimlessly2.ViewModel.Commands
 
         public void Execute(object parameter)
         {
-            userVM.LoginAccount();
+            if (userVM.LoginAccount())
+            {
+                UserCredentialVM.MainViewModel.ChangeViewByName("MainMenu");
+            }
         }
     }
 }

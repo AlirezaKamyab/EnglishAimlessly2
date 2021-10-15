@@ -1,5 +1,7 @@
 ﻿using EnglishAimlessly2.Model;
+using EnglishAimlessly2.ViewModel.Base;
 using EnglishAimlessly2.ViewModel.Commands;
+using EnglishAimlessly2.ViewModel.Commands.MasterPractice;
 using EnglishAimlessly2.ViewModel.Helper;
 using System;
 using System.Collections.Generic;
@@ -8,26 +10,35 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace EnglishAimlessly2.ViewModel
 {
-    public class MasterPracticeVM : INotifyPropertyChanged
+    public class MasterPracticeVM : BaseVM, INotifyPropertyChanged
     {
-        private SolidColorBrush _green = new SolidColorBrush(Color.FromArgb(255, 238, 238, 238));
-        private SolidColorBrush _red = new SolidColorBrush(Color.FromArgb(255, 255, 208, 208));
+        private SolidColorBrush _mainBackGround = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+        private SolidColorBrush _green = new SolidColorBrush(Color.FromArgb(255, 40, 200, 40));
+        private SolidColorBrush _red = new SolidColorBrush(Color.FromArgb(255, 255, 80, 80));
+
+        const string HIDDEN_ANSWER = "";
 
         private GroupModel _group;
         private string _answer = "";
         private WordModel _selectedWord;
         private int _currentIndex = 0;
-        private string _solutionWord = "????";
-        private string _solutionType = "???";
+        private string _solutionWord = HIDDEN_ANSWER;
+        private string _solutionType = HIDDEN_ANSWER;
 
         // Direct control
         private bool _checkAnswerButtonEnable = true;
         private bool _revealButtonEnabled = true;
         private SolidColorBrush _backgroundColor;
+        private SolidColorBrush _answerColor;
+        private Visibility _mainPanelVisibility = Visibility.Visible;
+        private Visibility _errorVisibility = Visibility.Collapsed;
+
+        public static MainViewVM MainViewModel { get; set; }
         public SolidColorBrush BackgroundColor
         {
             get { return _backgroundColor; }
@@ -37,8 +48,33 @@ namespace EnglishAimlessly2.ViewModel
                 onPropertyChanged(nameof(BackgroundColor));
             }
         }
-
-        public ObservableCollection<WordModel> WordsList { get; set; }
+        public SolidColorBrush AnswerColor
+        {
+            get {  return _answerColor; }
+            set
+            {
+                _answerColor = value;
+                onPropertyChanged(nameof(AnswerColor));
+            }
+        }
+        public Visibility MainPanelVisibility
+        {
+            get {  return _mainPanelVisibility; }
+            set
+            {
+                _mainPanelVisibility = value;
+                onPropertyChanged(nameof(MainPanelVisibility));
+            }
+        }
+        public Visibility ErrorVisibility
+        {
+            get {  return _errorVisibility; }
+            set
+            {
+                _errorVisibility = value;
+                onPropertyChanged(nameof(ErrorVisibility));
+            }
+        }
         public string SolutionWord
         {
             get { return _solutionWord; }
@@ -62,6 +98,19 @@ namespace EnglishAimlessly2.ViewModel
             get {  return _currentIndex; }
             set
             {
+                if (WordsList.Count == 0)
+                {
+                    MainPanelVisibility = Visibility.Collapsed;
+                    ErrorVisibility = Visibility.Visible;
+                    return;
+                }
+                else if (value > WordsList.Count - 1)
+                {
+                    MainPanelVisibility = Visibility.Collapsed;
+                    ErrorVisibility = Visibility.Visible;
+                    return;
+                }
+
                 _currentIndex = value;
                 SelectedWord = WordsList[CurrentIndex];
             }
@@ -115,19 +164,24 @@ namespace EnglishAimlessly2.ViewModel
             }
         }
 
+        public ObservableCollection<WordModel> WordsList { get; set; }
+
         public MasterPracticeRevealCommand RevealCmd { get; set; }
         public MasterPracticeSkip SkipCmd { get; set; }
         public CheckMasterPracticeAnswerCommand CheckAnswerCmd { get; set; }
-        public event PropertyChangedEventHandler PropertyChanged;
+        public CloseMasterPracticeToMainMenuCommand CloseMasterPracticeCmd { get; set; }
 
         public MasterPracticeVM ()
         {
             CheckAnswerCmd = new CheckMasterPracticeAnswerCommand(this);
             SkipCmd = new MasterPracticeSkip(this);
             RevealCmd = new MasterPracticeRevealCommand(this);
+            CloseMasterPracticeCmd = new CloseMasterPracticeToMainMenuCommand();
             WordsList = new ObservableCollection<WordModel>();
 
-            BackgroundColor = _green;
+            BackgroundColor = _mainBackGround;
+            Group = MainViewModel.SelectedGroup;
+            AnswerColor = _red;
         }
 
         private void Reload()
@@ -151,17 +205,18 @@ namespace EnglishAimlessly2.ViewModel
                 newUpdate.Score += 100;
                 newUpdate.MasterLastPractice = DateTime.Now;
                 helper.Update(newUpdate);
-                if (CurrentIndex < WordsList.Count - 1) CurrentIndex++;
-                SolutionWord = "????";
-                SolutionType = "???";
+                SolutionWord = SelectedWord.Name;
+                SolutionType = SelectedWord.WordType;
                 Answer = "";
-                RevealButtonEnabled = true;
-                BackgroundColor = _green;
+                RevealButtonEnabled = false;
+                CheckAnswerButtonEnable = false;
+                //BackgroundColor = _green;
+                AnswerColor = _green;
             }
             else
             {
                 RevealAnswer();
-                BackgroundColor = _red;
+                //BackgroundColor = _red;
             }
         }
 
@@ -171,6 +226,7 @@ namespace EnglishAimlessly2.ViewModel
             SolutionType = SelectedWord.WordType;
             CheckAnswerButtonEnable = false;
             RevealButtonEnabled = false;
+            AnswerColor = _green;
             
             WordTableHelper helper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
             WordModel newUpdate = SelectedWord;
@@ -184,18 +240,19 @@ namespace EnglishAimlessly2.ViewModel
         public void Skip()
         {
             if (CurrentIndex < WordsList.Count - 1) CurrentIndex++;
-            CheckAnswerButtonEnable = true;
+            else
+            {
+                CurrentIndex++;
+                return;
+            }
 
-            SolutionWord = "????";
-            SolutionType = "???";
+            SolutionWord = HIDDEN_ANSWER;
+            SolutionType = HIDDEN_ANSWER;
             Answer = "";
             RevealButtonEnabled = true;
-            BackgroundColor = _green;
-        }
-
-        private void onPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            CheckAnswerButtonEnable = true;
+            //BackgroundColor = _mainBackGround;
+            AnswerColor = _red;
         }
     }
 }

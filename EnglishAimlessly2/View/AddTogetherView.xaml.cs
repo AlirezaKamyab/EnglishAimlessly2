@@ -30,12 +30,10 @@ namespace EnglishAimlessly2.View
             manager = vm;
             atvm = FindResource("atvm") as AddTogetherVM;
             atvm.SelectedGroup = manager.SelectedGroup;
-            atvm.Added += Atvm_Added;
         }
 
-        private void Atvm_Added(object sender)
+        private void Closed_Click(object sender, RoutedEventArgs e)
         {
-            manager.Reload();
             Close();
         }
     }

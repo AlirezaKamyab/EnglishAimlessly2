@@ -9,36 +9,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
+using System.Windows;
+using EnglishAimlessly2.View;
+using EnglishAimlessly2.ViewModel.Base;
+using EnglishAimlessly2.ViewModel.Commands.MainMenu;
 
 namespace EnglishAimlessly2.ViewModel
 {
-    public class MainMenuVM : INotifyPropertyChanged
+    public class MainMenuVM : BaseVM
     {
         private UserModel _loggedUser;
         private GroupModel _selectedGroup;
         private string _nextPracticeCounter;
         private string _groupName = "";
         private string _itemCount;
-        private string _newWords;
         private int _masteredWordsCount = 0;
-        private int _practiceAvailableCount;
+        private int _practiceAvailableCount = 0;
 
-        private DispatcherTimer _timer;
-        private GroupModel nearestPracticeGroup;
+        // Direct Design
+        private Visibility _countDownVisiblity = Visibility.Collapsed;
+        private Visibility _practiceCountVisibility = Visibility.Visible;
+        private Visibility _mainPanelVisibility = Visibility.Collapsed;
 
-        public string NewWords
-        {
-            get
-            {
-                return _newWords;
-            }
-            set
-            {
-                _newWords = value;
-                OnPropertyChanged(nameof(NewWords));
-            }
-        }
 
+        public static MainViewVM MainViewModel { get; set; }
         public string NextPracticeCounter
         {
             get
@@ -48,7 +42,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _nextPracticeCounter = value;
-                OnPropertyChanged(nameof(NextPracticeCounter));
+                onPropertyChanged(nameof(NextPracticeCounter));
             }
         }
         public string ItemCount
@@ -60,7 +54,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _itemCount = value;
-                OnPropertyChanged(nameof(ItemCount));
+                onPropertyChanged(nameof(ItemCount));
             }
         }
 
@@ -73,7 +67,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _practiceAvailableCount = value;
-                OnPropertyChanged(nameof(PracticeAvailableCount));
+                onPropertyChanged(nameof(PracticeAvailableCount));
             }
         }
         public string GroupName
@@ -85,7 +79,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _groupName = value;
-                OnPropertyChanged(nameof(GroupName));
+                onPropertyChanged(nameof(GroupName));
             }
         }
 
@@ -99,7 +93,7 @@ namespace EnglishAimlessly2.ViewModel
             {
                 _loggedUser = value;
                 if(DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) == false) ReloadGroups();
-                OnPropertyChanged(nameof(LoggedUser));
+                onPropertyChanged(nameof(LoggedUser));
             }
         }
 
@@ -118,8 +112,11 @@ namespace EnglishAimlessly2.ViewModel
                     helper.Reload();
                     _selectedGroup = helper.SearchById(temp.Id);
                     UpdateInformationForGroup();
-                    OnPropertyChanged(nameof(SelectedGroup));
+                    onPropertyChanged(nameof(SelectedGroup));
                 }
+
+                if (SelectedGroup != null) MainPanelVisibility = Visibility.Visible;
+                else MainPanelVisibility = Visibility.Collapsed;
             }
         }
 
@@ -132,64 +129,63 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _masteredWordsCount = value;
-                OnPropertyChanged(nameof(MasterWordsCount));
+                onPropertyChanged(nameof(MasterWordsCount));
+            }
+        }
+
+        // Direct Design
+        public Visibility CountDownVisibility
+        {
+            get { return _countDownVisiblity; }
+            set
+            {
+                _countDownVisiblity = value;
+                onPropertyChanged(nameof(CountDownVisibility));
+            }
+        }
+
+        public Visibility PracticeCountVisibilty
+        {
+            get { return _practiceCountVisibility; }
+            set
+            {
+                _practiceCountVisibility = value;
+                onPropertyChanged(nameof(PracticeCountVisibilty));
+            }
+        }
+
+        public Visibility MainPanelVisibility
+        {
+            get { return _mainPanelVisibility; }
+            set
+            {
+                _mainPanelVisibility = value;
+                onPropertyChanged(nameof(MainPanelVisibility));
             }
         }
 
         public ObservableCollection<GroupModel> Groups { get; set; }
         public CreateGroupCommand CreateGroupCmd { get; set; }
         public RemoveGroupCommand RemoveGroupCmd { get; set; }
+        public ChooseOptionCommand ChooseOptionCmd { get; set; }
+        public OpenSettingsCommand OpenSettingsCmd { get; set; }
+        public OpenHistoryCommand OpenHistoryCmd {  get; set; }
 
         public MainMenuVM()
         {
-            LoggedUser = new UserModel();
             CreateGroupCmd = new CreateGroupCommand(this);
             RemoveGroupCmd = new RemoveGroupCommand(this);
+            ChooseOptionCmd = new ChooseOptionCommand(this);
+            OpenSettingsCmd = new OpenSettingsCommand(this);
+            OpenHistoryCmd = new OpenHistoryCommand(this);
             Groups = new ObservableCollection<GroupModel>();
+            LoggedUser = new UserModel();
             if (DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) == false)
             {
-                _timer = new DispatcherTimer();
-                _timer.Interval = new TimeSpan(10,0,0,0,0);
-                _timer.Tick += _timer_Tick;
-
-                ReloadGroups();
+                if(MainViewModel != null && MainViewModel.LoggedUser != null) LoggedUser = MainViewModel.LoggedUser;
             }
+
         }
-
-        private void _timer_Tick(object sender, EventArgs e)
-        {
-            _timer.Stop();
-
-            if (nearestPracticeGroup == null) return;
-            OnTime?.Invoke(this, nearestPracticeGroup);
-        }
-
-        //private void UpdateTimeInterval()
-        //{
-        //    _timer.Stop();
-        //    UserTableHelper userHelper = new UserTableHelper(DatabaseHelper.DATABASE_PATH);
-        //    nearestPracticeGroup = userHelper.MinPracticeTime(LoggedUser.Id);
-
-        //    if (nearestPracticeGroup == null) return;
-
-        //    GroupTableHelper helper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH); 
-        //    TimeModel nearestPracticeTime = helper.NextPractice(nearestPracticeGroup.Id);
-        //    int seconds = ((int)nearestPracticeTime.Seconds >= 60) ? (int)nearestPracticeTime.Seconds : 60;
-        //    _timer.Interval = new TimeSpan(0, 0, seconds);
-        //    if(nearestPracticeTime.Seconds > 0) _timer.Start();
-        //}
-
-        //public void StopTimer()
-        //{
-        //    UpdateTimeInterval();
-        //    _timer.Stop();
-        //}
-
-        //public void StartTimer()
-        //{
-        //    UpdateTimeInterval();
-        //    _timer.Start();
-        //}
 
         public void AddGroup()
         {
@@ -206,6 +202,7 @@ namespace EnglishAimlessly2.ViewModel
             newGroup.UpdatedDate = DateTime.Now;
             newGroup.Description = "Description Here"; // This should be updated later
             groupHelper.Insert(newGroup);
+
             ReloadGroups();
             GroupName = "";
         }
@@ -226,19 +223,18 @@ namespace EnglishAimlessly2.ViewModel
 
 
             _selectedGroup = null;
-            OnPropertyChanged(nameof(SelectedGroup));
+            onPropertyChanged(nameof(SelectedGroup));
 
             ReloadGroups();
+            SelectedGroup = null;
         }
 
-        void UpdateInformationForGroup()
+        private void UpdateInformationForGroup()
         {
             WordTableHelper wordHelper = new WordTableHelper(DatabaseHelper.DATABASE_PATH);
             ItemCount = wordHelper.SearchByGroupId(SelectedGroup.Id).Count.ToString();
-            NewWords = wordHelper.SearchWordsByPractice(SelectedGroup.Id, 0, false).Count.ToString();
             PracticeAvailableCount = wordHelper.GetSortedDueTime(SelectedGroup).Count;
             MasterWordsCount = wordHelper.GetListByScore(SelectedGroup.Id, 1000).Count;
-            //UpdateTimeInterval();
             UpdateNextPracticeCounter();
         }
 
@@ -246,14 +242,27 @@ namespace EnglishAimlessly2.ViewModel
         {
             GroupTableHelper groupHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
             TimeModel nextPractice = groupHelper.NextPractice(SelectedGroup.Id);
-            if (nextPractice.Miliseconds <= 0) NextPracticeCounter = "Next practice is available";
+
+            PracticeCountVisibilty = Visibility.Collapsed;
+            CountDownVisibility = Visibility.Visible;
+
+            if (nextPractice.Miliseconds <= 0)
+            {
+                NextPracticeCounter = "Next practice is available";
+
+                PracticeCountVisibilty = Visibility.Visible;
+                CountDownVisibility = Visibility.Collapsed;
+            }
             else
             {
                 int days = (int)nextPractice.Days;
                 int hours = (int)nextPractice.Hours - days * 24;
                 int minutes = (int)nextPractice.Minutes - hours * 60;
 
-                if (days > 1000000) NextPracticeCounter = string.Format("No practice available");
+                if (days > 1000000)
+                {
+                    NextPracticeCounter = string.Format("No practice available");
+                }
                 else if (days > 0)
                 {
                     NextPracticeCounter = string.Format("Next practice is available in {0} day(s) and {1} hours(s)", days, hours);
@@ -275,22 +284,29 @@ namespace EnglishAimlessly2.ViewModel
 
         private void ReloadGroups()
         {
+            if (LoggedUser == null) return;
             GroupTableHelper groupHelper = new GroupTableHelper(DatabaseHelper.DATABASE_PATH);
             Groups.Clear();
             foreach (GroupModel item in groupHelper.SearchByUserId(LoggedUser.Id))
             {
                 Groups.Add(item);
             }
-            //UpdateTimeInterval();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
+        public void OpenSettings()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            GroupSettingsView groupSettingsView= new GroupSettingsView(SelectedGroup);
+            groupSettingsView.ShowDialog();
+            ReloadGroups();
         }
 
-        public delegate void OnTimeHandler(object sender, GroupModel readyGroup);
-        public event OnTimeHandler OnTime;
+        public void OpenHistory()
+        {
+            MainViewModel.SelectedGroup = SelectedGroup;
+            MainViewModel.SelectedWord = null;
+            HistoryVM.MainViewModel = MainViewModel;
+            HistoryView hv = new HistoryView();
+            hv.ShowDialog();
+        }
     }
 }

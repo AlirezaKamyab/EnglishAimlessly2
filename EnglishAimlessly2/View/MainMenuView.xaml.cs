@@ -46,14 +46,14 @@ namespace EnglishAimlessly2.View
             borderMain.Visibility = Visibility.Hidden;
 
             Closing += MainMenuView_Closing;
-            mmvm.OnTime += Mmvm_OnTime;
+            //mmvm.OnTime += Mmvm_OnTime;
         }
 
         private void Notify_Click(object sender, EventArgs e)
         {
             if (Visibility == Visibility.Hidden)
             {
-                mmvm.ForceUpdateInformationForGroup();
+                //mmvm.ForceUpdateInformationForGroup();
                 ShowDialog();
                 Activate();
             }
@@ -69,7 +69,7 @@ namespace EnglishAimlessly2.View
             content.Type = NotificationType.Success;
             NotificationManager manager = new NotificationManager();
             manager.Show(content);
-            mmvm.ForceUpdateInformationForGroup();
+            //mmvm.ForceUpdateInformationForGroup();
             mmvm.SelectedGroup = readyGroup;
         }
 
@@ -98,37 +98,37 @@ namespace EnglishAimlessly2.View
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
-            baseWindow = false;
-            Properties.Settings.Default.StayLoggedin = false;
-            Properties.Settings.Default.Save();
-            loginView.Show();
-            Close();
+            //baseWindow = false;
+            //Properties.Settings.Default.StayLoggedin = false;
+            //Properties.Settings.Default.Save();
+            //loginView.Show();
+            //Close();
         }
 
         private void btnManager_Click(object sender, RoutedEventArgs e)
         {
-            if(mmvm.SelectedGroup != null)
-            {
-                mmvm.StopTimer();
-                Hide();
-                ManageView manageView = new ManageView(loggedUser, mmvm.SelectedGroup);
-                manageView.ShowDialog();
-                mmvm.ForceUpdateInformationForGroup();
-                mmvm.StartTimer();
-                ShowDialog();
-            }
+            //if(mmvm.SelectedGroup != null)
+            //{
+            //    //mmvm.StopTimer();
+            //    Hide();
+            //    ManageView manageView = new ManageView(loggedUser, mmvm.SelectedGroup);
+            //    manageView.ShowDialog();
+            //    //mmvm.ForceUpdateInformationForGroup();
+            //    //mmvm.StartTimer();
+            //    ShowDialog();
+            //}
         }
 
         private void btnGroupSettings_Click(object sender, RoutedEventArgs e)
         {
             if(mmvm.SelectedGroup != null)
             {
-                mmvm.StopTimer();
+                //mmvm.StopTimer();
                 Hide();
                 GroupSettingsView view = new GroupSettingsView(mmvm.SelectedGroup);
                 view.ShowDialog();
-                mmvm.ForceUpdateInformationForGroup();
-                mmvm.StartTimer();
+                //mmvm.ForceUpdateInformationForGroup();
+                //mmvm.StartTimer();
                 ShowDialog();
             }
         }
@@ -137,13 +137,13 @@ namespace EnglishAimlessly2.View
         {
             if(mmvm.SelectedGroup != null)
             {
-                mmvm.StopTimer();
-                Hide();
-                PracticeView view = new PracticeView(mmvm.SelectedGroup);
-                view.ShowDialog();
-                mmvm.ForceUpdateInformationForGroup();
-                mmvm.StartTimer();
-                ShowDialog();
+                ////mmvm.StopTimer();
+                //Hide();
+                //PracticeView view = new PracticeView(mmvm.SelectedGroup);
+                //view.ShowDialog();
+                ////mmvm.ForceUpdateInformationForGroup();
+                ////mmvm.StartTimer();
+                //ShowDialog();
             }
         }
 
@@ -154,30 +154,30 @@ namespace EnglishAimlessly2.View
 
         private void btnHistory_Click(object sender, RoutedEventArgs e)
         {
-            if(mmvm.SelectedGroup != null)
-            {
-                Hide();
-                HistoryView hv = new HistoryView(mmvm.SelectedGroup.Id);
-                hv.ShowDialog();
-                mmvm.ForceUpdateInformationForGroup();
-                ShowDialog();
-            }
+            //if(mmvm.SelectedGroup != null)
+            //{
+            //    Hide();
+            //    HistoryView hv = new HistoryView(mmvm.SelectedGroup.Id);
+            //    hv.ShowDialog();
+            //    //mmvm.ForceUpdateInformationForGroup();
+            //    ShowDialog();
+            //}
         }
 
         private void btnMasteredWords_Click(object sender, RoutedEventArgs e)
         {
-            MasteredWordsView mwv = new MasteredWordsView(mmvm.SelectedGroup);
-            Hide();
-            mwv.ShowDialog();
-            ShowDialog();
+            //MasteredWordsView mwv = new MasteredWordsView(mmvm.SelectedGroup);
+            //Hide();
+            //mwv.ShowDialog();
+            //ShowDialog();
         }
 
         private void btnMasterPractice_Click(object sender, RoutedEventArgs e)
         {
-            MasterPractice mp = new MasterPractice(mmvm.SelectedGroup);
-            Hide();
-            mp.ShowDialog();
-            ShowDialog();
+            //MasterPractice mp = new MasterPractice(mmvm.SelectedGroup);
+            //Hide();
+            //mp.ShowDialog();
+            //ShowDialog();
         }
     }
 }

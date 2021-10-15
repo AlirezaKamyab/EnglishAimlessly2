@@ -19,23 +19,17 @@ namespace EnglishAimlessly2.View
     /// <summary>
     /// Interaction logic for MasterPractice.xaml
     /// </summary>
-    public partial class MasterPractice : Window
+    public partial class MasterPractice : UserControl
     {
-        public MasterPractice(GroupModel group)
+        public MasterPractice()
         {
             InitializeComponent();
-            (FindResource("mpvm") as MasterPracticeVM).Group = group;
-            Owner = Application.Current.MainWindow;
+            DataContext = new MasterPracticeVM();
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
-        }
-
-        private void Close_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
+            Application.Current.MainWindow.DragMove();
         }
     }
 }

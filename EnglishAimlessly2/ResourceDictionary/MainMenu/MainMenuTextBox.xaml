@@ -7,6 +7,7 @@
                     <Border x:Name="border" CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="#aaa" BorderThickness="2">
                         <Grid>
                             <TextBox x:Name="textbox" Margin="7 5" VerticalAlignment="Center" TextAlignment="Left"
+                                     Text="{Binding GroupName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                      BorderThickness="0"
                                      Background="Transparent"/>
                             <TextBlock x:Name="hintBox" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 0 0 0"

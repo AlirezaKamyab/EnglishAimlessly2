@@ -1,30 +1,29 @@
 ﻿using EnglishAimlessly2.Model;
+using EnglishAimlessly2.ViewModel.Base;
 using EnglishAimlessly2.ViewModel.Commands;
 using EnglishAimlessly2.ViewModel.Helper;
+using System.Collections.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace EnglishAimlessly2.ViewModel
 {
-    public class UserCredentialVM : INotifyPropertyChanged
+    public class UserCredentialVM : BaseVM, INotifyPropertyChanged
     {
         private const int MIN_USERNAME_CHAR = 3;
-        private const int MIN_PASSWORD_CHAR = 8;
 
         private string _name;
-        private string _lastname;
         private string _email;
         private string _username;
-        private string _password;
-        private DateTime _birthDay = DateTime.Now;
         private string _hint;
+        private UserModel _selectedUser;
 
-        public UserTableHelper UserTableHelper { get; set; }
-
+        public static MainViewVM MainViewModel { get; set; }
         public string Name
         {
             get
@@ -34,20 +33,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _name = value;
-                OnPropertyChanged(nameof(Name));
-            }
-        }
-
-        public string Lastname
-        {
-            get
-            {
-                return _lastname;
-            }
-            set
-            {
-                _lastname = value;
-                OnPropertyChanged(nameof(Lastname));
+                onPropertyChanged(nameof(Name));
             }
         }
 
@@ -60,7 +46,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _email = value;
-                OnPropertyChanged(nameof(Email));
+                onPropertyChanged(nameof(Email));
             }
         }
 
@@ -74,34 +60,17 @@ namespace EnglishAimlessly2.ViewModel
             {
                 _username = value;
                 ValidateAccount(true);
-                OnPropertyChanged(nameof(Username));
+                onPropertyChanged(nameof(Username));
             }
         }
 
-        public string Password
+        public UserModel SelectedUser
         {
-            get
-            {
-                return _password;
-            }
+            get { return _selectedUser; }
             set
             {
-                _password = value;
-                ValidateAccount(true);
-                OnPropertyChanged(nameof(Password));
-            }
-        }
-
-        public DateTime Birthday
-        {
-            get
-            {
-                return _birthDay;
-            }
-            set
-            {
-                _birthDay = value;
-                OnPropertyChanged(nameof(Birthday));
+                _selectedUser = value;
+                onPropertyChanged(nameof(SelectedUser));
             }
         }
 
@@ -114,64 +83,62 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _hint = value;
-                OnPropertyChanged(nameof(Hint));
+                onPropertyChanged(nameof(Hint));
             }
         }
 
+        public ObservableCollection<UserModel> Users { get; set; }
         public CreateAccountCommand CreateAccountCmd { get; set; }
         public LoginCommand LoginCmd { get; set; }
 
         public UserCredentialVM()
         {
+            Users = new ObservableCollection<UserModel>();
             CreateAccountCmd = new CreateAccountCommand(this);
             LoginCmd = new LoginCommand(this);
             if (DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject()) == false)
             {
-                UserTableHelper = new UserTableHelper(DatabaseHelper.DATABASE_PATH);
+                Reload();
             }
         }
 
         public void Reload()
         {
-            UserTableHelper.Reload();
+            UserTableHelper UserTableHelper = new UserTableHelper(DatabaseHelper.DATABASE_PATH);
+            Users.Clear();
+            foreach (UserModel item in UserTableHelper.GetData())
+            {
+                Users.Add(item);
+            }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string propertyName)
+        public bool CreateAccount()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public void CreateAccount()
-        {
-            UserModel userModel = new UserModel(Name, Lastname, Email, Birthday, Username, Password);
+            UserTableHelper UserTableHelper = new UserTableHelper(DatabaseHelper.DATABASE_PATH);
+            UserModel userModel = new UserModel(Name, Email, Username);
             userModel.CreatedAccountDate = DateTime.Now;
 
             if (UserTableHelper.SearchByUsername(Username).Id != -1)
             {
-                Hint = "Username is already taken!";
-                return;
+                MessageBox.Show("Username exists, try another one", "Error", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                return false;
             }
-
             UserTableHelper.Insert(userModel);
-            Registered?.Invoke(this, userModel);
+            return true;
         }
 
-        public void LoginAccount()
+        public bool LoginAccount()
         {
-            UserModel foundUsername = UserTableHelper.SearchByUsername(Username);
+            if (SelectedUser == null) return false; ;
+            UserTableHelper UserTableHelper = new UserTableHelper(DatabaseHelper.DATABASE_PATH);
+            UserModel foundUsername = UserTableHelper.SearchByUsername(SelectedUser.Username);
             if (foundUsername.Id == -1)
             {
-                Hint = "Username does not exist";
-                return; 
-            }
-            if (UserTableHelper.isValidCredential(foundUsername.Username, Password) == false)
-            {
-                Hint = "Password is incorrect";
-                return;
+                return false; 
             }
             //Login to account
-            Loggedin?.Invoke(this, foundUsername);
+            MainViewModel.LoggedUser = foundUsername;
+            return true;
         }
 
         public bool ValidateAccount(bool updateHint = false)
@@ -181,18 +148,8 @@ namespace EnglishAimlessly2.ViewModel
                 if(updateHint) Hint = $"Username must be at least {MIN_USERNAME_CHAR} characters";
                 return false;
             }
-            if (string.IsNullOrEmpty(Password) || Password.Length < MIN_PASSWORD_CHAR)
-            {
-                if (updateHint) Hint = $"Password must be at least {MIN_PASSWORD_CHAR} characters";
-                return false;
-            }
             if (updateHint) Hint = "";
             return true;
         }
-
-        public delegate void LoginHandler(object sender, UserModel user);
-        public delegate void RegisterHandler(object sender, UserModel user);
-        public event LoginHandler Loggedin;
-        public event RegisterHandler Registered;
     }
 }

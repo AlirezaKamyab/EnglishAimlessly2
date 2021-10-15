@@ -16,9 +16,9 @@ namespace EnglishAimlessly2.Model
         [Column("UserId"), NotNull]
         public int UserId { get; set; }
         [Column("Name"), MaxLength(128)]
-        public string Name { get; set; }
+        public string Name { get; set; } = "Group Name";
         [Column("Description")]
-        public string Description { get; set; }
+        public string Description { get; set; } = "Group Description";
         [Column("CreationDate")]
         public DateTime CreationDate { get; set; }
         [Column("UpdatedDate")]

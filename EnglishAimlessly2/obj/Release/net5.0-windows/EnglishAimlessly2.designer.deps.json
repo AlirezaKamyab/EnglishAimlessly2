@@ -6,18 +6,19 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "FontAwesome5/2.1.0": {
+      "FontAwesome5/2.1.4": {
         "runtime": {
-          "lib/net5.0-windows/FontAwesome5.Net.dll": {
-            "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.0.0"
+          "lib/net5.0-windows7.0/FontAwesome5.Net.dll": {
+            "assemblyVersion": "2.1.4.0",
+            "fileVersion": "2.1.4.0"
           },
-          "lib/net5.0-windows/FontAwesome5.dll": {
-            "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.0.0"
+          "lib/net5.0-windows7.0/FontAwesome5.dll": {
+            "assemblyVersion": "2.1.4.0",
+            "fileVersion": "2.1.4.0"
           }
         }
       },
+      "Microsoft.Toolkit.Uwp.UI.Controls/7.1.0": {},
       "Microsoft.Xaml.Behaviors.Wpf/1.1.31": {
         "runtime": {
           "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
@@ -26,59 +27,59 @@
           }
         }
       },
-      "Notification.Wpf/5.1.1.1": {
+      "Notification.Wpf/5.4.0": {
         "dependencies": {
-          "FontAwesome5": "2.1.0",
+          "FontAwesome5": "2.1.4",
           "Microsoft.Xaml.Behaviors.Wpf": "1.1.31",
           "System.ValueTuple": "4.5.0"
         },
         "runtime": {
           "lib/net5.0-windows7.0/Notification.Wpf.dll": {
-            "assemblyVersion": "5.1.1.1",
-            "fileVersion": "5.1.1.1"
+            "assemblyVersion": "5.4.0.0",
+            "fileVersion": "5.4.0.0"
           }
         }
       },
-      "sqlite-net-pcl/1.7.335": {
+      "sqlite-net-pcl/1.8.116": {
         "dependencies": {
-          "SQLitePCLRaw.bundle_green": "2.0.3"
+          "SQLitePCLRaw.bundle_green": "2.0.4"
         },
         "runtime": {
           "lib/netstandard2.0/SQLite-net.dll": {
-            "assemblyVersion": "1.7.335.0",
-            "fileVersion": "1.7.335.0"
+            "assemblyVersion": "1.8.116.0",
+            "fileVersion": "1.8.116.0"
           }
         }
       },
-      "SQLitePCLRaw.bundle_green/2.0.3": {
+      "SQLitePCLRaw.bundle_green/2.0.4": {
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.3",
-          "SQLitePCLRaw.lib.e_sqlite3": "2.0.3",
-          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.3"
+          "SQLitePCLRaw.core": "2.0.4",
+          "SQLitePCLRaw.lib.e_sqlite3": "2.0.4",
+          "SQLitePCLRaw.provider.dynamic_cdecl": "2.0.4"
         },
         "runtime": {
-          "lib/netcoreapp3.0/SQLitePCLRaw.batteries_v2.dll": {
-            "assemblyVersion": "2.0.3.851",
-            "fileVersion": "2.0.3.851"
+          "lib/netcoreapp3.1/SQLitePCLRaw.batteries_v2.dll": {
+            "assemblyVersion": "2.0.4.976",
+            "fileVersion": "2.0.4.976"
           },
-          "lib/netcoreapp3.0/SQLitePCLRaw.nativelibrary.dll": {
-            "assemblyVersion": "2.0.3.851",
-            "fileVersion": "2.0.3.851"
+          "lib/netcoreapp3.1/SQLitePCLRaw.nativelibrary.dll": {
+            "assemblyVersion": "2.0.4.976",
+            "fileVersion": "2.0.4.976"
           }
         }
       },
-      "SQLitePCLRaw.core/2.0.3": {
+      "SQLitePCLRaw.core/2.0.4": {
         "dependencies": {
           "System.Memory": "4.5.3"
         },
         "runtime": {
           "lib/netstandard2.0/SQLitePCLRaw.core.dll": {
-            "assemblyVersion": "2.0.3.851",
-            "fileVersion": "2.0.3.851"
+            "assemblyVersion": "2.0.4.976",
+            "fileVersion": "2.0.4.976"
           }
         }
       },
-      "SQLitePCLRaw.lib.e_sqlite3/2.0.3": {
+      "SQLitePCLRaw.lib.e_sqlite3/2.0.4": {
         "runtimeTargets": {
           "runtimes/alpine-x64/native/libe_sqlite3.so": {
             "rid": "alpine-x64",
@@ -97,6 +98,11 @@
           },
           "runtimes/linux-armel/native/libe_sqlite3.so": {
             "rid": "linux-armel",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-mips64/native/libe_sqlite3.so": {
+            "rid": "linux-mips64",
             "assetType": "native",
             "fileVersion": "0.0.0.0"
           },
@@ -142,14 +148,14 @@
           }
         }
       },
-      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.3": {
+      "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
         "dependencies": {
-          "SQLitePCLRaw.core": "2.0.3"
+          "SQLitePCLRaw.core": "2.0.4"
         },
         "runtime": {
           "lib/netstandard2.0/SQLitePCLRaw.provider.dynamic_cdecl.dll": {
-            "assemblyVersion": "2.0.3.851",
-            "fileVersion": "2.0.3.851"
+            "assemblyVersion": "2.0.4.976",
+            "fileVersion": "2.0.4.976"
           }
         }
       },
@@ -158,12 +164,19 @@
     }
   },
   "libraries": {
-    "FontAwesome5/2.1.0": {
+    "FontAwesome5/2.1.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-AHVpPBi8fDnPVFqos07UT+C/XGziRYP90s+8Eixd0M4vDuEZ9ZyIn3gcaBkXmWgmPVuEnR1GtAQlBTjNwRg3QA==",
-      "path": "fontawesome5/2.1.0",
-      "hashPath": "fontawesome5.2.1.0.nupkg.sha512"
+      "sha512": "sha512-n0G6GPSoZNlE8JmjIegS9BERCcqoy9R4eVrfkejW9wIjJXxrSPVX82hbWvFCDNMCebclQePnitTbG3/IYqYB3A==",
+      "path": "fontawesome5/2.1.4",
+      "hashPath": "fontawesome5.2.1.4.nupkg.sha512"
+    },
+    "Microsoft.Toolkit.Uwp.UI.Controls/7.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OMRMaXPtZBMcx67Y9E16ftnXeGsubkrm3Ncyn0exx3ME5bwWsGPTiEocNYkchmXBVgh00lUC/j4dNsuSK1hN+Q==",
+      "path": "microsoft.toolkit.uwp.ui.controls/7.1.0",
+      "hashPath": "microsoft.toolkit.uwp.ui.controls.7.1.0.nupkg.sha512"
     },
     "Microsoft.Xaml.Behaviors.Wpf/1.1.31": {
       "type": "package",
@@ -172,47 +185,47 @@
       "path": "microsoft.xaml.behaviors.wpf/1.1.31",
       "hashPath": "microsoft.xaml.behaviors.wpf.1.1.31.nupkg.sha512"
     },
-    "Notification.Wpf/5.1.1.1": {
+    "Notification.Wpf/5.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8B4M+0pxDr96KR/jCAL47iJ6qTvgqToTvsAgHvPZgRE3s5aJwE3/uV4y/lZhwydelvNpWWzcBnQCmsBF40UUEQ==",
-      "path": "notification.wpf/5.1.1.1",
-      "hashPath": "notification.wpf.5.1.1.1.nupkg.sha512"
+      "sha512": "sha512-gvkn0mkO6en52jpWS1Y6Wcm/ihvrqElWMgvv4HeYR++ULpq+rOMOT91p+28GhCQin39FIczs67dtALgBu4nhhw==",
+      "path": "notification.wpf/5.4.0",
+      "hashPath": "notification.wpf.5.4.0.nupkg.sha512"
     },
-    "sqlite-net-pcl/1.7.335": {
+    "sqlite-net-pcl/1.8.116": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0A9YNPbp66aB+Sitxmh9lq1KDtD4+EBPfdtnYN8WenvQqh5dNgMxUV7kaEG6EXYTi4zBxcsDKpyYJzbViWJXtw==",
-      "path": "sqlite-net-pcl/1.7.335",
-      "hashPath": "sqlite-net-pcl.1.7.335.nupkg.sha512"
+      "sha512": "sha512-W0NuwAOVVAR9LP4eZwNBIrim1p3EN7t8iNfSHXEhtzKAd4YyItekoQ8NyWYs4faVSrN2KZr/P5u4hycCjKKexg==",
+      "path": "sqlite-net-pcl/1.8.116",
+      "hashPath": "sqlite-net-pcl.1.8.116.nupkg.sha512"
     },
-    "SQLitePCLRaw.bundle_green/2.0.3": {
+    "SQLitePCLRaw.bundle_green/2.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-QgevRdYSy/MtL1TDdWuhoCH5cpBPZYUZd8h/WqgiLGXDa8e93Fv4/SE812SDCdjTb2+6s8SIwSLRq0z2bUeieg==",
-      "path": "sqlitepclraw.bundle_green/2.0.3",
-      "hashPath": "sqlitepclraw.bundle_green.2.0.3.nupkg.sha512"
+      "sha512": "sha512-ubFgOHDmtTcq2LU7Ss10yHnFVMm2rFVr65Ggi+Mh514KjGx4pal98P2zSvZtWf3wbtJw6G1InBgeozBtnpEfKQ==",
+      "path": "sqlitepclraw.bundle_green/2.0.4",
+      "hashPath": "sqlitepclraw.bundle_green.2.0.4.nupkg.sha512"
     },
-    "SQLitePCLRaw.core/2.0.3": {
+    "SQLitePCLRaw.core/2.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9LO3qT7tP+0qBAQxg/PGLHPcsKri4H2zIiiMEg+7EGrnBbuUnJg1tcfKiiqFtRp74kZSAV6N0ZeSGYiodqYnoQ==",
-      "path": "sqlitepclraw.core/2.0.3",
-      "hashPath": "sqlitepclraw.core.2.0.3.nupkg.sha512"
+      "sha512": "sha512-4XlDZpDAsboMD6qZQcz9AaKblKDUTVHF+8f3lvbP7QjoqSRr2Xc0Lm34IK2pjRIYnyFLhI3yOJ5YWfOiCid2yg==",
+      "path": "sqlitepclraw.core/2.0.4",
+      "hashPath": "sqlitepclraw.core.2.0.4.nupkg.sha512"
     },
-    "SQLitePCLRaw.lib.e_sqlite3/2.0.3": {
+    "SQLitePCLRaw.lib.e_sqlite3/2.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VSTQBlcPOcqCCxXnXwo8N2msQuE/Hd6oKpZ5Nn022tq5/+liyx5uEYNw6Hj8logTdkuq+3Nlq7qYQhraFWn1wg==",
-      "path": "sqlitepclraw.lib.e_sqlite3/2.0.3",
-      "hashPath": "sqlitepclraw.lib.e_sqlite3.2.0.3.nupkg.sha512"
+      "sha512": "sha512-oetvmtDZOE4Nnrtxd8Trapl9geBiu0rDCUXff46qGYjnUwzaU1mZ3OHnfR402tl32rx8gBWg3n5OBRaPJRbsGw==",
+      "path": "sqlitepclraw.lib.e_sqlite3/2.0.4",
+      "hashPath": "sqlitepclraw.lib.e_sqlite3.2.0.4.nupkg.sha512"
     },
-    "SQLitePCLRaw.provider.dynamic_cdecl/2.0.3": {
+    "SQLitePCLRaw.provider.dynamic_cdecl/2.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-RybfknbgdhjD+g38vyLA8Ram3CbivpZEUa+ZthtULROrEp81V8hxK30mIsAM9YFb3cOmnF/3hOIjhpVo9h72Lg==",
-      "path": "sqlitepclraw.provider.dynamic_cdecl/2.0.3",
-      "hashPath": "sqlitepclraw.provider.dynamic_cdecl.2.0.3.nupkg.sha512"
+      "sha512": "sha512-AY6+vv/4ji1mCkLrS6HP/88rHT9YFKRyg3LUj8RyIk6imJMUFdQDiP8rK8gq0a/0FbqspLjK1t7rtKcr7FXRYA==",
+      "path": "sqlitepclraw.provider.dynamic_cdecl/2.0.4",
+      "hashPath": "sqlitepclraw.provider.dynamic_cdecl.2.0.4.nupkg.sha512"
     },
     "System.Memory/4.5.3": {
       "type": "package",

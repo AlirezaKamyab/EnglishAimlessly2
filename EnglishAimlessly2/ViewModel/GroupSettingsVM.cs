@@ -1,4 +1,5 @@
 ﻿using EnglishAimlessly2.Model;
+using EnglishAimlessly2.ViewModel.Base;
 using EnglishAimlessly2.ViewModel.Commands;
 using EnglishAimlessly2.ViewModel.Helper;
 using System;
@@ -10,14 +11,14 @@ using System.Threading.Tasks;
 
 namespace EnglishAimlessly2.ViewModel
 {
-    public class GroupSettingsVM : INotifyPropertyChanged
+    public class GroupSettingsVM : BaseVM, INotifyPropertyChanged
     {
         private string _groupName;
         private string _description;
         private GroupModel _selectedGroup;
         private GroupTableHelper _groupHelper;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public static MainViewVM MainViewModel { get; set; }
 
         public string GroupName
         {
@@ -28,7 +29,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _groupName = value;
-                OnPropertyChanged(nameof(GroupName));
+                onPropertyChanged(nameof(GroupName));
             }
         }
         public string Description
@@ -40,7 +41,7 @@ namespace EnglishAimlessly2.ViewModel
             set
             {
                 _description = value;
-                OnPropertyChanged(nameof(Description));
+                onPropertyChanged(nameof(Description));
             }
         }
 
@@ -54,7 +55,7 @@ namespace EnglishAimlessly2.ViewModel
             {
                 _selectedGroup = value;
                 if (SelectedGroup != null) Load();
-                OnPropertyChanged(nameof(SelectedGroup));
+                onPropertyChanged(nameof(SelectedGroup));
             }
         }
 
@@ -94,11 +95,6 @@ namespace EnglishAimlessly2.ViewModel
             _groupHelper.Reload();
             SelectedGroup = _groupHelper.SearchById(groupModel.Id);
             Updated?.Invoke(this, groupModel);
-        }
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public delegate void UpdateHandler(object sender, GroupModel newGroup);

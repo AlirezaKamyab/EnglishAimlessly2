@@ -9,106 +9,108 @@
         mc:Ignorable="d"
         Title="History Page" Height="600" Width="900"
         WindowStartupLocation="CenterOwner"
-        WindowStyle="None">
+        WindowStyle="None"
+        ResizeMode="NoResize">
 
-    <Window.Resources>
-        <vm:HistoryVM x:Key="hvm"/>
-    </Window.Resources>
-    
-    <DockPanel DataContext="{StaticResource hvm}">
-        <Border DockPanel.Dock="Top" CornerRadius="0 0 20 20"
-                Height="35"
-                Margin="0 0 0 5"
-                Padding="5" Background="#4c394f">
-            <DockPanel Margin="10 0">
-                <!--<TextBlock DockPanel.Dock="left"
-                           VerticalAlignment="Center"
-                           FontSize="15"
-                           Foreground="White">
-                    <Run Text="{Binding LoggedUser.Name}"/>
-                    <Run Text="{Binding LoggedUser.Lastname}"/>
-                    <Run Text="{Binding LoggedUser.Username, StringFormat=({0})}"/>
-                </TextBlock>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-                <Button Style="{StaticResource CurveButton}"
-                        x:Name="btnClose"
-                        Background="red"
-                        Content="Close"
-                        Width="65"
+        <!--Top Panel-->
+        <Border Grid.Row="0" Background="#eee"
+                MouseDown="Border_MouseDown">
+            <Grid Margin="0 0">
+                <Button Background="red"
+                        Style="{StaticResource RectButton}"
+                        Content="×"
+                        Width="25"
+                        Height="25"
+                        FontWeight="ExtraBold"
                         Foreground="White"
-                        Padding="10 0"
                         HorizontalAlignment="Right"
-                        DockPanel.Dock="Right"
-                        Margin="5 0 0 0"
                         BorderBrush="Transparent"
-                        Click="btnClose_Click"/>
-
-                <Button Style="{StaticResource CurveButton}"
-                        x:Name="btnRemove"
-                        Background="Orange"
-                        Content="Remove"
-                        Foreground="White"
-                        Margin="3 0 0 0"
-                        Width="65"
-                        Padding="10 0"
-                        HorizontalAlignment="Left"
-                        DockPanel.Dock="Left"
-                        BorderBrush="Transparent"
-                        CommandParameter="1"
-                        Command="{Binding RemoveHistoryCmd}"/>
-            </DockPanel>
+                        Click="Close_Click"/>
+            </Grid>
         </Border>
 
-        <Border DockPanel.Dock="Left" Width="600" Background="#fff"
-                BorderThickness="2 2 2 2"
-                BorderBrush="#888"
-                CornerRadius="20 20 20 20"
-                Margin="0 5 0 5">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="6*"/>
-                </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-                <StackPanel Margin="10">
-                    <TextBlock Text="History"
-                               FontSize="20"
+            <!--Side bar-->
+            <Border Grid.Column="0" BorderThickness="0"
+                    CornerRadius="7">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FFEEEEEE"/>
+                        <GradientStop Color="#FFDFDFDF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Options"
+                           Margin="5"
+                           FontSize="12"
+                           FontWeight="Bold"/>
+                    <DatePicker Margin="10 5" Style="{StaticResource NewDatePicker}"
+                                SelectedDate="{Binding PracticedDateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                Visibility="{Binding DatePickerVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <Button Style="{StaticResource HistoryButton}"
+                            Height="50" Width="275"
+                            Background="#8eee"
+                            IsEnabled="False"
+                            Margin="0 10 0 0"
+                            Content="Read"
+                            FontSize="18"
+                            FontWeight="Bold"/>
+
+                    <Button Style="{StaticResource HistoryButton}"
+                            Height="50" Width="275"
+                            Background="Red"
+                            Foreground="White"
+                            Margin="0 10 0 0"
+                            Content="Remove"
+                            FontSize="18"
+                            FontWeight="Bold"
+                            Command="{Binding RemoveHistoryCmd}"/>
+
+                </StackPanel>
+            </Border>
+
+            <!--Main Panel-->
+            <Border Grid.Column="1" Background="#fff"
+                BorderThickness="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Margin="5">
+                        <TextBlock Text="History"
+                               FontSize="18"
                                TextAlignment="Center"
                                FontWeight="Bold"
                                Foreground="#555"/>
-                    <DatePicker Margin="0 5 0 0" Style="{StaticResource NewDatePicker}"
-                                SelectedDate="{Binding PracticedDateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                Visibility="{Binding DatePickerVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                </StackPanel>
+                    </StackPanel>
 
-                <Grid Margin="5" DockPanel.Dock="Top" Grid.Row="1">
-                    <ListView x:Name="lstView" BorderThickness="0"
+                    <Grid Margin="5" DockPanel.Dock="Top" Grid.Row="1">
+                        <ListView x:Name="lstView" BorderThickness="0"
                               Background="Transparent"
                               ScrollViewer.CanContentScroll="False"
                               ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                              ItemsSource="{Binding GroupHistories}"
-                              SelectedValue="{Binding SelectedGroupHistory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                                <Setter Property="Margin" Value="0 0 0 5"/>
-
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="Black"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <uc:HistoryItemControl History="{Binding}" Margin="0 5 0 0" Width="550"/>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                              ItemsSource="{Binding Histories}"
+                              SelectedValue="{Binding SelectedHistory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              ItemContainerStyle="{StaticResource HistoryItem}">
+                        </ListView>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </Border>
-    </DockPanel>
+            </Border>
+        </Grid>
+    </Grid>
 </Window>

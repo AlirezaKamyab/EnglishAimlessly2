@@ -8,11 +8,8 @@
         mc:Ignorable="d"
         Title="EditWordView" Height="450" Width="800"
         WindowStartupLocation="CenterOwner">
-    <Window.Resources>
-        <vm:ManagerVM x:Key="mvm"/>
-    </Window.Resources>
 
-    <Grid Background="#c33124" DataContext="{StaticResource mvm}">
+    <Grid Background="#c33124">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2*"/>
@@ -78,7 +75,8 @@
                             HorizontalAlignment="Center"
                             Content="Update"
                             Padding="10 5"
-                            Command="{Binding EditWordCmd}"/>
+                            Command="{Binding EditWordCmd}"
+                            Click="Close_Click"/>
                 </StackPanel>
             </Grid>
         </Border>

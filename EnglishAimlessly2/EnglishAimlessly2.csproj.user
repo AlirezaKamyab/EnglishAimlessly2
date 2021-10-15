@@ -25,6 +25,9 @@
     <Compile Update="View\AddWordView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\AdvancedGroupSettingsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\ConfirmationView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -47,6 +50,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\MainMenuViewPreview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\ManageView.xaml.cs">
@@ -78,6 +84,12 @@
     <Page Update="ResourceDictionary\DatePickerDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ResourceDictionary\History\HistoryButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\History\HistoryItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ResourceDictionary\MainMenu\GroupListItem.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -87,16 +99,28 @@
     <Page Update="ResourceDictionary\MainMenu\MenuOptionButton.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ResourceDictionary\Manager\SearchBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\Manager\WordItemsManager.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ResourceDictionary\MasteredWordsView\MasteredWordItem.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ResourceDictionary\MasterPractice\AnswerTextBox.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ResourceDictionary\Practice\ExampleBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ResourceDictionary\TextblockDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ResourceDictionary\TextboxDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionary\Login\UserItem.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ResourceDictionary\VariablesDictionary.xaml">
@@ -118,6 +142,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\AddWordView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AdvancedGroupSettingsView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ConfirmationView.xaml">
@@ -142,6 +169,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\MainMenuViewPreview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\ManageView.xaml">

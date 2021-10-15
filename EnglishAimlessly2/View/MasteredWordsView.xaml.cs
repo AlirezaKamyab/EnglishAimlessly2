@@ -20,25 +20,17 @@ namespace EnglishAimlessly2.View
     /// <summary>
     /// Interaction logic for MasteredWordsView.xaml
     /// </summary>
-    public partial class MasteredWordsView : Window
+    public partial class MasteredWordsView : UserControl
     {
-        private MasteredWordsVM mwvm;
-        public MasteredWordsView(GroupModel group)
+        public MasteredWordsView()
         {
             InitializeComponent();
-            Owner = Application.Current.MainWindow;
-            mwvm = FindResource("mwvm") as MasteredWordsVM;
-            mwvm.Group = group;
-        }
-
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
+            DataContext = new MasteredWordsVM();
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            Application.Current.MainWindow.DragMove();
         }
     }
 }

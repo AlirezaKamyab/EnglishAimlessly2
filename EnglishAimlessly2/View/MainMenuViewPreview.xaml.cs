@@ -1,4 +1,5 @@
 ﻿using EnglishAimlessly2.Model;
+using EnglishAimlessly2.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,30 +19,22 @@ namespace EnglishAimlessly2.View
     /// <summary>
     /// Interaction logic for MainMenuViewPreview.xaml
     /// </summary>
-    public partial class MainMenuViewPreview : Window
+    public partial class MainMenuViewPreview : UserControl
     {
         public MainMenuViewPreview()
         {
             InitializeComponent();
-            List<GroupModel> groups = new List<GroupModel>();
-            for (int i = 0; i < 10; i++)
-            {
-                GroupModel g = new GroupModel();
-                g.Name = "Hello";
-                g.Description = "sdfg";
-                groups.Add(g);
-            }
-            test.ItemsSource = groups;
+            DataContext = new MainMenuVM();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Application.Current.Shutdown();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            Application.Current.MainWindow.DragMove();
         }
     }
 }

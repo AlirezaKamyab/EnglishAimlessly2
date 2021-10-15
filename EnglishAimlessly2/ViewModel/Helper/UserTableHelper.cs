@@ -100,13 +100,6 @@ namespace EnglishAimlessly2.ViewModel.Helper
             return new UserModel() { Id = -1 };
         }
 
-        public bool isValidCredential(string username, string password)
-        {
-            UserModel user = SearchByUsername(username);
-            if (user.Id == -1) return false;
-            return user.Password == password;
-        }
-
         public GroupModel MinPracticeTime(int id)
         {
             TimeModel min = DateTimeHelper.GetTimeModel(DateTime.MinValue, DateTime.MaxValue);
