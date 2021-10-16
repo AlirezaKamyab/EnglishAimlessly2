@@ -31,6 +31,8 @@
                 <ResourceDictionary Source="ResourceDictionary/History/HistoryItem.xaml"/>
 
                 <ResourceDictionary Source="ResourceDictionary/Login/UserItem.xaml"/>
+
+                <ResourceDictionary Source="ResourceDictionary/AddTogether/AddTogetherItem.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type vm:MainViewVM}">

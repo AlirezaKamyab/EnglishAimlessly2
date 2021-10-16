@@ -9,7 +9,7 @@
                         <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10"
                                 Padding="{TemplateBinding Padding}">
-                            <TextBlock Text="{TemplateBinding Content}"
+                            <TextBlock x:Name="text" Text="{TemplateBinding Content}"
                                        Background="Transparent"
                                        Foreground="{TemplateBinding Foreground}"
                                        FontSize="{TemplateBinding FontSize}"
@@ -28,6 +28,7 @@
 
                             <Trigger Property="IsEnabled" Value="False">
                                 <Setter Property="Background" Value="#8eee" TargetName="border"/>
+                                <Setter Property="Foreground" Value="#555" TargetName="text"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

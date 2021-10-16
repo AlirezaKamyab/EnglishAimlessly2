@@ -68,9 +68,13 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-win
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Debug\net5.0-windows\runtimes\win-x86\native\e_sqlite3.dll
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\AddTogether\AddTogetherItem.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\ButtonDictionary.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\CheckboxDictionary.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\DatePickerDictionary.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\History\HistoryButton.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\History\HistoryItem.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\Login\UserItem.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\MainMenu\GroupListItem.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\MainMenu\MainMenuTextBox.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\MainMenu\MenuOptionButton.baml
@@ -140,7 +144,3 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-win
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ref\EnglishAimlessly2.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.pdb
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.genruntimeconfig.cache
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\EnglishAimlessly2.csproj.AssemblyReference.cache
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\History\HistoryButton.baml
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\History\HistoryItem.baml
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Debug\net5.0-windows\ResourceDictionary\Login\UserItem.baml

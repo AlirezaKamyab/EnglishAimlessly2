@@ -72,6 +72,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ResourceDictionary\AddTogether\AddTogetherItem.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="ResourceDictionary\ButtonDictionary.xaml">
       <SubType>Designer</SubType>
     </Page>

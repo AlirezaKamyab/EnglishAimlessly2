@@ -103,3 +103,4 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-w
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\MainWindow.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\MasteredWordsView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\MasterPractice.baml
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\ResourceDictionary\AddTogether\AddTogetherItem.baml

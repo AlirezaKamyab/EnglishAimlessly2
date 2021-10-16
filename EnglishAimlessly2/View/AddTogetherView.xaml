@@ -27,9 +27,9 @@
                     CornerRadius="1">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="25"/>
                         <RowDefinition Height="8*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="60"/>
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" TextAlignment="Center" FontSize="18"
@@ -52,7 +52,7 @@
                     CornerRadius="1">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="25"/>
                         <RowDefinition Height="8*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
@@ -62,20 +62,8 @@
 
                     <ListView Grid.Row="1" Margin="10" ScrollViewer.VerticalScrollBarVisibility="Hidden"
                               ItemsSource="{Binding Collection}"
-                              ScrollViewer.CanContentScroll="False">
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                                <Setter Property="Margin" Value="0 5 0 0"/>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <uc:WordPreviewItemControl Word="{Binding}" Width="330"
-                                                    />
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
+                              ScrollViewer.CanContentScroll="False"
+                              ItemContainerStyle="{StaticResource AddTogetherItem}">
                     </ListView>
 
                     <Button Style="{StaticResource CurveButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
