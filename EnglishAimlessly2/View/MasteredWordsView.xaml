@@ -18,7 +18,7 @@
 
         <!--Top Panel-->
         <Border Grid.Row="0"
-                Background="#082032">
+                Background="#eee">
 
             <Grid MouseDown="Grid_MouseDown">
                 <TextBlock Text="Mastered Words"
@@ -47,39 +47,47 @@
                 <ColumnDefinition Width="350"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
+
             <!--Side bar-->
-            <Grid Grid.Column="0" Background="#2C394B">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+            <Border Grid.Column="0" CornerRadius="0 8 8 0">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                        <GradientStop Color="#FF6F95DC" Offset="0.006"/>
+                        <GradientStop Color="#FF224C9A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                 <!--Group Name-->
-                <Grid Grid.Row="0">
-                    <TextBlock Text="{Binding Group.Name}"
-                               Foreground="#aaa"
-                               FontSize="16"
-                               FontWeight="Bold"
-                               Margin="10 0 0 0"
-                               VerticalAlignment="Center"/>
-                </Grid>
+                    <!--Group Name-->
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="{Binding Group.Name}"
+                                   Foreground="#eee"
+                                   FontSize="16"
+                                   FontWeight="Bold"
+                                   Margin="10 0 0 0"
+                                   VerticalAlignment="Center"/>
+                    </Grid>
 
-                <!--List View-->
-                <Grid Grid.Row="1">
-                    <ListView Background="Transparent"
-                              BorderThickness="0"
-                              ItemContainerStyle="{StaticResource MasterWordItem}"
-                              ItemsSource="{Binding MasterWords}"
-                              ScrollViewer.CanContentScroll="False"
-                              SelectedValue="{Binding SelectedWord}">
-                        
-                    </ListView>
+                    <!--List View-->
+                    <Grid Grid.Row="1">
+                        <ListView Background="Transparent"
+                                  BorderThickness="0"
+                                  ItemContainerStyle="{StaticResource MasterWordItem}"
+                                  ItemsSource="{Binding MasterWords}"
+                                  ScrollViewer.CanContentScroll="False"
+                                  SelectedValue="{Binding SelectedWord}">
+
+                        </ListView>
+                    </Grid>
                 </Grid>
-            </Grid>
+            </Border>
 
             <StackPanel Grid.Column="1" Visibility="{Binding PanelVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                
+
                 <Border Margin="20 10"
                         CornerRadius="10" BorderThickness="0" Background="#FFF65B3D"
                         Padding="10">
@@ -151,7 +159,7 @@
                                      Maximum="10000"
                                      Foreground="#FF03FF00"
                                      Background="White"/>
-                        
+
                     </StackPanel>
                 </Border>
             </StackPanel>

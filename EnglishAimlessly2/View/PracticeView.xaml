@@ -67,8 +67,7 @@
                             <StackPanel Margin="0 10 0 0">
 
                                 <Border Background="#FFE9E9E9" Margin="10 0"
-                                        CornerRadius="8" Padding="2"
-                                        Visibility="{Binding AnswerVisibility}">
+                                        CornerRadius="8" Padding="2">
                                     <TextBlock x:Name="txtWord" FontSize="18"
                                                FontWeight="Bold"
                                                TextAlignment="Center">
@@ -78,15 +77,18 @@
                                 </Border>
 
                                 <TextBlock FontSize="14"
-                                       x:Name="txtEquivalent"
-                                       TextAlignment="Center"
-                                       Margin="5 5 5 0">
+                                           x:Name="txtEquivalent"
+                                           TextAlignment="Center"
+                                           Margin="5 5 5 0"
+                                           FontWeight="SemiBold"
+                                           Visibility="{Binding AnswerVisibility}">
                                 <Run Text="{Binding SelectedWord.Equivalent}"/>
                                 </TextBlock>
 
                                 <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Hidden"
                                           Height="225" Margin="10" Width="650"
-                                          CanContentScroll="False">
+                                          CanContentScroll="False"
+                                          Visibility="{Binding AnswerVisibility}">
                                     <StackPanel>
                                         <Border Padding="0 10" BorderThickness="10 0 0 0"
                                                 BorderBrush="DodgerBlue"

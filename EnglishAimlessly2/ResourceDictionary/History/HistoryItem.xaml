@@ -17,10 +17,10 @@
 
                                 <TextBlock x:Name="date" Margin="2"
                                            Text="{Binding PracticedDate}"
-                                           Foreground="Black"/>
+                                           Foreground="#333"/>
 
                                 <TextBlock x:Name="example"
-                                           Foreground="Black"
+                                           Foreground="#333"
                                            FontSize="12"
                                            FontStyle="Italic"
                                            Text="{Binding Example}"
@@ -30,12 +30,12 @@
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="border" Property="Background" Value="#FF7EBFFF"/>
-                                <Setter TargetName="border" Property="BorderBrush" Value="#FF0022FF"/>
+                                <Setter TargetName="border" Property="Background" Value="#ccc"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="#FF4182C2"/>
                                 <Setter TargetName="wn" Property="Foreground" Value="black"/>
                                 <Setter TargetName="date" Property="Foreground" Value="black"/>
                                 <Setter TargetName="example" Property="Foreground" Value="black"/>
-                                <Setter TargetName="type" Property="Foreground" Value="black"/>
+                                <Setter TargetName="type" Property="Foreground" Value="red"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

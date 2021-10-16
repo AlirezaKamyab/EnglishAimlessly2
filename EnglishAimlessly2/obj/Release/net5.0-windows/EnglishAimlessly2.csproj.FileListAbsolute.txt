@@ -48,7 +48,6 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-w
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\ManageView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\PracticeView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\RegisterView.g.cs
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\WordHistoryView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\App.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\GeneratedInternalTypeHelper.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2_MarkupCompile.cache
@@ -71,7 +70,6 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-w
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\ManageView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\PracticeView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\RegisterView.baml
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\View\WordHistoryView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.g.resources
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.Properties.Resources.resources
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\net5.0-windows\EnglishAimlessly2.csproj.GenerateResource.cache

@@ -7,30 +7,31 @@
             </Trigger>
         </Style.Triggers>
         <Style.Setters>
-            <Setter Property="Background" Value="#334756"/>
+            <Setter Property="Background" Value="DodgerBlue"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListViewItem">
                         <Border Background="{TemplateBinding Background}" Margin="5"
                                 CornerRadius="8"
-                                Padding="0 10">
+                                Padding="0 10"
+                                Width="330">
                             <Grid>
                                 <StackPanel VerticalAlignment="Center">
                                     <StackPanel Orientation="Horizontal" Margin="10 0 0 0"
                                             VerticalAlignment="Center">
                                         <TextBlock Foreground="White"
                                            Text="{Binding Name}"
-                                           FontSize="14"
+                                           FontSize="16"
                                            FontWeight="Bold"/>
                                         <TextBlock Foreground="Yellow"
                                            Text="{Binding WordType}"
                                            Margin="10 0 0 0"
-                                           FontSize="14"/>
+                                           FontSize="16"/>
                                     </StackPanel>
                                     <TextBlock Text="{Binding Score, StringFormat=Score: {0}}"
                                                FontSize="12"
-                                               Margin="5 8 0 0"
-                                               Foreground="#ccc"
+                                               Margin="10 8 0 0"
+                                               Foreground="#eee"
                                                x:Name="txtScore"/>
                                 </StackPanel>
                             </Grid>
