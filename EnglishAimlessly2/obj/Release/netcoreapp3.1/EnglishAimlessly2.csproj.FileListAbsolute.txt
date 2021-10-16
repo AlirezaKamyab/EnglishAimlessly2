@@ -4,9 +4,6 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcorea
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\ResourceDictionary\DatePickerDictionary.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\ResourceDictionary\TextblockDictionary.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\ResourceDictionary\TextboxDictionary.baml
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\UserControls\GroupItemControl.g.cs
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\UserControls\WordItemControl.g.cs
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\UserControls\WordPreviewItemControl.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\AddTogetherView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\AddWordView.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\ConfirmationView.g.cs
@@ -47,9 +44,6 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\netcorea
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\App.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\ResourceDictionary\VariablesDictionary.baml
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\UserControls\GroupItemControl.baml
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\UserControls\WordItemControl.baml
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\UserControls\WordPreviewItemControl.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\AddTogetherView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\AddWordView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\ConfirmationView.baml
@@ -75,12 +69,8 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\netcorea
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\netcoreapp3.1\Notification.Wpf.dll
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\EnglishAimlessly2.Properties.Resources.resources
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\EnglishAimlessly2.csproj.GenerateResource.cache
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\UserControls\HistoryItemControl.g.cs
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\HistoryView.g.cs
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\WordHistoryView.g.cs
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\UserControls\HistoryItemControl.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\HistoryView.baml
-G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\WordHistoryView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\bin\Release\netcoreapp3.1\runtimes\linux-mips64\native\libe_sqlite3.so
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\ResourceDictionary\History\HistoryButton.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\ResourceDictionary\History\HistoryItem.baml
@@ -104,3 +94,4 @@ G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcorea
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\MasteredWordsView.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\View\MasterPractice.baml
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\EnglishAimlessly2.GeneratedMSBuildEditorConfig.editorconfig
+G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\ResourceDictionary\AddTogether\AddTogetherItem.baml

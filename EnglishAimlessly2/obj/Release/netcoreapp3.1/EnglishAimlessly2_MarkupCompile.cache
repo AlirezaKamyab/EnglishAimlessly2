@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1;
 G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\App.xaml
-39-1653146865
+35-856185551
 
-761747532576
+71504531212
 2082037773040
-ResourceDictionary\ButtonDictionary.xaml;ResourceDictionary\CheckboxDictionary.xaml;ResourceDictionary\DatePickerDictionary.xaml;ResourceDictionary\History\HistoryButton.xaml;ResourceDictionary\History\HistoryItem.xaml;ResourceDictionary\Login\UserItem.xaml;ResourceDictionary\MainMenu\GroupListItem.xaml;ResourceDictionary\MainMenu\MainMenuTextBox.xaml;ResourceDictionary\MainMenu\MenuOptionButton.xaml;ResourceDictionary\Manager\SearchBox.xaml;ResourceDictionary\Manager\WordItemsManager.xaml;ResourceDictionary\MasteredWordsView\MasteredWordItem.xaml;ResourceDictionary\MasterPractice\AnswerTextBox.xaml;ResourceDictionary\Practice\ExampleBox.xaml;ResourceDictionary\TextblockDictionary.xaml;ResourceDictionary\TextboxDictionary.xaml;ResourceDictionary\VariablesDictionary.xaml;UserControls\GroupItemControl.xaml;UserControls\HistoryItemControl.xaml;UserControls\WordItemControl.xaml;UserControls\WordPreviewItemControl.xaml;View\AddTogetherView.xaml;View\AddWordView.xaml;View\AdvancedGroupSettingsView.xaml;View\ConfirmationView.xaml;View\demo.xaml;View\EditWordView.xaml;View\GroupSettingsView.xaml;View\HistoryView.xaml;View\LoginView.xaml;View\MainMenuView.xaml;View\MainMenuViewPreview.xaml;View\MainWindow.xaml;View\ManageView.xaml;View\MasteredWordsView.xaml;View\MasterPractice.xaml;View\PracticeView.xaml;View\RegisterView.xaml;View\WordHistoryView.xaml;
+ResourceDictionary\AddTogether\AddTogetherItem.xaml;ResourceDictionary\ButtonDictionary.xaml;ResourceDictionary\CheckboxDictionary.xaml;ResourceDictionary\DatePickerDictionary.xaml;ResourceDictionary\History\HistoryButton.xaml;ResourceDictionary\History\HistoryItem.xaml;ResourceDictionary\Login\UserItem.xaml;ResourceDictionary\MainMenu\GroupListItem.xaml;ResourceDictionary\MainMenu\MainMenuTextBox.xaml;ResourceDictionary\MainMenu\MenuOptionButton.xaml;ResourceDictionary\Manager\SearchBox.xaml;ResourceDictionary\Manager\WordItemsManager.xaml;ResourceDictionary\MasteredWordsView\MasteredWordItem.xaml;ResourceDictionary\MasterPractice\AnswerTextBox.xaml;ResourceDictionary\Practice\ExampleBox.xaml;ResourceDictionary\TextblockDictionary.xaml;ResourceDictionary\TextboxDictionary.xaml;ResourceDictionary\VariablesDictionary.xaml;View\AddTogetherView.xaml;View\AddWordView.xaml;View\AdvancedGroupSettingsView.xaml;View\ConfirmationView.xaml;View\demo.xaml;View\EditWordView.xaml;View\GroupSettingsView.xaml;View\HistoryView.xaml;View\LoginView.xaml;View\MainMenuView.xaml;View\MainMenuViewPreview.xaml;View\MainWindow.xaml;View\ManageView.xaml;View\MasteredWordsView.xaml;View\MasterPractice.xaml;View\PracticeView.xaml;View\RegisterView.xaml;
 
 False
 

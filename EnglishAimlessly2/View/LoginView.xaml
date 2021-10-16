@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:EnglishAimlessly2.View"
         mc:Ignorable="d" Height="600" Width="1000">
 
-    <Border BorderBrush="#666" BorderThickness="1">
+    <Border BorderBrush="#555" BorderThickness="1">
         <Grid Background="#c33124">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
@@ -72,7 +72,8 @@
 
                         <Button Style="{StaticResource CurveButton}" Content="Login"
                                 Margin="0 5"
-                                Command="{Binding LoginCmd}"/>
+                                Command="{Binding LoginCmd}"
+                                Width="100"/>
 
                         <TextBlock Text="{Binding Hint}" TextAlignment="Center" Foreground="#FFDC8E00"/>
 

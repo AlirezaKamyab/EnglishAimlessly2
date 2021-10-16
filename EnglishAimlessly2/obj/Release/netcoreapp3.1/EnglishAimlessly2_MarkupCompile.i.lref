@@ -1,10 +1,6 @@
 ﻿G:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\obj\Release\netcoreapp3.1\GeneratedInternalTypeHelper.g.i.cs
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\App.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\ResourceDictionary\VariablesDictionary.xaml;;
-FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\UserControls\GroupItemControl.xaml;;
-FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\UserControls\HistoryItemControl.xaml;;
-FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\UserControls\WordItemControl.xaml;;
-FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\UserControls\WordPreviewItemControl.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\AddTogetherView.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\AddWordView.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\AdvancedGroupSettingsView.xaml;;
@@ -22,5 +18,4 @@ FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\MasteredWordsV
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\MasterPractice.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\PracticeView.xaml;;
 FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\RegisterView.xaml;;
-FG:\Programming Projects\EnglishAimlessly2\EnglishAimlessly2\View\WordHistoryView.xaml;;
 

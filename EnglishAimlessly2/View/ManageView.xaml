@@ -3,8 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="clr-namespace:EnglishAimlessly2.ViewModel"
-        xmlns:uc="clr-namespace:EnglishAimlessly2.UserControls"
         xmlns:local="clr-namespace:EnglishAimlessly2.View"
         mc:Ignorable="d"
         Height="600" Width="1000">

@@ -1,5 +1,4 @@
 ﻿using EnglishAimlessly2.Model;
-using EnglishAimlessly2.UserControls;
 using EnglishAimlessly2.ViewModel.Base;
 using EnglishAimlessly2.ViewModel.Commands;
 using EnglishAimlessly2.ViewModel.Commands.MasterWords;
